@@ -1,16 +1,17 @@
-header {
-    background-color: black;
-    margin: 20px;
+header{
+    width: 100%;
 }
 
+
 nav {
-    margin: 20px;
-    padding: 10px;
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
 }
-
 
 .imageLogo img {
     height: 150px;
@@ -18,15 +19,20 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .imageLogo img:hover {
     transform: translateY(-5px);
 }
 
+
+.Links li, .LinksDate li{
+    list-style: none;
+    text-decoration: none;
+} 
+
 .Links, .LinksDate{
     display: flex;
-    gap: 10px;
     font-size: 1.2rem;
+    gap: 10px;
 }
 
 .Links a, .LinksDate a{
@@ -46,3 +52,8 @@ nav {
     transition: 0.4s;
 }
 
+@media (max-width: 760px) {
+    nav{
+        width: 100%;
+    }
+}
