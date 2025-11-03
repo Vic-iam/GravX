@@ -1,6 +1,8 @@
 
 
-const  Admin = () => {
+
+
+const  Calculator = () => {
     return (
         <>
         
@@ -8,4 +10,4 @@ const  Admin = () => {
     );
 }
 
-export default Admin;
+export default Calculator;

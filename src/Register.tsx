@@ -1,6 +1,6 @@
 
 
-const  Admin = () => {
+const Register = () => {
     return (
         <>
         
@@ -8,4 +8,4 @@ const  Admin = () => {
     );
 }
 
-export default Admin;
+export default Register;

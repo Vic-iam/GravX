@@ -1,6 +1,7 @@
 
 
-const  Admin = () => {
+
+const  Workouts = () => {
     return (
         <>
         
@@ -8,4 +9,4 @@ const  Admin = () => {
     );
 }
 
-export default Admin;
+export default Workouts;

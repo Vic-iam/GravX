@@ -1,0 +1,48 @@
+header {
+    background-color: black;
+    margin: 20px;
+}
+
+nav {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.imageLogo img {
+    height: 150px;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.imageLogo img:hover {
+    transform: translateY(-5px);
+}
+
+.Links, .LinksDate{
+    display: flex;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.Links a, .LinksDate a{
+    color: white;
+    text-decoration: none;
+    transition: all ease 0.4s;
+
+}
+
+.Links a:hover{
+    color: red;
+    transition: 0.4s;
+}
+
+.LinksDate a:hover{
+    color: red;
+    transition: 0.4s;
+}
+
