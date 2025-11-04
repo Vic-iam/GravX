@@ -22,7 +22,6 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Links principales */}
                 <div
                     className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
                     onClick={() => setIsOpen(false)}
@@ -40,7 +39,6 @@ const Navbar = () => {
                 </ul>
 
 
-                {/* Botón hamburguesa */}
                 <div
                     className={`${style.itemToggle} ${isOpen ? style.open : ""}`}
                     onClick={() => setIsOpen(!isOpen)}

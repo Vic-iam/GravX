@@ -53,7 +53,6 @@ ul {
   color: red;
 }
 
-/* Toggle oculto por defecto */
 .itemToggle {
   display: none;
   cursor: pointer;
@@ -68,7 +67,6 @@ ul {
   transition: all 0.3s ease;
 }
 
-/* --- MODO MÓVIL --- */
 @media (max-width: 768px) {
   .menuLinks {
     position: fixed;
@@ -89,15 +87,15 @@ ul {
     transform: translateX(0);
   }
 
-  .Links {
+  .Links a{
     flex-direction: column;
     gap: 25px;
-    font-size: 1.8rem;
   }
 
-  .LinksDate{
-    padding: 10px;
+  .LinksDate {
+    padding: 5px;
     text-align: center;
+    font-size: 0.8rem;
   }
 
   .itemToggle {
