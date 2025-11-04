@@ -1,59 +1,124 @@
-header{
-    width: 100%;
+.header {
+  width: 100%;
+  position: relative;
 }
 
-
-nav {
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 20px;
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 20px;
 }
 
 .imageLogo img {
-    height: 150px;
-    width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 150px;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .imageLogo img:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
 
-.Links li, .LinksDate li{
-    list-style: none;
-    text-decoration: none;
-} 
+.Links li,
+.LinksDate li {
+  list-style: none;
+}
 
-.Links, .LinksDate{
+.Links,
+.LinksDate {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.Links a,
+.LinksDate a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.Links a:hover,
+.LinksDate a:hover {
+  color: red;
+}
+
+/* Toggle oculto por defecto */
+.itemToggle {
+  display: none;
+  cursor: pointer;
+}
+
+.itemToggle span {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* --- MODO MÓVIL --- */
+@media (max-width: 768px) {
+  .menuLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: 999;
+  }
+
+  .menuLinks.open {
+    transform: translateX(0);
+  }
+
+  .Links {
+    flex-direction: column;
+    gap: 25px;
+    font-size: 1.8rem;
+  }
+
+  .LinksDate{
+    padding: 10px;
+    text-align: center;
+  }
+
+  .itemToggle {
     display: flex;
-    font-size: 1.2rem;
-    gap: 10px;
-}
+    flex-direction: column;
+    z-index: 1000;
+  }
 
-.Links a, .LinksDate a{
-    color: white;
-    text-decoration: none;
-    transition: all ease 0.4s;
+  .open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .open span:nth-child(2) {
+    opacity: 0;
+  }
+  .open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 
-}
+  .imageLogo img{
+    width: 150px;
+    height: 100px;
+  }
 
-.Links a:hover{
-    color: red;
-    transition: 0.4s;
-}
-
-.LinksDate a:hover{
-    color: red;
-    transition: 0.4s;
-}
-
-@media (max-width: 760px) {
-    nav{
-        width: 100%;
-    }
 }
