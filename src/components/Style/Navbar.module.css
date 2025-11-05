@@ -40,19 +40,19 @@ ul {
 .Links,
 .LinksDate {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
 }
 
 .Links a{
-  color: white;
+  color: #D9D9D9;
   text-decoration: none;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .Links a:hover{
-  color: red;
+  color: #E53935;
 }
 
 

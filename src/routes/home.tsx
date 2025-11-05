@@ -6,7 +6,6 @@ const Home = () => {
 
 
 
-
     return (
 
         <div className={style.homeBody}>
@@ -21,7 +20,8 @@ const Home = () => {
             </div>
 
             <div className={style.titleHome}>
-                <h1>Hola</h1>
+                <h1>Bienvenido a GravX</h1>
+                <p>Esta pagina te proporciona rutinas,alimentacion y mejores alimentos para mejorar tu fisico</p>
             </div>
 
 
