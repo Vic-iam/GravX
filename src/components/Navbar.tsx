@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router"
 import Logo from "../assets/marcaGravX.png";
 import style from "./Style/Navbar.module.css";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,8 +35,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <ul className={style.LinksDate}>
-                    <li><Link to="/Login">Iniciar Sesión</Link></li>
-                    <li><Link to="/Register">Regístrate</Link></li>
+                    <div className={style.loginStyle}>
+                        <FaUser />
+
+                        <li><Link to="/Login">Iniciar Sesión</Link></li>
+                    </div>
                 </ul>
 
 
