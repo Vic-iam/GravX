@@ -29,7 +29,7 @@ const Navbar = () => {
                 >
                     <ul className={style.Links}>
                         <li><Link to="/">Inicio</Link></li>
-                        <li><Link to="/Nutrition">Alimentos</Link></li>
+                        <li><Link to="/Nutrition">Alimentacion</Link></li>
                         <li><Link to="/Workouts">Rutinas</Link></li>
                         <li><Link to="/Calculator">Calculadora</Link></li>
                     </ul>
