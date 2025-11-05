@@ -47,16 +47,10 @@ ul {
   transition: color 0.3s ease;
 }
 
-.LinksDate a{
-  color: black;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
 .Links a:hover{
   color: red;
 }
+
 
 .itemToggle {
   display: none;
@@ -81,9 +75,20 @@ ul {
   align-items: center;
   transition: all 0.3s ease;
   border: 1px solid white;
+  cursor: pointer;
 }
 
-.loginStyle:hover, .loginStyle a:hover{
+.loginStyle a{
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.loginStyle a:hover{
+  color: white;
+}
+
+.loginStyle:hover{
   background-color: black;
   transition: 0.3s;
   color: white;
