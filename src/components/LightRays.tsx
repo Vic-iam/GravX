@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
+import style from './LightRays.css';
 
 export type RaysOrigin =
   | 'top-center'
@@ -443,12 +444,7 @@ void main() {
     }
   }, [followMouse]);
 
-  return (
-    <div
-      ref={containerRef}
-      className={`w-full h-full pointer-events-none z-[3] overflow-hidden relative ${className}`.trim()}
-    />
-  );
+  return <div ref={containerRef} className={`style.lightRaysContainer ${className}`.trim()} />;
 };
 
 export default LightRays;
