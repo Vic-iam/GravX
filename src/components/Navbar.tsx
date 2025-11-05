@@ -37,7 +37,6 @@ const Navbar = () => {
                 <ul className={style.LinksDate}>
                     <div className={style.loginStyle}>
                         <FaUser />
-
                         <li><Link to="/Login">Iniciar Sesión</Link></li>
                     </div>
                 </ul>

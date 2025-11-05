@@ -1,6 +1,7 @@
 .header {
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
 }
 
 .navbar {
@@ -66,33 +67,38 @@ ul {
   transition: all 0.3s ease;
 }
 
-.loginStyle{
+.LinksDate{
   background-color: white;
   padding: 20px;
   border-radius: 30px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  transition: all 0.3s ease;
   border: 1px solid white;
+  transition: all 0.4s ease;
   cursor: pointer;
 }
 
-.loginStyle a{
-  color: black;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.loginStyle a:hover{
-  color: white;
-}
-
-.loginStyle:hover{
+.LinksDate:hover{
   background-color: black;
-  transition: 0.3s;
   color: white;
+  transition: 0.4s;
 }
+
+.LinksDate:hover a{
+  color: white;
+  transition: 0.4s;
+}
+
+.LinksDate a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.loginStyle{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 
 
 @media (max-width: 768px) {
