@@ -1,8 +1,6 @@
 .homeBody {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    height: 100vh;
-    width: 100%;
     z-index: 1;
 }
 
@@ -19,20 +17,40 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 1.8rem;
 }
 
-.titleHome p{
+.titleHome p {
     max-width: 700px;
 }
 
+.calHome {
+    background-color: red;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: white;
+    height: 300px;
+    margin: 20px;
+}
+
+.calHome h2 {
+    text-align: center;
+    font-size: 2.8rem;
+}
+
 @media (max-width: 760px) {
-    
-    .titleHome{
+
+    .titleHome {
         font-size: 1.2rem;
     }
 

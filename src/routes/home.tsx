@@ -25,11 +25,20 @@ const Home = () => {
             </div>
 
 
+            <div className={style.calHome}>
+                <h2>Usa la calculadora IMC</h2>
+            </div>
+
+            <div>
+                <div>
+                    <h3>Hola</h3>
+                </div>
+            </div>
 
         </div>
-        
 
-        
+
+
 
     );
 }
