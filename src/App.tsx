@@ -9,6 +9,7 @@ import Dashboard from './routes/Dashboard'
 import Login from './Login'
 import Admin from './Admin'
 import Register from './Register'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
          <Route path='/Dashboard' element={<Dashboard />} />
          <Route path='/Admin' element={<Admin />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

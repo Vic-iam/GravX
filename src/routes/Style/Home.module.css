@@ -1,57 +1,232 @@
 .homeBody {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+}
+
+.presentationHome {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 100px;
+}
+
+.auroraBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .titleHome {
     border: 1px solid #2E2E2E;
     border-radius: 20px;
-    padding: 20px;
+    padding: 40px;
     width: 80%;
-    height: 500px;
+    max-width: 900px;
     color: #D9D9D9;
-    position: absolute;
+    text-align: center;
+    font-size: 1.8rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    backdrop-filter: blur(6px);
+}
+
+.titleHome p {
+    max-width: 600px;
+    margin: auto;
+}
+
+.iconHome {
+    font-size: 2.5rem;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 4;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4 {
+    border: 1px solid #2E2E2E;
+    color: #D9D9D9;
+    box-shadow: 1px 2px 5px #440E03;
+    width: 80px;
+    height: 60px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s;
+}
+
+.icon1:hover,
+.icon2:hover,
+.icon3:hover,
+.icon4:hover {
+    transform: translateY(-5px);
+    background-color: #440E03;
+}
+
+.calculatorHome {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.calHome {
+    border: 1px solid #2E2E2E;
+    color: #D9D9D9;
+    width: 80%;
+    max-width: 900px;
+    font-size: 1.8rem;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-.titleHome p {
-    max-width: 700px;
-}
-
-.calHome {
-    background-color: red;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    color: white;
-    height: 300px;
-    margin: 20px;
+    gap: 20px;
 }
 
 .calHome h2 {
+    font-size: 2.4rem;
+}
+
+.calHome p{
     text-align: center;
-    font-size: 2.8rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+.calHome a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #D9D9D9;
+    transition: all 0.4s;
+}
+
+.calHome a:hover {
+    color: #440E03;
+}
+
+.rutinasHome {
+    display: flex;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rutinaStyle {
+    color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 30px;
+    margin: auto;
+    font-size: 1.8rem;
+    border: #2E2E2E 1px solid;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.rutinaStyle h3{
+    text-align: center;
+    max-width: 600px;
+}
+
+.rutinaStyle p{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.rutinaStyle a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #D9D9D9;
+    transition: all 0.4s;
+}
+
+.rutinaStyle a:hover{
+    color: #440E03;
+}
+
+.imgStyle img {
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.rutinas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
 }
 
 @media (max-width: 760px) {
 
+
     .titleHome {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        padding: 25px;
     }
 
+    .calHome h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .calHome p {
+        font-size: 1.4rem;
+        margin: auto;
+        text-align: center;
+    }
+
+    .iconHome {
+        font-size: 1.8rem
+    }
+
+    .icon1,
+    .icon2,
+    .icon3,
+    .icon4 {
+        width: 40px;
+        height: 25px;
+    }
+
+    .calHome a {
+        font-size: 1.4rem;
+    }
 }
