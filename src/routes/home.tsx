@@ -52,9 +52,6 @@ const Home = () => {
                 <div className={style.calHome}>
                     <h2>Calculá tu IMC (Índice de Masa Corporal)</h2>
                     <p>La calculadora IMC te permite conocer si tu peso es adecuado según tu altura.</p>
-                    <div className={style.linea}></div>
-                    <h2>Calcula tu TMB (Tasa metabolica basal)</h2>
-                    <p>La TMB estima cuánta energía (calorías) necesita tu cuerpo para funcionar en reposo</p>
                     <Link
                         to="/Calculator"
                         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -115,7 +112,7 @@ const Home = () => {
                 <div className={style.wrappers}>
                     <h5>Entrená por lo que querés ser</h5>
                     <span className={style.iconwrappers}>💪</span>
-                    <p>"No se trata de ser el mejor que alguien, sino de ser mejor que ayer."</p>
+                    <p>"No se trata de ser el mejor que alguien, sino de ser mejor tu mejor version."</p>
                 </div>
 
                 <div className={style.wrappers}>
@@ -131,6 +128,7 @@ const Home = () => {
                 </div>
             </section>
 
+             {/*Alimentancion */} 
             <section className={style.homeNutrition}>
 
                 <div className={style.iconHome}>
@@ -144,7 +142,7 @@ const Home = () => {
                     <Aurora
                         colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
                         blend={0.5}
-                        amplitude={1.5}
+                        amplitude={1.0}
                         speed={0.5}
                     />
                 </div>

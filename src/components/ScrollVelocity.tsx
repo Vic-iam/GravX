@@ -58,7 +58,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   damping = 50,
   stiffness = 400,
   numCopies = 6,
-  velocityMapping = { input: [0, 1000], output: [0, 5] }
+  velocityMapping = { input: [0, 1000], output: [0, 1.2] }
 }) => {
 
   function VelocityText({
@@ -99,13 +99,14 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
     const directionFactor = useRef(1);
 
     useAnimationFrame((_t, delta) => {
-      let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
       if (velocityFactor.get() < 0) directionFactor.current = -1;
       else if (velocityFactor.get() > 0) directionFactor.current = 1;
 
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
-      baseX.set(baseX.get() + moveBy);
+      // movimiento lineal sin aceleración exponencial
+      const extraSpeed = baseVelocity * velocityFactor.get();
+      baseX.set(baseX.get() + (directionFactor.current * (baseVelocity + extraSpeed)) * (delta / 1000));
+
     });
 
     const spans = [];
