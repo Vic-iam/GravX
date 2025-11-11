@@ -133,6 +133,13 @@ const Home = () => {
 
             <section className={style.homeNutrition}>
 
+                <div className={style.iconHome}>
+                    <div className={style.icon1}><IoMdFitness /></div>
+                    <div className={style.icon2}><IoFitness /></div>
+                    <div className={style.icon3}><FaCalculator /></div>
+                    <div className={style.icon4}><GiSteak /></div>
+                </div>
+
                 <div className={style.auroraBgInverse}>
                     <Aurora
                         colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
@@ -140,13 +147,6 @@ const Home = () => {
                         amplitude={1.5}
                         speed={0.5}
                     />
-                </div>
-                
-                <div className={style.iconHome}>
-                    <div className={style.icon1}><IoMdFitness /></div>
-                    <div className={style.icon2}><IoFitness /></div>
-                    <div className={style.icon3}><FaCalculator /></div>
-                    <div className={style.icon4}><GiSteak /></div>
                 </div>
 
                 <div className={style.nutritionHomeContainer}>
