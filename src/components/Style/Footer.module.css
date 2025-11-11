@@ -47,6 +47,7 @@ img{
 
 .linkFooter li {
   margin-bottom: 8px;
+  list-style: none;
 }
 
 .linkFooter a {
@@ -71,7 +72,7 @@ img{
 }
 
 .sobreGravx p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5rem;
   opacity: 0.8;
 }
@@ -131,6 +132,9 @@ img{
   }
 
   .linkFooter {
+    display: grid;
+    justify-content: center;
+    text-align: left;
     margin-bottom: 10px;
   }
 
