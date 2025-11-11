@@ -106,13 +106,25 @@ const Home = () => {
 
             <div className={style.cardContainer}>
                 <div className={style.wrappers}>
-                    <p>Hola</p>
+                    <h5>Entrená por lo que querés ser</h5>
+                    <div className={style.iconwrappers}>
+                     💪
+                    </div>
+                    <p>"No se trata de ser el mejor que alguien, sino de ser mejor que de lo que puedas llegar a ser."</p>
                 </div>
                 <div className={style.wrappers}>
-                    <p>Hola</p>
+                    <h5>La disciplina gana</h5>
+                    <div className={style.iconwrappers}>
+                    🔁
+                    </div>
+                    <p>"Los resultados son un proceso y cada dia tienes que aprovecharlo"</p>
                 </div>
                 <div className={style.wrappers}>
-                    <p>Hola</p>
+                    <h5>Comé para sentirte bien</h5>
+                    <div className={style.iconwrappers}>
+                    🥗
+                    </div>
+                    <p>"Lo que comés hoy es la energía con la que vas a construir el mañana."</p>
                 </div>
             </div>
 
