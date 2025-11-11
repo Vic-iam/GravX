@@ -1,32 +1,123 @@
-footer{
-    font-family: Arial, Helvetica, sans-serif;
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: #D9D9D9;
+  border-top: 2px solid #2E2E2E;
 }
 
-.footerContainer{
-    padding: 40px 40px;
-    height: 150px;
-    background-color: black;
-    color: #D9D9D9;
-    border: #2E2E2E 1px solid;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
-}
+.footerContainer {
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
-
-
-footer h1{
-    color: #D9D9D9;
-    text-align: center;
-    font-size: 1rem;
+  gap: 40px;
 }
 
 .imageLogo img {
-  height: 120px;
-  width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 130px;
+  width: 220px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .imageLogo img:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px) scale(1.03);
+}
+
+.linkFooter {
+  flex: 1;
+  min-width: 170px;
+}
+
+.linkFooter h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.linkFooter ul {
+  padding: 0;
+}
+
+.linkFooter li {
+  margin-bottom: 8px;
+}
+
+.linkFooter a {
+  color: #D9D9D9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linkFooter a:hover {
+  color: #C11007; 
+}
+
+/* SOBRE GRAVX */
+.sobreGravx {
+  flex: 2;
+  text-align: center;
+  max-width: 450px;
+}
+
+.sobreGravx h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.sobreGravx p {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  opacity: 0.8;
+}
+
+.copy {
+  background-color: black;
+  color: #D9D9D9;
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.copy h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.contact{
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact a{
+  color: #D9D9D9;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.contact a:hover{
+  color: #C11007;
+}
+
+.linkGmail{
+  border: 1px solid #2E2E2E;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .linkFooter {
+    margin-bottom: 10px;
+  }
 }

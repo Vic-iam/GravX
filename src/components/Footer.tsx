@@ -1,28 +1,48 @@
 import style from "./Style/Footer.module.css"
 import Logo from "../assets/marcaGravX.png";
 import { Link } from "react-router";
+import { FaReact } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer>
 
-            <div className={style.footerContainer}>
-                <div className={style.imageLogo}>
-                    <Link to="/">
-                        <img src={Logo} alt="Logo GravX" />
-                    </Link>
+        <>
+            <footer>
+
+                <div className={style.footerContainer}>
+                    <div className={style.imageLogo}>
+                        <Link to="/">
+                            <img src={Logo} alt="Logo GravX" />
+                        </Link>
+                    </div>
+                    <div className={style.linkFooter}>
+                        <h2>Enlances</h2>
+                        <ul>
+                            <li><Link to="/">Inicio</Link></li>
+                            <li><Link to="/">Alimentacion</Link></li>
+                            <li><Link to="/">Rutinas</Link></li>
+                            <li><Link to="/">Calculadora</Link></li>
+                        </ul>
+                    </div>
+                    <div className={style.sobreGravx}>
+                     <h3>"GravX es una plataforma educativa para mejorar tus hábitos alimenticios y rutinas de entrenamiento."</h3>
+                     <p>Version "v1.0.0" </p> 
+                     <p>Hecho con React - Vite <FaReact /></p>
+                    </div>
+                    <div className={style.contact}>
+                     <h4>Contactos</h4>
+                     <p>¿Tienes sugerencias o quieres reportar algún error?</p>
+                     <p>Contactacme</p>
+                     <div className={style.linkGmail}>
+                     <a href="mailto:josevicentevitriago12@gmail.com">josevicentevitriago12@gmail.com</a>
+                     </div>
+                    </div>
                 </div>
-                <div className={style.linkFooter}>
-                    <Link to="/">Inicio</Link>
-                    <Link to="/">Alimentacion</Link>
-                    <Link to="/">Rutinas</Link>
-                    <Link to="/">Calculadora</Link>
-                </div>
-                <div>
-                    <h1> © 2025 GravX. Todos los derechos reservados. </h1>
-                </div>
+            </footer>
+            <div className={style.copy}>
+                <h1> © 2025 GravX. Todos los derechos reservados. </h1>
             </div>
-        </footer>
+        </>
     )
 }
 
