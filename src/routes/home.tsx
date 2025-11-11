@@ -141,13 +141,19 @@ const Home = () => {
                         speed={0.5}
                     />
                 </div>
+                
+                <div className={style.iconHome}>
+                    <div className={style.icon1}><IoMdFitness /></div>
+                    <div className={style.icon2}><IoFitness /></div>
+                    <div className={style.icon3}><FaCalculator /></div>
+                    <div className={style.icon4}><GiSteak /></div>
+                </div>
 
                 <div className={style.nutritionHomeContainer}>
                     <h2>Transformá tu cuerpo desde la alimentación</h2>
                     <p>Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos sin dietas extremas.</p>
                     <Link to="/Nutrition">Ver alimentación <FaChevronRight /></Link>
                 </div>
-
 
             </section>
 
