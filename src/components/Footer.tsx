@@ -19,9 +19,9 @@ const Footer = () => {
                         <h2>Enlances</h2>
                         <ul>
                             <li><Link to="/">Inicio</Link></li>
-                            <li><Link to="/">Alimentacion</Link></li>
-                            <li><Link to="/">Rutinas</Link></li>
-                            <li><Link to="/">Calculadora</Link></li>
+                            <li><Link to="/Nutrition">Alimentacion</Link></li>
+                            <li><Link to="/Workouts">Rutinas</Link></li>
+                            <li><Link to="/Calculator">Calculadora</Link></li>
                         </ul>
                     </div>
                     <div className={style.sobreGravx}>
@@ -32,7 +32,7 @@ const Footer = () => {
                     <div className={style.contact}>
                      <h4>Contactos</h4>
                      <p>¿Tienes sugerencias o quieres reportar algún error?</p>
-                     <p>Contactacme</p>
+                     <h5>Contactame</h5>
                      <div className={style.linkGmail}>
                      <a href="mailto:josevicentevitriago12@gmail.com">josevicentevitriago12@gmail.com</a>
                      </div>

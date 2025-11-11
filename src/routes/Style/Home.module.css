@@ -36,7 +36,6 @@
     max-width: 900px;
     color: #D9D9D9;
     text-align: center;
-    font-size: 1.8rem;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -109,22 +108,25 @@
 }
 
 .calHome h2 {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
 }
 
-.calHome p{
+.calHome p {
+    font-size: 1.2rem;
     text-align: center;
     max-width: 700px;
     margin: auto;
 }
 
 .calHome a {
+    font-size: 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     color: #D9D9D9;
     transition: all 0.4s;
+    text-decoration: none;
 }
 
 .calHome a:hover {
@@ -132,7 +134,6 @@
 }
 
 .rutinasHome {
-    display: flex;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
@@ -150,19 +151,19 @@
     gap: 20px;
     padding: 30px;
     margin: auto;
-    font-size: 1.8rem;
     border: #2E2E2E 1px solid;
     width: 80%;
     max-width: 900px;
     border-radius: 10px;
 }
 
-.rutinaStyle h3{
+.rutinaStyle h3 {
+    font-size: 1.4rem;
     text-align: center;
     max-width: 600px;
 }
 
-.rutinaStyle p{
+.rutinaStyle p {
     font-size: 1.2rem;
     text-align: center;
 }
@@ -171,12 +172,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     gap: 10px;
     color: #D9D9D9;
     transition: all 0.4s;
 }
 
-.rutinaStyle a:hover{
+.rutinaStyle a:hover {
     color: #440E03;
 }
 
@@ -196,21 +198,60 @@
     padding: 20px;
 }
 
+.rutinas h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.rutinas p {
+    font-size: 1rem;
+}
+
+.cardContainer {
+    padding: 40px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.wrappers {
+    text-align: center;
+    background: linear-gradient(135deg, #9C1107, #440E03, #9C1107);
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+    box-shadow: 0 0 18px rgba(255, 73, 48, 0.4);
+    padding: 40px;
+    width: 10%;
+    height: 200px;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
 @media (max-width: 760px) {
 
 
-    .titleHome {
-        font-size: 1.3rem;
-        padding: 25px;
-    }
-
     .calHome h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         text-align: center;
     }
 
     .calHome p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         margin: auto;
         text-align: center;
     }
@@ -230,4 +271,5 @@
     .calHome a {
         font-size: 1.4rem;
     }
+
 }

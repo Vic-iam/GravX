@@ -8,9 +8,12 @@ import { GiSteak } from "react-icons/gi";
 import Back from "../assets/rutinaBack.png"
 import Biceps from "../assets/rutinaBicep.png"
 import Pierna from "../assets/rutinaPierna.png"
+import ScrollVelocity from "../components/ScrollVelocity";
 
 
 const Home = () => {
+
+    const velocity = 70;
     return (
         <div className={style.homeBody}>
 
@@ -54,25 +57,16 @@ const Home = () => {
                     <h2>Calcula tu IMC (Índice de Masa Corporal)</h2>
                     <p>La calculadora IMC te permite conocer si tu peso es adecuado según tu altura.</p>
                     <Link to="/Calculator" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`${style.btnBase} ${style.verUbicacion}`}>
-                        Oprime aqui <FaChevronRight />
+                        Usar calculadora <FaChevronRight />
                     </Link>
                 </div>
             </div>
 
-            <div className={style.iconHome}>
-                <div className={style.icon1}>
-                    <IoMdFitness />
-                </div>
-                <div className={style.icon2}>
-                    <IoFitness />
-                </div>
-                <div className={style.icon3}>
-                    <FaCalculator />
-                </div>
-                <div className={style.icon4}>
-                    <GiSteak />
-                </div>
-            </div>
+            <ScrollVelocity
+                texts={['Motivation', 'Workouts']}
+                velocity={velocity}
+                className="custom-scroll-text"
+            />
 
             <div className={style.rutinasHome}>
 
@@ -109,20 +103,19 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className={style.iconHome}>
-                <div className={style.icon1}>
-                    <IoMdFitness />
+
+            <div className={style.cardContainer}>
+                <div className={style.wrappers}>
+                    <p>Hola</p>
                 </div>
-                <div className={style.icon2}>
-                    <IoFitness />
+                <div className={style.wrappers}>
+                    <p>Hola</p>
                 </div>
-                <div className={style.icon3}>
-                    <FaCalculator />
-                </div>
-                <div className={style.icon4}>
-                    <GiSteak />
+                <div className={style.wrappers}>
+                    <p>Hola</p>
                 </div>
             </div>
+
 
         </div>
     );
