@@ -34,7 +34,7 @@ const Footer = () => {
                      <p>¿Tienes sugerencias o quieres reportar algún error?</p>
                      <h5>Contactame</h5>
                      <div className={style.linkGmail}>
-                     <a href="mailto:josevicentevitriago12@gmail.com">josevicentevitriago12@gmail.com</a>
+                     <a href="mailto:josevicentevitriago12@gmail.com">Escribeme por correo</a>
                      </div>
                     </div>
                 </div>

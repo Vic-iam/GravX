@@ -1,61 +1,77 @@
+/* ============================================================
+   HOME - ESTILOS GENERALES DE LA PÁGINA
+============================================================ */
 .homeBody {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
+    color: white;
+    width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    width: 100%;
-    color: white;
 }
 
+/* ============================================================
+   SECCIÓN PRESENTACIÓN (HERO + AURORA)
+============================================================ */
 .presentationHome {
     width: 100%;
     height: 100vh;
-    position: relative;
+    padding-top: 100px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 60px;
-    padding-top: 100px;
+
+    position: relative;
 }
 
 .auroraBg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     z-index: 0;
 }
 
-.titleHome {
-    border: 1px solid #2E2E2E;
-    border-radius: 20px;
-    padding: 40px;
+/* ============================================================
+   TITULO PRINCIPAL
+============================================================ */
+.homeContainer {
     width: 80%;
     max-width: 900px;
+    padding: 30px;
+
+    font-size: 1.4rem;
     color: #D9D9D9;
     text-align: center;
-    z-index: 2;
+
+    border: 1px solid #2E2E2E;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+
     display: flex;
     flex-direction: column;
     gap: 30px;
-    backdrop-filter: blur(6px);
+    z-index: 2;
 }
 
-.titleHome p {
-    max-width: 600px;
-    margin: auto;
+.homeContainer p {
+    font-size: 1.2rem;
 }
 
+
+/* ============================================================
+   ICONOS PRINCIPALES
+============================================================ */
 .iconHome {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     padding: 20px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
     align-items: center;
     gap: 20px;
+
     z-index: 4;
 }
 
@@ -63,16 +79,19 @@
 .icon2,
 .icon3,
 .icon4 {
-    border: 1px solid #2E2E2E;
-    color: #D9D9D9;
-    box-shadow: 0 0 12px rgba(255, 73, 48, 0.4);
-    width: 80px;
-    height: 60px;
-    border-radius: 20px;
+    width: 40px;
+    height: 30px;
     padding: 20px;
+
+    color: #D9D9D9;
+    border: 1px solid #2E2E2E;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(255, 73, 48, 0.4);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     transition: all 0.4s;
 }
 
@@ -84,22 +103,31 @@
     background-color: #440E03;
 }
 
+/* ============================================================
+   CALCULADORA & INFO
+============================================================ */
 .calculatorHome {
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    padding: 40px 20px;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
 .calHome {
-    border: 1px solid #2E2E2E;
-    color: #D9D9D9;
     width: 80%;
     max-width: 900px;
-    font-size: 1.8rem;
-    margin: auto;
     padding: 30px;
+
+    font-size: 1.2rem;
+    color: #D9D9D9;
+    text-align: center;
+    font-weight: 400;
+
+    border: 1px solid #2E2E2E;
     border-radius: 20px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,34 +135,42 @@
     gap: 20px;
 }
 
-.calHome h2 {
-    font-size: 1.5rem;
-}
-
 .calHome p {
     font-size: 1.2rem;
-    text-align: center;
     max-width: 700px;
-    margin: auto;
+}
+
+.linea {
+    width: 8%;
+    height: 3px;
+    background-color: #D9D9D9;
+    margin: 20px auto;
+    border-radius: 2px;
 }
 
 .calHome a {
-    font-size: 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    color: #D9D9D9;
-    transition: all 0.4s;
+
     text-decoration: none;
+    font-size: 1.1rem;
+    color: #D9D9D9;
+
+    transition: all 0.4s;
 }
 
 .calHome a:hover {
     color: #440E03;
 }
 
+/* ============================================================
+   RUTINAS (CARDS DE RUTINAS)
+============================================================ */
 .rutinasHome {
     padding: 40px 20px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,39 +178,40 @@
 }
 
 .rutinaStyle {
-    color: #D9D9D9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding: 30px;
-    margin: auto;
-    border: #2E2E2E 1px solid;
     width: 80%;
     max-width: 900px;
+    padding: 30px;
+
+    color: #D9D9D9;
+    text-align: center;
+    border: 1px solid #2E2E2E;
     border-radius: 10px;
+    font-size: 1.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.rutinaStyle h3 {
-    font-size: 1.4rem;
-    text-align: center;
-    max-width: 600px;
+.rutinaStyle h4 {
+    font-size: 1.2rem;
 }
 
 .rutinaStyle p {
     font-size: 1.2rem;
-    text-align: center;
 }
 
 .rutinaStyle a {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
     gap: 10px;
+
+    font-size: 1.1rem;
+    text-decoration: none;
     color: #D9D9D9;
+
     transition: all 0.4s;
 }
 
@@ -182,66 +219,130 @@
     color: #440E03;
 }
 
+.imgStyle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .imgStyle img {
-    height: 200px;
     width: 250px;
+    height: 200px;
     object-fit: cover;
 }
 
+/* Contenedor de las rutinas */
 .rutinas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-    gap: 20px;
     padding: 20px;
+    gap: 20px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.rutinas h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
 
-.rutinas p {
-    font-size: 1rem;
-}
 
+/* ============================================================
+   CARDS (ALIEMENTACIÓN / RUTINAS / ENTRENAMIENTO)
+============================================================ */
 .cardContainer {
-    padding: 40px 40px;
+    padding: 40px;
+    gap: 30px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
     flex-wrap: wrap;
 }
 
 .wrappers {
+    width: 150px;
+    height: 200px;
+    padding: 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+    color: #D9D9D9;
+    font-size: 1.1rem;
+
     background: linear-gradient(135deg, #9C1107, #440E03, #9C1107);
     background-size: 300% 300%;
+
     animation: gradientAnimation 6s ease infinite;
     box-shadow: 0 0 18px rgba(255, 73, 48, 0.4);
-    padding: 40px;
-    width: 150px;
-    height: 200px;
 }
 
-.wrappers h5{
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-.wrappers p{
+.wrappers p {
     font-size: 0.9rem;
-    text-align: center;
+    max-width: 700;
+
 }
 
-.iconwrappers{
+.iconwrappers {
     font-size: 1.4rem;
+}
+
+
+.homeNutrition {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auroraBgInverse {
+    position: absolute;
+    inset: 0;
+    transform: rotate(180deg);
+    z-index: 0;
+}
+
+.nutritionHomeContainer {
+    z-index: 10;
+    width: 80%;
+    max-width: 900px;
+    padding: 30px;
+
+    border: #2E2E2E 1px solid;
+    border-radius: 20px;
+
+    color: #D9D9D9;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nutritionHomeContainer h2 {
+    font-size: 1.4rem;
+}
+
+.nutritionHomeContainer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #D9D9D9;
+
+    transition: all 0.4s;
+}
+
+.nutritionHomeContainer a:hover{
+    color: #440E03;
 }
 
 @keyframes gradientAnimation {
@@ -258,45 +359,36 @@
     }
 }
 
-
-
+/* ============================================================
+   RESPONSIVE
+============================================================ */
 @media (max-width: 760px) {
 
 
-    .calHome h2 {
-        font-size: 1.4rem;
-        text-align: center;
-    }
-
-    .calHome p {
+    .homeContainer {
         font-size: 1.2rem;
-        margin: auto;
-        text-align: center;
     }
 
-    .iconHome {
-        font-size: 1.8rem
+    .calHome {
+        font-size: 1rem;
     }
 
     .icon1,
     .icon2,
     .icon3,
     .icon4 {
-        width: 40px;
-        height: 25px;
+        width: 30px;
+        height: 20px;
     }
 
-    .calHome a {
-        font-size: 1.4rem;
-    }
 
-    .cardContainer{
+
+    .cardContainer {
         display: grid;
     }
 
-    .wrappers{
+    .wrappers {
         width: 250px;
         height: 150px;
     }
-
 }
