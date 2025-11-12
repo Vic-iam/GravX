@@ -32,12 +32,19 @@ const Navbar = () => {
                         <li><Link to="/Nutrition">Alimentacion</Link></li>
                         <li><Link to="/Workouts">Rutinas</Link></li>
                         <li><Link to="/Calculator">Calculadora</Link></li>
+                        <div className={style.linea}></div>
+                        <div className={style.linksDateToggle}>
+                            <div className={style.loginStyleToggle}>
+                                <li><Link to="/Login"><FaUser />Iniciar Sesión</Link></li>
+                                <li><Link to="/Admin">Registrate</Link></li>
+                            </div>
+                        </div>
                     </ul>
                 </div>
                 <ul className={style.LinksDate}>
                     <div className={style.loginStyle}>
-                        <FaUser />
-                        <li><Link to="/Login">Iniciar Sesión</Link></li>
+                        <li><Link to="/Login"><FaUser />Iniciar Sesión</Link></li>
+                        <li><Link to="/Admin">Registrate</Link></li>
                     </div>
                 </ul>
 
