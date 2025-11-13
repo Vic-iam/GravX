@@ -1,36 +1,67 @@
 import React, { useState } from "react";
-import { useAuth } from "../Context/AuthContext";
+import style from "./Style/Admin.module.css";
+import Aurora from "../components/Aurora";
+import { Link } from "react-router";
 
 const Register = () => {
-    const { registerEmail } = useAuth();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [form, setForm] = useState({
+        nombre: '',
+        email: '',
+        password: ''
+    });
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        await registerEmail(email, password);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
     };
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(form);
+    };
+
+
+
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Registrarse</h1>
+        <>
+            <section className={style.adminContainer}>
+                <div className={style.auroraBg}>
+                    <Aurora
+                        colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
+                        blend={0.5}
+                        amplitude={1.0}
+                        speed={0.5}
+                    />
+                </div>
 
-            <input 
-                type="email"
-                placeholder="Correo"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
+                <form onSubmit={handleSubmit} className={style.adminCard}>
+                    <h1>Registrate</h1>
 
-            <input 
-                type="password"
-                placeholder="Contraseña"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
 
-            <button>Registrarse</button>
-        </form>
+                    <div className={style.adminIndex}>
+                        <label>Nombre</label>
+                        <input name="nombre"  onChange={handleChange} />
+
+                        <label>Correo electronico</label>
+                        <input name="email" onChange={handleChange} />
+
+                        <label>Contraseña</label>
+                        <input name="passoword" placeholder="Escribe tu contrasena" onChange={handleChange}/>
+
+                        <div className={style.btnAdmin}>
+                            <button type="submit">Registrate</button>
+                        </div>
+                    </div>
+
+                    <div className={style.linea}></div>
+
+                    <div className={style.adminLogin}>
+                        <p>Ya estás registrado?</p>
+                        <Link to="/Login">Inicia sesión</Link>
+                    </div>
+                </form>
+            </section>
+        </>
     );
 };
 

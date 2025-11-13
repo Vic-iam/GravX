@@ -1,41 +1,52 @@
-import React, { useState } from "react";
-import { useAuth } from "../Context/AuthContext";
+import Aurora from "../components/Aurora";
+import style from "./Style/Login.module.css";
+import { useState } from "react";
+import { Link, } from "react-router";
 
 const Login = () => {
-    const { loginEmail, loginGoogle } = useAuth();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        await loginEmail(email, password);
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log({ email, password });
+  };
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <h1>Iniciar sesión</h1>
+            <section className={style.loginContainer}>
+                <div className={style.auroraBg}>
+                    <Aurora
+                        colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
+                        blend={0.5}
+                        amplitude={1.0}
+                        speed={0.5}
+                    />
+                </div>
 
-                <input 
-                    type="email" 
-                    placeholder="Correo" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                <form onSubmit={handleSubmit} className={style.loginCard}>
+                    <h1>Iniciar sesión</h1>
 
-                <input 
-                    type="password" 
-                    placeholder="Contraseña" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                    <div className={style.loginIndex}>
+                        <label>Correo electrónico</label>
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-                <button>Iniciar sesión</button>
+                        <label>Contraseña</label>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
-                <button type="button" onClick={loginGoogle}>
-                    Iniciar con Google
-                </button>
-            </form>
+                        <div className={style.btnLogin}>
+                            <button>Iniciar sesión</button>
+                        </div>
+                    </div>
+
+                    <div className={style.linea}></div>
+
+                    <div className={style.loginRegister}>
+                        <p>Nuevo en GravX?</p>
+                        <Link to="/Register">Crear cuenta</Link>
+                    </div>
+                </form>
+            </section>
         </>
     );
 };

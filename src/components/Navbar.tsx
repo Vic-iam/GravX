@@ -6,7 +6,6 @@ import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
     useEffect(() => {
         document.body.style.overflow = isOpen ? "hidden" : "auto";
         return () => {
