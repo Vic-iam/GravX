@@ -19,10 +19,10 @@ const Footer = () => {
                     <div className={style.linkFooter}>
                         <h2>Enlances</h2>
                         <ul>
-                            <li><Link to="/">Inicio</Link></li>
-                            <li><Link to="/Nutrition">Alimentacion</Link></li>
-                            <li><Link to="/Workouts">Rutinas</Link></li>
-                            <li><Link to="/Calculator">Calculadora</Link></li>
+                            <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Inicio</Link></li>
+                            <li><Link to="/Nutrition" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Alimentacion</Link></li>
+                            <li><Link to="/Workouts" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Rutinas</Link></li>
+                            <li><Link to="/Calculator" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Calculadora</Link></li>
                         </ul>
                     </div>
 

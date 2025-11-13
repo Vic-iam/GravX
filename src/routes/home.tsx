@@ -150,7 +150,7 @@ const Home = () => {
                 <div className={style.nutritionHomeContainer}>
                     <h2>Transformá tu cuerpo desde la alimentación</h2>
                     <p>Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos sin dietas extremas.</p>
-                    <Link to="/Nutrition">Ver alimentación <FaChevronRight /></Link>
+                    <Link to="/Nutrition" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Ver alimentación <FaChevronRight /></Link>
                 </div>
 
             </section>

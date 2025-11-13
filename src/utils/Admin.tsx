@@ -4,7 +4,7 @@ import Aurora from "../components/Aurora";
 import { Link } from "react-router";
 
 const Admin = () => {
-
+    
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("")
     const [email, setEmail] = useState("");
@@ -46,7 +46,7 @@ const Admin = () => {
                     <div className={style.linea}></div>
                     <div className={style.adminLogin}>
                         <p>Ya estas registrado?</p>
-                        <Link to="/Login">Inicia sesion</Link>
+                        <Link to="/Login" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} >Inicia sesion</Link>
                     </div>
                 </form>
             </section>

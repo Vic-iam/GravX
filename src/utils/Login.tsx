@@ -2,12 +2,12 @@ import Aurora from "../components/Aurora";
 import style from "./Style/Login.module.css"
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 
 const Login = () => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -36,7 +36,7 @@ const Login = () => {
                     <div className={style.loginIndex}>
                         <label>Nombre o correo electronico</label>
                         <input type="emailt" placeholder="Escribe tu correo electronico" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                        <label>Contraseña <Link to="/">Olvidaste la contraseña?</Link></label>
+                        <label>Contraseña <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Olvidaste la contraseña?</Link></label>
                         <input type="password" placeholder="Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                         <div className={style.btnLogin}>
                             <button>Iniciar sesion</button>
@@ -45,7 +45,7 @@ const Login = () => {
                     <div className={style.linea}></div>
                     <div className={style.loginRegister}>
                         <p>Nuevo en GravX?</p>
-                        <Link to="/Admin">Crear cuenta</Link>
+                        <Link to="/Admin" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Crear cuenta</Link>
                     </div>
                 </form>
 

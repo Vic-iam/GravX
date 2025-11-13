@@ -39,7 +39,7 @@
     box-shadow: 0 0 18px rgba(255, 73, 48, 0.4);
 
     height: 500px;
-    width: 400px;
+    width: 500px;
 }
 
 .adminCard h1 {
@@ -151,4 +151,12 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+@media (max-width: 760px) {
+
+    .adminCard{
+        width: 350px;
+    }
+    
 }
