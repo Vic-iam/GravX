@@ -31,7 +31,7 @@
     padding: 20px;
 
     color: #D9D9D9;
-    background: linear-gradient(135deg, #860f06, #440E03, #9C1107);
+    background: linear-gradient(135deg, #710A04, #190201, #710A04);
     background-size: 300% 300%;
     border-radius: 20px;
 
@@ -60,7 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #333;
+    background-color: #303030;
     border: 1px solid #2E2E2E;
 
     border-radius: 10px;
