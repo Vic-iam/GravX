@@ -7,13 +7,15 @@ import Nutrition from './routes/Nutrition'
 import Workouts from './routes/Workouts'
 import Dashboard from './routes/Dashboard'
 import Login from "./utils/Login"
-import Admin from './utils/Admin'
-import Register from './Register'
+import Register from './utils/Register'
 import Footer from './components/Footer'
+import ProtectedRoute from './components/ProtectedRoutes'
+import { AuthProvider } from "./Context/AuthContext"
 
 function App() {
 
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -23,11 +25,16 @@ function App() {
          <Route path='/Calculator' element={<Calculator />} />
          <Route path='/Nutrition' element={<Nutrition />} />
          <Route path='/Workouts' element={<Workouts />} />
-         <Route path='/Dashboard' element={<Dashboard />} />
-         <Route path='/Admin' element={<Admin />} />
+         <Route path='/Dashboard' element={<ProtectedRoute>
+          <Dashboard />
+         </ProtectedRoute>} />
+         <Route path='/Register' element={<ProtectedRoute>
+          <Register />
+         </ProtectedRoute>} />
       </Routes>
       <Footer />
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 

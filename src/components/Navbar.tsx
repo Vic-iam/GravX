@@ -41,7 +41,7 @@ const Navbar = () => {
                         <div className={style.linksDateToggle}>
                             <div className={style.loginStyleToggle}>
                                 <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar Sesión</Link></li>
-                                <li><Link to="/Admin" onClick={handleLinkClick}>Registrate</Link></li>
+                                <li><Link to="/Register" onClick={handleLinkClick}>Registrate</Link></li>
                             </div>
                         </div>
                     </ul>
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <ul className={style.LinksDate}>
                     <div className={style.loginStyle}>
                         <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar Sesión</Link></li>
-                        <li><Link to="/Admin" onClick={handleLinkClick}>Registrate</Link></li>
+                        <li><Link to="/Register" onClick={handleLinkClick}>Registrate</Link></li>
                     </div>
                 </ul>
 
