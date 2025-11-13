@@ -93,6 +93,8 @@ ul {
   border-radius: 20px;
   padding: 15px;
   transition: all 0.4s;
+  display: flex;
+  gap: 5px;
 }
 
 .loginStyle a:hover {
@@ -168,6 +170,8 @@ ul {
     border-radius: 20px;
     padding: 15px;
     transition: all 0.4s;
+    display: flex;
+    gap: 5px;
   }
 
   .loginStyleToggle a:hover {

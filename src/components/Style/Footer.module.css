@@ -126,19 +126,36 @@ img{
 
 @media (max-width: 768px) {
   .footerContainer {
-    text-align: center;
     flex-direction: column;
-    align-items: center;
   }
 
   .linkFooter {
-    display: grid;
-    justify-content: center;
-    text-align: left;
+    padding: 10px;
     margin-bottom: 10px;
   }
-
+  
+  .sobreGravx{
+    display: grid;
+    text-align: start;
+    justify-content: center;
+    padding: 10px;
+  }
   .sobreGravx h3{
     font-size: 1rem;
   }
+
+  .contact{
+    display: grid;
+    text-align: start;
+    padding: 10px;
+  }
+
+ .contact h5{
+  text-align: center;
+ }
+
+  .linkGmail{
+    text-align: center;
+  }
+
 }
