@@ -6,8 +6,8 @@ import Calculator from './routes/Calculator'
 import Nutrition from './routes/Nutrition'
 import Workouts from './routes/Workouts'
 import Dashboard from './routes/Dashboard'
-import Login from './Login'
-import Admin from './Admin'
+import Login from "./utils/Login"
+import Admin from './utils/Admin'
 import Register from './Register'
 import Footer from './components/Footer'
 
