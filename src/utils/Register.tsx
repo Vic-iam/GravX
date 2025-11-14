@@ -40,10 +40,10 @@ const Register = () => {
 
                     <div className={style.adminIndex}>
                         <label>Nombre</label>
-                        <input name="nombre"  onChange={handleChange} />
+                        <input name="nombre" placeholder="Escribe tu nombre" onChange={handleChange} />
 
                         <label>Correo electronico</label>
-                        <input name="email" onChange={handleChange} />
+                        <input name="email" placeholder="Escribe tu correo electronico" onChange={handleChange} />
 
                         <label>Contraseña</label>
                         <input name="passoword" placeholder="Escribe tu contrasena" onChange={handleChange}/>

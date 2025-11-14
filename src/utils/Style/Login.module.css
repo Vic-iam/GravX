@@ -70,11 +70,13 @@
 
     transition: all ease 0.4s;
 
+    opacity: 0.9;
 }
 
 .loginCard input:focus {
     background-color: #242424;
     color: #C4C4C4;
+    opacity: 0.5;
 }
 
 .loginCard input:active {
@@ -117,12 +119,13 @@
     transition: all 0.4s;
 
     cursor: pointer;
+    opacity: 0.9;
 
 }
 
 .btnLogin button:hover {
-    background-color: black;
-    color: #9C1107;
+    background-color: #242424;
+    color: #C4C4C4;
 }
 
 .btnLogin button:active {
