@@ -31,15 +31,14 @@
     padding: 20px;
 
     color: #D9D9D9;
-    background: linear-gradient(135deg, #710A04, #190201, #710A04);
     background-size: 300% 300%;
     border-radius: 20px;
 
-    animation: gradientAnimation 6s ease infinite;
-    box-shadow: 0 0 18px rgba(255, 73, 48, 0.4);
+    box-shadow: 0 0 10px rgba(255, 73, 48, 0.4);
 
     height: 500px;
     width: 500px;
+
 }
 
 .adminCard h1 {
@@ -60,7 +59,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #303030;
+    background-color: #3B3B3B;
     border: 1px solid #2E2E2E;
 
     border-radius: 10px;
@@ -70,7 +69,8 @@
 }
 
 .adminCard input:focus {
-    box-shadow: 0 0 5px #C11007;
+    border: none;
+    background-color: #242424;
     color: white;
 }
 
@@ -97,6 +97,8 @@
 
     border: 1px solid #2E2E2E;
     border-radius: 10px;
+    background-color: #3B3B3B;
+    color: white;
 
     width: 100%;
     height: 30px;
@@ -107,8 +109,8 @@
 }
 
 .btnAdmin button:hover {
-    background-color: black;
-    color: #9C1107;
+    background-color: #242424;
+    color: #C4C4C4;
 }
 
 .btnAdmin button:active{
@@ -130,7 +132,7 @@
 }
 
 .adminLogin a {
-    color: black;
+    color:#9C1107;
     text-decoration: none;
 }
 
@@ -138,20 +140,6 @@
     text-decoration: underline;
 }
 
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 @media (max-width: 760px) {
 

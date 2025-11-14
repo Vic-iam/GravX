@@ -6,14 +6,16 @@ import { Link } from "react-router";
 import { IoMdFitness } from "react-icons/io";
 import { IoFitness } from "react-icons/io5";
 import { FaCalculator, FaChevronRight } from "react-icons/fa";
+import { FaRepeat } from "react-icons/fa6";
 import { GiSteak } from "react-icons/gi";
+import { LuBicepsFlexed, LuSalad } from "react-icons/lu";
 
 import Back from "../assets/rutinaBack.png";
 import Biceps from "../assets/rutinaBicep.png";
 import Pierna from "../assets/rutinaPierna.png";
 
 const Home = () => {
-    const velocity = 70;
+    const velocity = 40;
 
     return (
         <div className={style.homeBody}>
@@ -111,19 +113,19 @@ const Home = () => {
             <section className={style.cardContainer}>
                 <div className={style.wrappers}>
                     <h5>Entrená por lo que querés ser</h5>
-                    <span className={style.iconwrappers}>💪</span>
+                    <span className={style.iconwrappers}><LuBicepsFlexed /></span>
                     <p>"No se trata de ser el mejor que alguien, sino de ser mejor tu mejor version."</p>
                 </div>
 
                 <div className={style.wrappers}>
                     <h5>La disciplina gana</h5>
-                    <span className={style.iconwrappers}>🔁</span>
+                    <span className={style.iconwrappers}><FaRepeat /></span>
                     <p>"Los resultados son un proceso, cada día cuenta."</p>
                 </div>
 
                 <div className={style.wrappers}>
                     <h5>Comé para sentirte bien</h5>
-                    <span className={style.iconwrappers}>🥗</span>
+                    <span className={style.iconwrappers}><LuSalad /></span>
                     <p>"Lo que comés hoy es la energía con la que vas a construir el mañana."</p>
                 </div>
             </section>

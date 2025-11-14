@@ -4,13 +4,13 @@ import { useState } from "react";
 import { Link, } from "react-router";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ email, password });
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log({ email, password });
+    };
 
     return (
         <>
@@ -28,12 +28,11 @@ const Login = () => {
                     <h1>Iniciar sesión</h1>
 
                     <div className={style.loginIndex}>
-                        <label>Correo electrónico</label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            <label>Correo electrónico</label>
+                            <input value={email} placeholder="Escribe tu correo electronico" onChange={(e) => setEmail(e.target.value)} required />
 
-                        <label>Contraseña</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-
+                            <label>Contraseña</label>
+                            <input type="password" placeholder="Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                         <div className={style.btnLogin}>
                             <button>Iniciar sesión</button>
                         </div>
