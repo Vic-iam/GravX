@@ -37,7 +37,7 @@
     box-shadow: 0 0 10px rgba(255, 73, 48, 0.4);
 
     height: 500px;
-    width: 500px;
+    width: 800px;
 
 }
 
@@ -67,12 +67,14 @@
     border: none;
 
     transition: all ease 0.4s;
+    opacity: 0.5;
 }
 
 .adminCard input:focus {
     border: none;
     background-color: #242424;
-    color: white;
+    color: white; 
+    opacity: 0.8;
 }
 
 .adminCard input:active {
@@ -107,6 +109,8 @@
     transition: all 0.4s;
 
     cursor: pointer;
+
+    opacity: 0.8;
 }
 
 .btnAdmin button:hover {
