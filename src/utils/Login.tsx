@@ -31,7 +31,7 @@ const Login = () => {
                             <label>Correo electrónico</label>
                             <input value={email} placeholder="Escribe tu correo electronico" onChange={(e) => setEmail(e.target.value)} required />
 
-                            <label>Contraseña</label>
+                            <label>Contraseña </label>
                             <input type="password" placeholder="Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
                         <div className={style.btnLogin}>
                             <button>Iniciar sesión</button>

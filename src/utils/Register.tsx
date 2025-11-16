@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./Style/Admin.module.css";
+import style from "./Style/Register.module.css";
 import Aurora from "../components/Aurora";
 import { Link } from "react-router";
 
