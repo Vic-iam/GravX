@@ -16,7 +16,7 @@ import Pierna from "../assets/rutinaPierna.png";
 
 const Home = () => {
     const velocity = 40;
-
+        
     return (
         <div className={style.homeBody}>
 
