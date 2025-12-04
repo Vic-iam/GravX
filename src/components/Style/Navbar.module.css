@@ -107,6 +107,11 @@ ul {
 }
 
 @media (max-width: 768px) {
+
+  .navbar{
+    height: 40px;
+  }
+
   .menuLinks {
     position: fixed;
     top: 0;
