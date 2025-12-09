@@ -39,16 +39,14 @@ const Navbar = () => {
                         <div className={style.linea}></div>
                         <div className={style.linksDateToggle}>
                             <div className={style.loginStyleToggle}>
-                                <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar Sesión</Link></li>
-                                <li><Link to="/Register" onClick={handleLinkClick}>Registrate</Link></li>
+                                <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Login</Link></li>
                             </div>
                         </div>
                     </ul>
                 </div>
                 <ul className={style.LinksDate}>
                     <div className={style.loginStyle}>
-                        <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar Sesión</Link></li>
-                        <li><Link to="/Register" onClick={handleLinkClick}>Registrate</Link></li>
+                        <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar sesion</Link></li>
                     </div>
                 </ul>
 

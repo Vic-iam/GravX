@@ -143,7 +143,6 @@
 
 .loginRegister {
     display: flex;
-    font-size: 0.9rem;
     gap: 5px;
 }
 
@@ -151,6 +150,7 @@
 .loginRegister a {
     color: #9C1107;
     text-decoration: none;
+    font-size: 0.9rem;
 }
 
 .loginRegister a:hover {
