@@ -16,7 +16,7 @@ import Pierna from "../assets/rutinaPierna.png";
 
 const Home = () => {
     const velocity = 40;
-        
+
     return (
         <div className={style.homeBody}>
 
@@ -130,7 +130,7 @@ const Home = () => {
                 </div>
             </section>
 
-             {/*Alimentancion */} 
+            {/*Alimentancion */}
             <section className={style.homeNutrition}>
 
                 <div className={style.iconHome}>
