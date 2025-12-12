@@ -46,7 +46,7 @@ const Navbar = () => {
                 </div>
                 <ul className={style.LinksDate}>
                     <div className={style.loginStyle}>
-                        <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Iniciar sesion</Link></li>
+                        <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Login</Link></li>
                     </div>
                 </ul>
 
