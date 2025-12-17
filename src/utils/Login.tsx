@@ -29,10 +29,10 @@ const Login = () => {
 
                     <div className={style.loginIndex}>
                             <label>Correo electrónico</label>
-                            <input value={email} placeholder="Escribe tu correo electronico" onChange={(e) => setEmail(e.target.value)} required />
+                            <input value={email} placeholder="Escribe tu correo electronico" onChange={(e) => setEmail(e.target.value)}  />
 
                             <label>Contraseña </label>
-                            <input type="password" placeholder="Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            <input type="password" placeholder="Escribe tu contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <div className={style.btnLogin}>
                             <button>Iniciar sesión</button>
                         </div>

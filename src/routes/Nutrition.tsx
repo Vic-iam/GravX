@@ -1,5 +1,4 @@
 'use client'
-import React from "react";
 import Aurora from "../components/Aurora";
 import style from "./Style/Nutrition.module.css"
 
@@ -21,7 +20,7 @@ const  Nutrition = () => {
                 <div className={style.nutritionContainer}>
                     <h1>Alimentancion</h1>
                     <p>
-                        "Aqui podras descubrir e organizar tu alimentación"
+                        "Descubre y organiza tu alimentación"
                     </p>
                 </div>
 
