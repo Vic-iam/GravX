@@ -13,7 +13,8 @@ const Nutrition = () => {
 
     const searchRef = useRef<HTMLDivElement | null>(null);
 
-    const [search, setSearch] = useState();
+    const [search, setSearch] = useState("");
+
 
 
     return (
@@ -66,7 +67,7 @@ const Nutrition = () => {
 
                     <div className={style.alimentoIndex}>
                         <label>Busca el alimento</label>
-                        <input type="text" placeholder="Escribe el alimento" />
+                        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Escribe el alimento" />
                     </div>
 
 
