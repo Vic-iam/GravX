@@ -5,8 +5,15 @@ import style from "./Style/Nutrition.module.css"
 import { GoChevronDown } from "react-icons/go";
 import nutricion from "../data/nutrition.json"
 
+import { useRef } from "react";
+
+
 
 const Nutrition = () => {
+
+    const searchRef = useRef<HTMLDivElement | null>(null);
+
+
     return (
         <div className={style.nutritionBody}>
 
@@ -34,15 +41,24 @@ const Nutrition = () => {
                     <div className={style.listTitle}>
                         <h2>Lista de alimentos</h2>
                     </div>
-                    <Link onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
-                    to="/Nutrition" className={style.iconStyle}>
+                    <Link
+                        to="/Nutrition"
+                        className={style.iconStyle}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            searchRef.current?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+                        }}
+                    >
                         <GoChevronDown />
                     </Link>
                 </div>
 
             </section>
 
-            <section className={style.listContainer}>
+            <section ref={searchRef} className={style.listContainer}>
 
                 <div className={style.alimentosContainer}>
 
