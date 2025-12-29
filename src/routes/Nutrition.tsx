@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import Aurora from "../components/Aurora";
 import style from "./Style/Nutrition.module.css"
 import { GoChevronDown } from "react-icons/go";
+import nutricion from "../data/nutrition.json"
 
 
 const Nutrition = () => {
@@ -49,9 +50,28 @@ const Nutrition = () => {
                         <input type="search" placeholder="Escribe el alimento"></input>
                     </div>
 
-                    <div className={style.listaAlimentos}>
-                        
-                    </div>
+                    {nutricion.map(nutricio => (
+
+                        <div key={nutricio.id} className={style.styleNutricion}>
+
+                        <div className={style.titleAlimentacion}>
+                            <h3> {nutricio.nombre} </h3>
+                        </div>
+
+                            {nutricio.types.map(item => (
+                                <div key={item.nombre} className={style.alimentaciónDescripcion}>
+                                    <div className={style.desAlimentacion}>
+                                        <h4> {item.nombre} </h4>
+                                        <p>Calorias: {item.calorias} x 100g </p>
+                                        <p>Proteinas {item.proteina} x 100g </p>
+                                    </div>
+                                    <img src={item.imagen} alt={item.nombre} />
+                                </div>
+
+                            ))}
+
+                        </div>
+                    ))}
 
                 </div>
 

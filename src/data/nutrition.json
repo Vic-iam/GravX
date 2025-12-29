@@ -1,7 +1,20 @@
 [
     {
         "id": 1,
-        "nombre": "Proteinas" 
+        "nombre": "Proteinas",
+        "types": [
+            {
+                "nombre": "Pollo",
+                "calorias": "239",
+                "proteina": "27g",
+                "imagen": "/image/chicken.png"
+            },
+            {
+                "nombre": "Pollo",
+                "calorias": "239",
+                "proteina": "27g",
+                "imagen": "/image/chicken.png"
+            }
+        ]
     }
-
 ]
