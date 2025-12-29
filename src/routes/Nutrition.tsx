@@ -30,10 +30,6 @@ const Nutrition = () => {
                     </p>
                 </div>
 
-            </section>
-
-            <section className={style.listContainer}>
-
                 <div className={style.titleStyle}>
                     <div className={style.listTitle}>
                         <h2>Lista de alimentos</h2>
@@ -42,6 +38,10 @@ const Nutrition = () => {
                         <GoChevronDown />
                     </Link>
                 </div>
+
+            </section>
+
+            <section className={style.listContainer}>
 
                 <div className={style.alimentosContainer}>
 
@@ -52,24 +52,30 @@ const Nutrition = () => {
 
                     {nutricion.map(nutricio => (
 
-                        <div key={nutricio.id} className={style.styleNutricion}>
+                        <div key={nutricio.id}>
 
-                        <div className={style.titleAlimentacion}>
-                            <h3> {nutricio.nombre} </h3>
-                        </div>
+                            <div className={style.titleAlimentancion}>
+                                <h3> {nutricio.nombre} </h3>
+                            </div>
 
-                            {nutricio.types.map(item => (
-                                <div key={item.nombre} className={style.alimentaciónDescripcion}>
-                                    <div className={style.desAlimentacion}>
-                                        <h4> {item.nombre} </h4>
-                                        <p>Calorias: {item.calorias} x 100g </p>
-                                        <p>Proteinas {item.proteina} x 100g </p>
+                            <div className={style.styleNutricion}>
+
+                                {nutricio.types.map(item => (
+                                    <div key={item.nombre} className={style.alimentaciónDescripcion}>
+                                        <div className={style.desAlimentacion}>
+                                            <h4> {item.nombre} </h4>
+                                            <p>Calorias: {item.calorias}kcal x 100g </p>
+                                            <p>Proteinas {item.proteina}g x 100g </p>
+                                            <div className={style.verMasAlimentacion}>
+                                                <Link to="/">Ver mas</Link>
+                                            </div>
+                                        </div>
+                                        <img src={item.imagen} alt={item.nombre} />
                                     </div>
-                                    <img src={item.imagen} alt={item.nombre} />
-                                </div>
 
-                            ))}
+                                ))}
 
+                            </div>
                         </div>
                     ))}
 

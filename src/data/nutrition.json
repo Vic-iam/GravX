@@ -6,14 +6,56 @@
             {
                 "nombre": "Pollo",
                 "calorias": "239",
-                "proteina": "27g",
+                "proteina": "27",
                 "imagen": "/image/chicken.png"
             },
             {
-                "nombre": "Pollo",
-                "calorias": "239",
-                "proteina": "27g",
-                "imagen": "/image/chicken.png"
+                "nombre": "Carne",
+                "calorias": "143 ",
+                "proteina": "26",
+                "imagen": "/image/steak.png"
+            },
+            {
+                "nombre": "Atun",
+                "calorias": "130",
+                "proteina": "29",
+                "imagen": "/image/atun.png"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Granos",
+        "types": [
+            {
+                "nombre": "Arroz",
+                "calorias": "130",
+                "proteina": "2.7",
+                "imagen": "/image/arroz.png"
+            },
+            {
+                "nombre": "Avena",
+                "calorias": "380",
+                "proteina": "13",
+                "imagen": "/image/avena.png"
+            },
+            {
+                "nombre": "Quinoa",
+                "calorias": "370",
+                "proteina": "14",
+                "imagen": "/image/quinoa.png"
+            }   
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Frutas",
+        "types": [
+            {
+                "nombre": "Fresa",
+                "calorias": "33",
+                "proteina": "0.7",
+                "imagen": "/image/fresas.png"
             }
         ]
     }

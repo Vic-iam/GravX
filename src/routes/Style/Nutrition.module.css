@@ -156,7 +156,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -172,8 +171,15 @@
   object-fit: cover;
 }
 
-.titleAlimentacion {
-  text-align: center;
+.titleAlimentancion h3 {
+
+    text-align: center;
+    font-size: 2rem;
+
+    margin: 20px;
+    
+
+   
 }
 
 /* =============================
@@ -184,18 +190,51 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 
   padding: 20px;
-  background-color: red;
+  
+  border: #3B3B3B 1px solid;
+  border-radius: 10px;
+
+  transition: all 0.4s;
+}
+
+.alimentaciónDescripcion:hover {
+   transform: translateY(-5px);
 }
 
 .alimentaciónDescripcion h4 {
   font-size: 1.8rem;
 }
 
+.alimentaciónDescripcion p{
+    font-size: 0.9rem;
+}
+
 .desAlimentacion {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.verMasAlimentacion a{
+    color: #D9D9D9;
+    font-size: 1rem;
+    transition: all 0.4s;
+}
+
+.verMasAlimentacion a:hover{
+    color: #440E03;
+}
+
+@media (max-width: 760px) {
+
+    .alimentaciónDescripcion{
+        display: grid;
+
+        width: 250px;
+    }
+
 }
