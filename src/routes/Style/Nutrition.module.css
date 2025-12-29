@@ -1,7 +1,7 @@
 .nutritionBody {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    color: white;
+    color: #D9D9D9;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
@@ -32,7 +32,6 @@
     max-width: 900px;
     padding: 30px;
 
-    font-size: 1.4rem;
     color: #D9D9D9;
     text-align: center;
 
@@ -46,6 +45,84 @@
     z-index: 2;
 }
 
+.nutritionContainer h1{
+    font-size: 2.5rem;
+}
+
 .nutritionContainer p {
     font-size: 1.2rem;
+}
+
+.titleStyle{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.listTitle h2{
+    font-size: 2rem;
+}
+
+.iconStyle{
+    font-size: 3rem;
+    text-align: center;
+    color: #D9D9D9;
+
+    transition: 0.4s all
+}
+
+.iconStyle:hover{
+  color: #440E03;
+}
+
+.alimentosContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    margin: 10px;
+
+    border: 1px solid #3B3B3B;
+    border-radius: 10px; 
+}
+
+.alimentoIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 20px;
+}
+
+.alimentosContainer label{
+    font-size: 1.4rem;
+}
+
+.alimentosContainer input {
+    padding: 15px;
+    font-size: 0.9rem;
+
+    width: 300px;
+    height: 40px;
+    
+    background-color: #3B3B3B;
+    border: 1px solid #2E2E2E;
+
+    border-radius: 10px;
+    border: none;
+
+    transition: all ease 0.4s;
+    opacity: 0.5;
+}
+
+.alimentosContainer input:hover{
+    border: none;
+    background-color: #242424;
+    color: white; 
+    opacity: 0.8;
+}
+
+.alimentosContainer input:active{
+    transform: scale(0.98);
 }
