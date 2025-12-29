@@ -73,16 +73,20 @@
 .titleStyle {
   display: grid;
   place-items: center;
+
+  z-index: 2;
 }
 
 .listTitle h2 {
   font-size: 2rem;
 }
 
-.iconStyle {
+.iconStyle{
   font-size: 3rem;
   text-align: center;
   color: #D9D9D9;
+
+  z-index: 1;
 
   transition: color 0.4s ease;
 }
@@ -109,8 +113,9 @@
 
 .alimentoIndex {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  margin-left: 40px;
   gap: 20px;
 }
 

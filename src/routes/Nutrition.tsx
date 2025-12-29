@@ -34,7 +34,8 @@ const Nutrition = () => {
                     <div className={style.listTitle}>
                         <h2>Lista de alimentos</h2>
                     </div>
-                    <Link to="/Nutrition" className={style.iconStyle}>
+                    <Link onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
+                    to="/Nutrition" className={style.iconStyle}>
                         <GoChevronDown />
                     </Link>
                 </div>

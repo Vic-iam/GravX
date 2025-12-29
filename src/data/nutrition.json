@@ -44,7 +44,7 @@
                 "calorias": "370",
                 "proteina": "14",
                 "imagen": "/image/quinoa.png"
-            }   
+            }
         ]
     },
     {
@@ -56,6 +56,42 @@
                 "calorias": "33",
                 "proteina": "0.7",
                 "imagen": "/image/fresas.png"
+            },
+            {
+                "nombre": "Sandia",
+                "calorias": "35",
+                "proteina": "1",
+                "imagen": "/image/sandia.png"
+            },
+            {
+                "nombre": "Melon",
+                "calorias": "33",
+                "proteina": "0.6",
+                "imagen": "/image/melon.png"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Verduras",
+        "types": [
+            {
+                "nombre": "Apio",
+                "calorias": "15",
+                "proteina": "1",
+                "imagen": "/image/apio.png"
+            },
+            {
+                "nombre": "Lechuga",
+                "calorias": "15",
+                "proteina": "1",
+                "imagen": "/image/lechuga.png"
+            },
+            {
+                "nombre": "Pepino",
+                "calorias": "20",
+                "proteina": "1",
+                "imagen": "/image/pepino.png"
             }
         ]
     }
