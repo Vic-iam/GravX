@@ -5,13 +5,15 @@ import style from "./Style/Nutrition.module.css"
 import { GoChevronDown } from "react-icons/go";
 import nutricion from "../data/nutrition.json"
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 
 
 const Nutrition = () => {
 
     const searchRef = useRef<HTMLDivElement | null>(null);
+
+    const [search, setSearch] = useState();
 
 
     return (
@@ -64,8 +66,10 @@ const Nutrition = () => {
 
                     <div className={style.alimentoIndex}>
                         <label>Busca el alimento</label>
-                        <input type="search" placeholder="Escribe el alimento"></input>
+                        <input type="text" placeholder="Escribe el alimento" />
                     </div>
+
+
 
                     {nutricion.map(nutricio => (
 
@@ -79,6 +83,7 @@ const Nutrition = () => {
 
                                 {nutricio.types.map(item => (
                                     <div key={item.nombre} className={style.alimentaciónDescripcion}>
+
                                         <div className={style.desAlimentacion}>
                                             <h4> {item.nombre} </h4>
                                             <p>Calorias: {item.calorias}kcal x 100g </p>
@@ -87,7 +92,9 @@ const Nutrition = () => {
                                                 <Link to="/">Ver mas</Link>
                                             </div>
                                         </div>
+
                                         <img src={item.imagen} alt={item.nombre} />
+
                                     </div>
 
                                 ))}
