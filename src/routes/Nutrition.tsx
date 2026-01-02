@@ -56,11 +56,13 @@ const Nutrition = () => {
                     </Link>
                 </div>
 
+
                 <div className={style.nutricionPresentation}>
                     <div className={style.linea}></div>
+
                     <div className={style.presentationIndex}>
-                    <h5>Para que te servira esto?</h5>
-                    <p>Esto es para que puedas or</p>
+                        <h5>Para que te servira esto?</h5>
+                        <p>Esto es para que puedas or</p>
                     </div>
                 </div>
 
