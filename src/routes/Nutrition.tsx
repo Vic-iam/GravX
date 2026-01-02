@@ -35,9 +35,6 @@ const Nutrition = () => {
                     <p>
                         "Es una de la cosas mas importante de la vida"
                     </p>
-                    <p>
-                        Descubre y organiza tu alimentancion contando las calorias,carbohidratos y proteinas
-                    </p>
                 </div>
 
                 <div className={style.titleStyle}>
@@ -57,6 +54,14 @@ const Nutrition = () => {
                     >
                         <GoChevronDown />
                     </Link>
+                </div>
+
+                <div className={style.nutricionPresentation}>
+                    <div className={style.linea}></div>
+                    <div className={style.presentationIndex}>
+                    <h5>Para que te servira esto?</h5>
+                    <p>Esto es para que puedas or</p>
+                    </div>
                 </div>
 
             </section>
