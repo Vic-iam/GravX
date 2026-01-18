@@ -5,7 +5,7 @@
 .nutritionBody {
   font-family: Arial, Helvetica, sans-serif;
   background-color: black;
-  color: #D9D9D9;
+  color: #d9d9d9;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -47,13 +47,13 @@
   padding: 30px;
 
   text-align: center;
-  color: #D9D9D9;
+  color: #d9d9d9;
 
   display: flex;
   flex-direction: column;
   gap: 30px;
 
-  border: 1px solid #2E2E2E;
+  border: 1px solid #2e2e2e;
   border-radius: 20px;
   backdrop-filter: blur(6px);
 }
@@ -81,10 +81,10 @@
   font-size: 2rem;
 }
 
-.iconStyle{
+.iconStyle {
   font-size: 3rem;
   text-align: center;
-  color: #D9D9D9;
+  color: #d9d9d9;
 
   z-index: 1;
 
@@ -92,7 +92,7 @@
 }
 
 .iconStyle:hover {
-  color: #440E03;
+  color: #440e03;
 }
 
 /* =============================
@@ -107,7 +107,7 @@
   padding: 20px;
   margin: 10px;
 
-  border: 1px solid #3B3B3B;
+  border: 1px solid #3b3b3b;
   border-radius: 10px;
 }
 
@@ -137,7 +137,7 @@
   font-size: 0.9rem;
   color: inherit;
 
-  background-color: #3B3B3B;
+  background-color: #3b3b3b;
   border-radius: 10px;
   border: none;
 
@@ -179,14 +179,10 @@
 }
 
 .titleAlimentancion h3 {
+  text-align: center;
+  font-size: 2rem;
 
-    text-align: center;
-    font-size: 2rem;
-
-    margin: 20px;
-    
-
-   
+  margin: 20px;
 }
 
 /* =============================
@@ -201,23 +197,23 @@
   gap: 10px;
 
   padding: 20px;
-  
-  border: #3B3B3B 1px solid;
+
+  border: #3b3b3b 1px solid;
   border-radius: 10px;
 
   transition: all 0.4s;
 }
 
 .alimentaciónDescripcion:hover {
-   transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .alimentaciónDescripcion h4 {
   font-size: 1.8rem;
 }
 
-.alimentaciónDescripcion p{
-    font-size: 0.9rem;
+.alimentaciónDescripcion p {
+  font-size: 0.9rem;
 }
 
 .desAlimentacion {
@@ -226,37 +222,50 @@
   gap: 10px;
 }
 
-.verMasAlimentacion a{
-    color: #D9D9D9;
-    font-size: 1rem;
-    transition: all 0.4s;
+.verMasAlimentacion a {
+  color: #d9d9d9;
+  font-size: 1rem;
+  transition: all 0.4s;
 }
 
-.verMasAlimentacion a:hover{
-    color: #440E03;
+.verMasAlimentacion a:hover {
+  color: #440e03;
+}
+
+.footerNutrition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px;
+  padding: 20px;
+
+  border: 1px solid #3b3b3b;
+  border-radius: 10px;
+}
+
+.footerNutrition h5 {
+  font-size: 2rem;
 }
 
 @media (max-width: 760px) {
+  .alimentoIndex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    
-    .alimentoIndex{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    margin-left: 10px;
+  }
 
-      margin-left: 10px;
-    }
+  .alimentoIndex label {
+    font-size: 1.4rem;
+    text-align: center;
+  }
 
-    .alimentoIndex label{
-      font-size: 1.4rem;
-      text-align: center;
-    }
+  .alimentaciónDescripcion {
+    display: grid;
 
-    .alimentaciónDescripcion{
-        display: grid;
-
-        width: 250px;
-    }
-
+    width: 250px;
+  }
 }
