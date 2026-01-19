@@ -20,6 +20,12 @@
                 "calorias": "130",
                 "proteina": "29",
                 "imagen": "/image/atun.png"
+            },
+            {
+                "nombre": "Huevos",
+                "calorias": "155",
+                "proteina": "13",
+                "imagen":"/image/egg.png"
             }
         ]
     },
