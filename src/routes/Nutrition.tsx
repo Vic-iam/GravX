@@ -52,7 +52,7 @@ const Nutrition = () => {
             <h2>Lista de alimentos</h2>
           </div>
 
-          <button
+          <button 
             className={style.iconStyle}
             onClick={() =>
               searchRef.current?.scrollIntoView({
@@ -64,6 +64,7 @@ const Nutrition = () => {
           >
             <GoChevronDown />
           </button>
+
         </div>
       </section>
 
