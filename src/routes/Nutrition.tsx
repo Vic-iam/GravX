@@ -1,27 +1,22 @@
-'use client';
+"use client";
 
 // --------------------
 // Imports
 // --------------------
-import { useRef, useState } from 'react';
-import { Link } from 'react-router';
-import { GoChevronDown } from 'react-icons/go';
+import { useRef, useState } from "react";
+import { Link } from "react-router";
+import { GoChevronDown } from "react-icons/go";
 
-import Aurora from '../components/Aurora';
-import nutricion from '../data/nutrition.json';
-import style from './Style/Nutrition.module.css';
+import Aurora from "../components/Aurora";
+import nutricion from "../data/nutrition.json";
+import style from "./Style/Nutrition.module.css";
 
 // --------------------
 // Component
 // --------------------
 const Nutrition = () => {
-  const searchRef = useRef(null);
-  const [search, setSearch] = useState('');
-
-  // Filtro por nombre de alimento
-  const nutricionFiltrada = nutricion.filter((grupo) =>
-    grupo.nombre.toLowerCase().includes(search.toLowerCase())
-  );
+  const searchRef = useRef<HTMLDivElement | null>(null);
+  const [search, setSearch] = useState("");
 
   return (
     <div className={style.nutritionBody}>
@@ -31,7 +26,7 @@ const Nutrition = () => {
       <section className={style.presentationNutrition}>
         <div className={style.auroraBg}>
           <Aurora
-            colorStops={['#9C1107', '#0C0A09', '#9C1107']}
+            colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
             blend={0.5}
             amplitude={1.0}
             speed={0.5}
@@ -40,10 +35,10 @@ const Nutrition = () => {
 
         <div className={style.nutritionContainer}>
           <h1>La Alimentación</h1>
-          <p>Es una de las cosas más importantes de la vida</p>
+          <p>"Es una de las cosas más importantes de la vida"</p>
           <p>
-            Descubre y organiza tu alimentación contando calorías, proteínas y
-            carbohidratos.
+            Descubre y organiza tu alimentación contando las calorías,
+            carbohidratos y proteínas
           </p>
         </div>
 
@@ -52,20 +47,21 @@ const Nutrition = () => {
             <h2>Lista de alimentos</h2>
           </div>
 
-          <button 
+          <Link
+            to="/Nutrition"
             className={style.iconStyle}
-            onClick={() =>
+            onClick={(e) => {
+              e.preventDefault();
               searchRef.current?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-              })
-            }
-            aria-label="Ir a la lista de alimentos"
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
           >
             <GoChevronDown />
-          </button>
-
+          </Link>
         </div>
+
       </section>
 
       {/* ==================== */}
@@ -74,9 +70,8 @@ const Nutrition = () => {
       <section ref={searchRef} className={style.listContainer}>
         <div className={style.alimentosContainer}>
           <div className={style.alimentoIndex}>
-            <label htmlFor="search">Busca el alimento</label>
+            <label>Busca el alimento</label>
             <input
-              id="search"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -84,17 +79,17 @@ const Nutrition = () => {
             />
           </div>
 
-          {nutricionFiltrada.map((grupo) => (
-            <div key={grupo.id}>
-              <div className={style.titleAlimentacion}>
-                <h3>{grupo.nombre}</h3>
+          {nutricion.map((nutricio) => (
+            <div key={nutricio.id}>
+              <div className={style.titleAlimentancion}>
+                <h3>{nutricio.nombre}</h3>
               </div>
 
               <div className={style.styleNutricion}>
-                {grupo.types.map((item) => (
+                {nutricio.types.map((item) => (
                   <div
                     key={item.nombre}
-                    className={style.alimentacionDescripcion}
+                    className={style.alimentaciónDescripcion}
                   >
                     <div className={style.desAlimentacion}>
                       <h4>{item.nombre}</h4>
@@ -115,15 +110,8 @@ const Nutrition = () => {
         </div>
       </section>
 
-      {/* ==================== */}
-      {/* Footer Section */}
-      {/* ==================== */}
       <section className={style.footerNutrition}>
-        <h5>¿Para qué te servirá esto?</h5>
-        <p>
-          Para conocer mejor lo que comes y tomar decisiones más saludables en
-          tu día a día.
-        </p>
+        <h5>¿Para qué te serviría?</h5>
       </section>
     </div>
   );
