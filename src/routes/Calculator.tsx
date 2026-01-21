@@ -20,7 +20,7 @@ const  Calculator = () => {
 
             <div className={style.calculatorContainer}>
 
-                <h1>Calculadora de Gravedad</h1>
+                <h1>Calculadora de peso</h1>
 
             </div>
 
