@@ -3,6 +3,7 @@ import Aurora from "../components/Aurora";
 
 
 const Workouts = () => {
+
   return (
     <div className={style.workoutsBody}>
 
@@ -27,6 +28,7 @@ const Workouts = () => {
     </div>
 
   );
+  
 };
 
 export default Workouts;
