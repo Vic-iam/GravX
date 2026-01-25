@@ -50,6 +50,12 @@
                 "calorias": "370",
                 "proteina": "14",
                 "imagen": "/image/quinoa.png"
+            },
+            {
+                "nombre": "Cebada",
+                "calorias": "350",
+                "proteina": "11",
+                "imagen": "/image/cebada.png"
             }
         ]
     },
@@ -74,6 +80,12 @@
                 "calorias": "33",
                 "proteina": "0.6",
                 "imagen": "/image/melon.png"
+            },
+            {
+                "nombre": "Banana",
+                "calorias": "95",
+                "proteina": "1.3",
+                "imagen": "/image/banana.png"
             }
         ]
     },
@@ -98,6 +110,12 @@
                 "calorias": "20",
                 "proteina": "1",
                 "imagen": "/image/pepino.png"
+            },
+            {
+                "nombre": "Brocoli",
+                "calorias": "34",
+                "proteina": "2.8",
+                "imagen": "/image/brocoli.png"
             }
         ]
     }
