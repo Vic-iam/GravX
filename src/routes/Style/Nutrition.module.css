@@ -370,7 +370,7 @@
 
 .information{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 
   gap: 10px;
@@ -383,9 +383,11 @@
   align-items: center;
   gap: 10px;
   flex-direction: column;
+  
 }
 
 .titleInformation h6{
+  text-align: center;
   font-size: 1.4rem;
 }
 
