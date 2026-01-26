@@ -362,16 +362,19 @@
 
 .titleMacros h6{
   font-size: 1.8rem;
+  text-align: center;
 }
 
 .macrosInformation h6{
   font-size: 1.4rem;
+  text-align: center;
 }
 
 .information{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   gap: 10px;
 }
@@ -381,18 +384,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   flex-direction: column;
+  padding: 20px;
+  text-align: center;
+
+
+  gap: 20px;
   
 }
 
 .titleInformation h6{
-  text-align: center;
   font-size: 1.4rem;
 }
 
 .liProteina, .liCarbohidratos, .liGrasas, .liVegetales{
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.liProteina li, .liCarbohidratos li, .liGrasas li, .liVegetales li{
+  margin: 4px 0;
 }
 
 @media (max-width: 760px) {
@@ -415,4 +430,5 @@
 
     width: 250px;
   }
+
 }

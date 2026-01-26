@@ -3,7 +3,7 @@
 // --------------------
 // Imports
 // --------------------
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
@@ -22,6 +22,8 @@ import { GiCoconuts } from "react-icons/gi";
 const Nutrition = () => {
   const searchRef = useRef<HTMLDivElement | null>(null);
   const [search, setSearch] = useState("");
+
+  
 
   return (
     <div className={style.nutritionBody}>
@@ -83,12 +85,15 @@ const Nutrition = () => {
             />
           </div>
 
+          
+
           {nutricion.map((nutricio) => {
             const filteredTypes = nutricio.types.filter((item) =>
               item.nombre.toLowerCase().includes(search.toLowerCase())
             );
 
             if (filteredTypes.length === 0) return null;
+  
 
             return (
               <div key={nutricio.id}>
@@ -191,6 +196,7 @@ const Nutrition = () => {
               <GiCoconuts />
               <div className={style.liGrasas}>
                 <li>Mantequilla de mani</li>
+                <li>Aguacate(palta)</li>
                 <li>Merey</li>
                 <li>Almendra</li>
                 <li>Pistacho</li>
