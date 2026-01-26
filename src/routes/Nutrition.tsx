@@ -3,7 +3,7 @@
 // --------------------
 // Imports
 // --------------------
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
