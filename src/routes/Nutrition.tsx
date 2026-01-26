@@ -12,7 +12,7 @@ import nutricion from "../data/nutrition.json";
 import style from "./Style/Nutrition.module.css";
 
 import { BsEggFried } from "react-icons/bs";
-import { FaBowlRice, FaCarrot  } from "react-icons/fa6";
+import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
 
 
@@ -83,34 +83,42 @@ const Nutrition = () => {
             />
           </div>
 
-          {nutricion.map((nutricio) => (
-            <div key={nutricio.id}>
-              <div className={style.titleAlimentancion}>
-                <h3>{nutricio.nombre}</h3>
-              </div>
+          {nutricion.map((nutricio) => {
+            const filteredTypes = nutricio.types.filter((item) =>
+              item.nombre.toLowerCase().includes(search.toLowerCase())
+            );
 
-              <div className={style.styleNutricion}>
-                {nutricio.types.map((item) => (
-                  <div
-                    key={item.nombre}
-                    className={style.alimentaciónDescripcion}
-                  >
-                    <div className={style.desAlimentacion}>
-                      <h4>{item.nombre}</h4>
-                      <p>Calorías: {item.calorias} kcal x 100g</p>
-                      <p>Proteínas: {item.proteina} g x 100g</p>
+            if (filteredTypes.length === 0) return null;
 
-                      <div className={style.verMasAlimentacion}>
-                        <Link to="/">Ver más</Link>
+            return (
+              <div key={nutricio.id}>
+                <div className={style.titleAlimentancion}>
+                  <h3>{nutricio.nombre}</h3>
+                </div>
+
+                <div className={style.styleNutricion}>
+                  {filteredTypes.map((item) => (
+                    <div
+                      key={item.nombre}
+                      className={style.alimentaciónDescripcion}
+                    >
+                      <div className={style.desAlimentacion}>
+                        <h4>{item.nombre}</h4>
+                        <p>Calorías: {item.calorias} kcal x 100g</p>
+                        <p>Proteínas: {item.proteina} g x 100g</p>
+
+                        <div className={style.verMasAlimentacion}>
+                          <Link to="/">Ver más</Link>
+                        </div>
                       </div>
-                    </div>
 
-                    <img src={item.imagen} alt={item.nombre} />
-                  </div>
-                ))}
+                      <img src={item.imagen} alt={item.nombre} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
