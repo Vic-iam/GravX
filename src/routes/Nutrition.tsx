@@ -125,7 +125,6 @@ const Nutrition = () => {
 
       <section className={style.footerNutrition}>
 
-
         <div className={style.auroraBgInverse}>
           <Aurora
             colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
@@ -134,7 +133,6 @@ const Nutrition = () => {
             speed={0.5}
           />
         </div>
-
 
         <div className={style.footerIndex}>
           <h5>¿Para qué te serviría?</h5>
@@ -161,25 +159,63 @@ const Nutrition = () => {
               <BsEggFried />
               <div className={style.liProteina}>
                 <li>Pollo</li>
-                <li>Pollo</li>
-                <li>Pollo</li>
-                <li>Pollo</li>
-                <li>Pollo</li>
-                <li>Pollo</li>
-                <li>Pollo</li>
+                <li>Pescado</li>
+                <li>Cerdo</li>
+                <li>Pavo</li>
+                <li>Yogurt griego</li>
+                <li>Huevos</li>
+                <li>Carnes de res</li>
+                <li>Batido de proteinas</li>
+                <li>Frijoles</li>
+                <li>Tofu</li>
               </div>
             </div>
             <div className={style.titleInformation}>
               <h6>Carbohidratos</h6>
               <FaBowlRice />
+              <div className={style.liCarbohidratos}>
+                <li>Arroz</li>
+                <li>Pasta</li>
+                <li>Quinoa</li>
+                <li>Cuscus</li>
+                <li>Trigo</li>
+                <li>Avena</li>
+                <li>Papas</li>
+                <li>Frijoles</li>
+                <li>Frutas</li>
+                <li>Fideos de arroz</li>
+              </div>
             </div>
             <div className={style.titleInformation}>
               <h6>Grasas</h6>
               <GiCoconuts />
+              <div className={style.liGrasas}>
+                <li>Mantequilla de mani</li>
+                <li>Merey</li>
+                <li>Almendra</li>
+                <li>Pistacho</li>
+                <li>Aceite de pescado</li>
+                <li>Aceite de coco</li>
+                <li>Aceite de oliva</li>
+                <li>Semilla de chia</li>
+                <li>Semilla de lino</li>
+              </div>
             </div>
             <div className={style.titleInformation}>
               <h6>Vegetales</h6>
               <FaCarrot />
+              <div className={style.liVegetales}>
+                <li>Brocoli</li>
+                <li>Repollo</li>
+                <li>Colifrlor</li>
+                <li>Espinaca</li>
+                <li>Pepino</li>
+                <li>Esparragos</li>
+                <li>Calabacin</li>
+                <li>Berenjenas</li>
+                <li>Zanahorias</li>
+                <li>Pimenton</li>
+              </div>
             </div>
           </div>
 
