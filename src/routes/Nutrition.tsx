@@ -11,6 +11,11 @@ import Aurora from "../components/Aurora";
 import nutricion from "../data/nutrition.json";
 import style from "./Style/Nutrition.module.css";
 
+import { BsEggFried } from "react-icons/bs";
+import { FaBowlRice, FaCarrot  } from "react-icons/fa6";
+import { GiCoconuts } from "react-icons/gi";
+
+
 // --------------------
 // Component
 // --------------------
@@ -34,8 +39,7 @@ const Nutrition = () => {
         </div>
 
         <div className={style.nutritionContainer}>
-          <h1>La Alimentación</h1>
-          <p>"Es una de las cosas más importantes de la vida"</p>
+          <h1>Alimentación</h1>
           <p>
             Descubre y organiza tu alimentación contando las calorías,
             carbohidratos y proteínas
@@ -110,8 +114,69 @@ const Nutrition = () => {
         </div>
       </section>
 
+
       <section className={style.footerNutrition}>
-        <h5>¿Para qué te serviría?</h5>
+
+
+        <div className={style.auroraBgInverse}>
+          <Aurora
+            colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
+            blend={0.5}
+            amplitude={1.0}
+            speed={0.5}
+          />
+        </div>
+
+
+        <div className={style.footerIndex}>
+          <h5>¿Para qué te serviría?</h5>
+          <p>Alimentarse son unas de las cosas mas importante de la vida.
+            Y sobre todo alimentarse correctamente. Asi que con eso esto te ayudara a organizar y poder conocer tus macros de alimentancion
+          </p>
+          <p>Que seria los macros?</p>
+        </div>
+
+        <div className={style.macrosContainer}>
+
+          <div className={style.titleMacros}>
+            <h6>Los macros (macrosnutrientes)</h6>
+            <p>son los nutrientes que el cuerpo necesita en grandes cantidades para obtener energía, crecer y regular procesos metabólicos</p>
+          </div>
+
+          <div className={style.macrosInformation}>
+            <h6>Como indentificar los macrosnutrientes</h6>
+          </div>
+
+          <div className={style.information}>
+            <div className={style.titleInformation}>
+              <h6>Proteinas</h6>
+              <BsEggFried />
+              <div className={style.liProteina}>
+                <li>Pollo</li>
+                <li>Pollo</li>
+                <li>Pollo</li>
+                <li>Pollo</li>
+                <li>Pollo</li>
+                <li>Pollo</li>
+                <li>Pollo</li>
+              </div>
+            </div>
+            <div className={style.titleInformation}>
+              <h6>Carbohidratos</h6>
+              <FaBowlRice />
+            </div>
+            <div className={style.titleInformation}>
+              <h6>Grasas</h6>
+              <GiCoconuts />
+            </div>
+            <div className={style.titleInformation}>
+              <h6>Vegetales</h6>
+              <FaCarrot />
+            </div>
+          </div>
+
+        </div>
+
       </section>
     </div>
   );
