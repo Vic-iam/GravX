@@ -179,15 +179,15 @@ const Nutrition = () => {
               <h6>Carbohidratos</h6>
               <FaBowlRice />
               <div className={style.liCarbohidratos}>
+                <li>Trigo</li>
                 <li>Arroz</li>
                 <li>Pasta</li>
-                <li>Quinoa</li>
                 <li>Cuscus</li>
-                <li>Trigo</li>
                 <li>Avena</li>
                 <li>Papas</li>
-                <li>Frijoles</li>
                 <li>Frutas</li>
+                <li>Quinoa</li>
+                <li>Frijoles</li>
                 <li>Fideos de arroz</li>
               </div>
             </div>
@@ -196,8 +196,8 @@ const Nutrition = () => {
               <GiCoconuts />
               <div className={style.liGrasas}>
                 <li>Merey</li>
-                <li>Almendra</li>
                 <li>Pistacho</li>
+                <li>Almendra</li>
                 <li>Aceite de coco</li>
                 <li>Aceite de oliva</li>
                 <li>Semilla de chia</li>
@@ -214,13 +214,13 @@ const Nutrition = () => {
                 <li>Brocoli</li>
                 <li>Repollo</li>
                 <li>Pepino</li>
-                <li>Pimenton</li>
                 <li>Colifrlor</li>
-                <li>Calabacin</li>
-                <li>Berenjenas</li>
                 <li>Espinaca</li>
-                <li>Esparragos</li>
+                <li>Pimenton</li>
+                <li>Calabacin</li>
                 <li>Zanahorias</li>
+                <li>Berenjenas</li>
+                <li>Esparragos</li>
               </div>
             </div>
           </div>
