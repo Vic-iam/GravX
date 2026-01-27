@@ -429,4 +429,27 @@
     width: 250px;
   }
 
+  .titleMacros h6{
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.macrosInformation h6{
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+  .titleInformation h6{
+  font-size: 1rem;
+}
+
+  .liProteina, .liCarbohidratos, .liGrasas, .liVegetales{
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 }

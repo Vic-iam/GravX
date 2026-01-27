@@ -163,16 +163,16 @@ const Nutrition = () => {
               <h6>Proteinas</h6>
               <BsEggFried />
               <div className={style.liProteina}>
+                <li>Tofu</li>
                 <li>Pollo</li>
-                <li>Pescado</li>
-                <li>Cerdo</li>
                 <li>Pavo</li>
-                <li>Yogurt griego</li>
+                <li>Cerdo</li>
+                <li>Frijoles</li>
                 <li>Huevos</li>
+                <li>Pescado</li>
+                <li>Yogurt griego</li>
                 <li>Carnes de res</li>
                 <li>Batido de proteinas</li>
-                <li>Frijoles</li>
-                <li>Tofu</li>
               </div>
             </div>
             <div className={style.titleInformation}>
@@ -195,16 +195,16 @@ const Nutrition = () => {
               <h6>Grasas</h6>
               <GiCoconuts />
               <div className={style.liGrasas}>
-                <li>Mantequilla de mani</li>
-                <li>Aguacate(palta)</li>
                 <li>Merey</li>
                 <li>Almendra</li>
                 <li>Pistacho</li>
-                <li>Aceite de pescado</li>
                 <li>Aceite de coco</li>
                 <li>Aceite de oliva</li>
                 <li>Semilla de chia</li>
                 <li>Semilla de lino</li>
+                <li>Aguacate(palta)</li>
+                <li>Aceite de pescado</li>
+                <li>Mantequilla de mani</li>
               </div>
             </div>
             <div className={style.titleInformation}>
@@ -213,14 +213,14 @@ const Nutrition = () => {
               <div className={style.liVegetales}>
                 <li>Brocoli</li>
                 <li>Repollo</li>
-                <li>Colifrlor</li>
-                <li>Espinaca</li>
                 <li>Pepino</li>
-                <li>Esparragos</li>
+                <li>Pimenton</li>
+                <li>Colifrlor</li>
                 <li>Calabacin</li>
                 <li>Berenjenas</li>
+                <li>Espinaca</li>
+                <li>Esparragos</li>
                 <li>Zanahorias</li>
-                <li>Pimenton</li>
               </div>
             </div>
           </div>
