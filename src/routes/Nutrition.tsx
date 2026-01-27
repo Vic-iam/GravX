@@ -15,16 +15,13 @@ import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
 
-
 // --------------------
 // Component
 // --------------------
 const Nutrition = () => {
   const searchRef = useRef<HTMLDivElement | null>(null);
   const [search, setSearch] = useState("");
-
   
-
   return (
     <div className={style.nutritionBody}>
       {/* ==================== */}
@@ -126,7 +123,6 @@ const Nutrition = () => {
           })}
         </div>
       </section>
-
 
       <section className={style.footerNutrition}>
 

@@ -15,6 +15,7 @@ import Biceps from "../assets/rutinaBicep.png";
 import Pierna from "../assets/rutinaPierna.png";
 
 const Home = () => {
+    
     const velocity = 40;
 
     return (
