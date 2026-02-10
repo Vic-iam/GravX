@@ -19,7 +19,8 @@ export const alimentos: Categoria[] = [
     id: 1,
     nombre: "Proteinas",
     types: [
-      { nombre: "Pollo",detalle: "El pollo es una excelente fuente de proteínas de alto valor biológico, bajo en grasas (especialmente la pechuga sin piel) y rico en vitaminas del complejo B (B3, B6, B12) y minerales esenciales como fósforo, zinc, selenio y hierro, contribuyendo al metabolismo energético, el sistema inmunológico y la salud ósea, con bajo contenido calórico y carbohidratos nulos, haciéndolo ideal para dietas equilibradas. " , calorias: 239, proteina: 27, imagen: "/image/chicken.png" },
+      { nombre: "Pollo",
+        detalle: "El pollo es una excelente fuente de proteínas de alto valor biológico, bajo en grasas (especialmente la pechuga sin piel) y rico en vitaminas del complejo B (B3, B6, B12) y minerales esenciales como fósforo, zinc, selenio y hierro, contribuyendo al metabolismo energético, el sistema inmunológico y la salud ósea, con bajo contenido calórico y carbohidratos nulos, haciéndolo ideal para dietas equilibradas. " , calorias: 239, proteina: 27, imagen: "/image/chicken.png" },
       { nombre: "Carne", calorias: 143, proteina: 26, imagen: "/image/steak.png" },
       { nombre: "Atun", calorias: 130, proteina: 29, imagen: "/image/atun.png" },
       { nombre: "Huevos", calorias: 155, proteina: 13, imagen: "/image/egg.png" }
