@@ -8,12 +8,13 @@ import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
 import Aurora from "../components/Aurora";
-import nutricion from "../data/nutrition.json";
+import { alimentos as nutricion } from "../data/nutrition";
 import style from "./Style/Nutrition.module.css";
 
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
+import ItemNutrition from "../components/ItemNutrition";
 
 // --------------------
 // Component
@@ -21,7 +22,7 @@ import { GiCoconuts } from "react-icons/gi";
 const Nutrition = () => {
   const searchRef = useRef<HTMLDivElement | null>(null);
   const [search, setSearch] = useState("");
-  
+
   return (
     <div className={style.nutritionBody}>
       {/* ==================== */}
@@ -84,43 +85,44 @@ const Nutrition = () => {
 
           
 
-          {nutricion.map((nutricio) => {
-            const filteredTypes = nutricio.types.filter((item) =>
-              item.nombre.toLowerCase().includes(search.toLowerCase())
-            );
+          {nutricion.map((categoria) => {
+              const itemsFiltrados = categoria.types.filter((item) =>
+                item.nombre.toLowerCase().includes(search.toLowerCase())
+              );
 
-            if (filteredTypes.length === 0) return null;
-  
+              if (itemsFiltrados.length === 0) return null;
 
-            return (
-              <div key={nutricio.id}>
-                <div className={style.titleAlimentancion}>
-                  <h3>{nutricio.nombre}</h3>
-                </div>
+              return (
+                <div key={categoria.id}>
+                  <div className={style.titleAlimentancion}>
+                    <h3>{categoria.nombre}</h3>
+                  </div>
 
-                <div className={style.styleNutricion}>
-                  {filteredTypes.map((item) => (
-                    <div
-                      key={item.nombre}
-                      className={style.alimentaciónDescripcion}
-                    >
-                      <div className={style.desAlimentacion}>
-                        <h4>{item.nombre}</h4>
-                        <p>Calorías: {item.calorias} kcal x 100g</p>
-                        <p>Proteínas: {item.proteina} g x 100g</p>
+                  <div className={style.styleNutricion}>
+                    {itemsFiltrados.map((item) => (
+                      <div
+                        key={item.nombre}
+                        className={style.alimentaciónDescripcion}
+                      >
+                        <div className={style.desAlimentacion}>
+                          <h4>{item.nombre}</h4>
+                          <p>Calorías: {item.calorias} kcal x 100g</p>
+                          <p>Proteínas: {item.proteina} g x 100g</p>
 
-                        <div className={style.verMasAlimentacion}>
-                          <Link to="/">Ver más</Link>
+                          <div className={style.verMasAlimentacion}>
+                            <ItemNutrition item={item} />
+                          </div>
                         </div>
-                      </div>
 
-                      <img src={item.imagen} alt={item.nombre} />
-                    </div>
-                  ))}
+                        <img src={item.imagen} alt={item.nombre} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+
+
         </div>
       </section>
 
