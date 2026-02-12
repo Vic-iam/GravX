@@ -172,9 +172,10 @@ export const alimentos: Categoria[] = [
 export const getOneProduct = (nombre: string): Promise<AlimentoItem> => {
   return new Promise((resolve, reject) => {
     const found = alimentos
-      .flatMap((c) => c.types)
-      .find((i) => i.nombre === nombre);
+      .flatMap(c => c.types)
+      .find(i => i.nombre.toLowerCase() === nombre.toLowerCase());
 
-    found ? resolve(found) : reject("No existe");
+    if (found) resolve(found);
+    else reject("No existe");
   });
 };
