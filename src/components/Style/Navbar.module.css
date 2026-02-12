@@ -1,5 +1,6 @@
 :root {
-  --color-bg:
+  --color-bg:  
+;
 }
 
 .header {
@@ -25,7 +26,9 @@
 .imageLogo img {
   height: 100px;
   width: 150px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .imageLogo img:hover {
@@ -50,87 +53,101 @@ ul {
 }
 
 .Links a {
-  color: #D9D9D9;
+  color: #d9d9d9;
   text-decoration: none;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .Links a:hover {
-  color: #E53935;
+  color: #e53935;
 }
 
 .itemToggle {
   display: none;
+  font-size: 28px;
+  color: white;
+  background: none;
+  border: none;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.itemToggle span {
-  width: 30px;
-  height: 4px;
-  background-color: white;
-  margin-bottom: 5px;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+.itemToggle:hover {
+  transform: scale(1.2);
+  color: #e53935;
 }
 
 .LinksDate {
   text-align: center;
 }
 
-.loginStyle {
-  color: #D9D9D9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.Links a {
+  position: relative;
+  transition: color 0.25s ease;
 }
 
-.loginStyle a {
-  text-decoration: none;
-  text-align: center;
-  color: #D9D9D9;
-  border: 1px solid #2E2E2E;
-  border-radius: 20px;
-  padding: 15px;
-  transition: all 0.4s;
-  display: flex;
-  gap: 10px;
+.Links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #e53935;
+  transition: width 0.25s ease;
 }
 
-.loginStyle a:hover {
-  background-color: #440E03;
+.Links a:hover::after {
+  width: 100%;
+}
+
+.activeLink {
+  color: #e53935 !important;
+}
+
+.activeLink::after {
+  width: 100% !important;
 }
 
 .linksDateToggle {
   display: none;
 }
 
-@media (max-width: 768px) {
+.backdrop {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 998;
+  animation: fadeIn 0.25s ease;
+}
 
-  .navbar{
+@media (max-width: 768px) {
+  .navbar {
     height: 40px;
   }
 
   .menuLinks {
     position: fixed;
-    bottom: 0;
     right: 0;
-    background-color: black;
-    opacity: 0.9;
+    top: 0;
     height: 100vh;
-    width: 100%;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.35s ease;
+    z-index: 999;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    transform: translateX(-100%);
-    transition: transform 0.4s ease;
-    z-index: 999;
-    border: 1px solid white;
+    justify-content: space-between;
+    padding: 40px 20px;
   }
 
   .menuLinks.open {
     transform: translateX(0);
+    opacity: 1;
   }
 
   .linea {
@@ -146,11 +163,6 @@ ul {
     justify-content: center;
     flex-direction: column;
     gap: 50px;
-
-  }
-
-  .Links a {
-    gap: 25px;
   }
 
   .LinksDate {
@@ -162,7 +174,7 @@ ul {
   }
 
   .loginStyleToggle {
-    color: #D9D9D9;
+    color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -172,8 +184,8 @@ ul {
   .loginStyleToggle a {
     text-decoration: none;
     text-align: center;
-    color: #D9D9D9;
-    border: 1px solid #2E2E2E;
+    color: #d9d9d9;
+    border: 1px solid #2e2e2e;
     border-radius: 20px;
     padding: 15px;
     transition: all 0.4s;
@@ -182,30 +194,25 @@ ul {
   }
 
   .loginStyleToggle a:hover {
-    background-color: #440E03;
+    background-color: #440e03;
   }
 
   .itemToggle {
-    display: flex;
-    flex-direction: column;
+    display: block;
     z-index: 1000;
-  }
-
-  .open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .open span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
   }
 
   .imageLogo img {
     width: 150px;
     height: 100px;
   }
+}
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

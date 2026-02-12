@@ -5,7 +5,7 @@ interface Props {
   item: AlimentoItem
 }
 
-const ItemNutrition = ({ item }: Props) => {
+const ButtonItemNutrition = ({ item }: Props) => {
   return (
     <Link to={`/Item/${item.nombre}`}>
       Ver detalle
@@ -13,4 +13,4 @@ const ItemNutrition = ({ item }: Props) => {
   )
 }
 
-export default ItemNutrition
+export default ButtonItemNutrition

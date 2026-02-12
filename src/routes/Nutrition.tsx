@@ -14,7 +14,7 @@ import style from "./Style/Nutrition.module.css";
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
-import ItemNutrition from "../components/ItemNutrition";
+import ItemNutrition from "../components/ButtonItemNutrition";
 
 // --------------------
 // Component

@@ -1,67 +1,77 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router"
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/marcaGravX.png";
 import style from "./Style/Navbar.module.css";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    useEffect(() => {
-        document.body.style.overflow = isOpen ? "hidden" : "auto";
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, [isOpen]);
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-    const handleLinkClick = () => {
+  // bloquear scroll cuando menú abre
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
+  }, [isOpen]);
+
+  // cerrar al click fuera
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!menuRef.current?.contains(e.target as Node)) {
         setIsOpen(false);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+      }
+    };
 
-    return (
-        <header className={style.header}>
-            <div className={style.navbar}>
-                <div className={style.imageLogo}>
-                    <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-                        <img src={Logo} alt="Logo GravX" />
-                    </Link>
-                </div>
+    if (isOpen) document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [isOpen]);
 
-                <div
-                    className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
-                    onClick={() => setIsOpen(false)}
-                >
-                    <ul className={style.Links}>
-                        <li><Link to="/" onClick={handleLinkClick}>Inicio</Link></li>
-                        <li><Link to="/Nutrition" onClick={handleLinkClick}>Alimentacion</Link></li>
-                        <li><Link to="/Workouts" onClick={handleLinkClick}>Rutinas</Link></li>
-                        <li><Link to="/Calculator" onClick={handleLinkClick}>Calculadora</Link></li>
-                        <div className={style.linea}></div>
-                        <div className={style.linksDateToggle}>
-                            <div className={style.loginStyleToggle}>
-                                <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Login</Link></li>
-                            </div>
-                        </div>
-                    </ul>
-                </div>
-                <ul className={style.LinksDate}>
-                    <div className={style.loginStyle}>
-                        <li><Link to="/Login" onClick={handleLinkClick}><FaUser />Login</Link></li>
-                    </div>
-                </ul>
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const activeClass = ({ isActive }: any) =>
+    isActive ? style.activeLink : "";
+
+  return (
+    <header className={style.header}>
+      <div className={style.navbar}>
+        <Link to="/" className={style.imageLogo}>
+          <img src={Logo} alt="Logo GravX" />
+        </Link>
+
+        {isOpen && <div className={style.backdrop} />}
+
+        <div
+          ref={menuRef}
+          className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
+        >
+          <ul className={style.Links}>
+            <li><NavLink to="/" className={activeClass} onClick={handleLinkClick}>Inicio</NavLink></li>
+            <li><NavLink to="/Nutrition" className={activeClass} onClick={handleLinkClick}>Alimentación</NavLink></li>
+            <li><NavLink to="/Workouts" className={activeClass} onClick={handleLinkClick}>Rutinas</NavLink></li>
+            <li><NavLink to="/Calculator" className={activeClass} onClick={handleLinkClick}>Calculadora</NavLink></li>
 
 
-                <div
-                    className={`${style.itemToggle} ${isOpen ? style.open : ""}`}
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </header>
-    );
+          </ul>
+
+          <div className={style.loginBlock}>
+            <NavLink to="/Login" onClick={handleLinkClick}>
+              <FaUser /> Login
+            </NavLink>
+          </div>
+        </div>
+
+        <button
+          className={style.itemToggle}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;
