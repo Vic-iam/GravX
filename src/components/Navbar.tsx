@@ -8,13 +8,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // bloquear scroll cuando menú abre
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
 
-  // cerrar al click fuera
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (!menuRef.current?.contains(e.target as Node)) {
@@ -45,8 +43,7 @@ const Navbar = () => {
 
         <div
           ref={menuRef}
-          className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
-        >
+          className={`${style.menuLinks} ${isOpen ? style.open : ""}`} >
           <ul className={style.Links}>
             <li><NavLink to="/" className={activeClass} onClick={handleLinkClick}>Inicio</NavLink></li>
             <li><NavLink to="/Nutrition" className={activeClass} onClick={handleLinkClick}>Alimentación</NavLink></li>
@@ -57,7 +54,7 @@ const Navbar = () => {
           </ul>
 
           <div className={style.loginBlock}>
-            <NavLink to="/Login" onClick={handleLinkClick}>
+            <NavLink to="/Login" className={activeClass} onClick={handleLinkClick}>
               <FaUser /> Login
             </NavLink>
           </div>
