@@ -1,4 +1,4 @@
-import style from "./styles/Item.module.css";
+import style from "./Style/Item.module.css";
 import type { AlimentoItem } from "../data/nutrition";
 import ButtonItemNutrition from "./ButtonItemNutrition";
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../data/nutrition";
 import type { Categoria } from "../data/nutrition";
 import ItemList from "./ItemList";
-import style from "./styles/ItemListContainer.module.css";
+import style from "./Styles/ItemListContainer.module.css";
 
 const ItemListContainer = () => {
   const [nutricion, setNutricion] = useState<Categoria[]>([]);

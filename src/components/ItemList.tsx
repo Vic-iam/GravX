@@ -1,4 +1,4 @@
-import style from "./styles/ItemList.module.css";
+import style from "./Styles/ItemList.module.css";
 import Item from "./Item";
 import type { Categoria } from "../data/nutrition";
 
