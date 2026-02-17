@@ -59,7 +59,7 @@
 }
 
 .LinkStyle{
-    z-index: 999;
+    z-index: 2;
 }
 
 .LinkStyle a{
@@ -85,6 +85,7 @@
 
     .detailContainer{
         padding-top: 80px;
+        display: flex;
     }
 
     .detailInformtaion{
@@ -92,4 +93,10 @@
         flex-direction: column;
     }
     
+    .indexDetail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }

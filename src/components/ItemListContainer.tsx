@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProducts } from "../data/nutrition";
 import type { Categoria } from "../data/nutrition";
 import ItemList from "./ItemList";
@@ -8,7 +8,6 @@ const ItemListContainer = () => {
   const [nutricion, setNutricion] = useState<Categoria[]>([]);
   const [search, setSearch] = useState<string>("");
 
-  const searchRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     getProducts()
@@ -17,11 +16,10 @@ const ItemListContainer = () => {
   }, []);
 
   return (
-    <section ref={searchRef} className={style.listContainer}>
+    <section className={style.listContainer}>
       <div className={style.alimentosContainer}>
         <div className={style.alimentoIndex}>
           <label>Busca el alimento</label>
-
           <input
             type="text"
             value={search}

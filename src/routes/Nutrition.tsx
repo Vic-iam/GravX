@@ -3,6 +3,7 @@
 // --------------------
 // Imports
 // --------------------
+import { useRef } from "react";
 import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
@@ -18,6 +19,7 @@ import ItemListContainer from "../components/ItemListContainer";
 // Component
 // --------------------
 const Nutrition = () => {
+  const searchRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className={style.nutritionBody}>
@@ -42,14 +44,31 @@ const Nutrition = () => {
           </p>
         </div>
 
-      
+        <div className={style.titleStyle}>
+          <div className={style.listTitle}>
+            <h2>Lista de alimentos</h2>
+          </div>
+
+          <Link
+            to="/Nutrition"
+            className={style.iconStyle}
+            onClick={(e) => {
+              e.preventDefault();
+              searchRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
+            <GoChevronDown />
+          </Link>
+        </div>
+
       </section>
 
-      {/* ==================== */}
-      {/* List Section */}
-      {/* ==================== */}
-
-      <ItemListContainer />
+    <div ref={searchRef}>
+      <ItemListContainer  />
+    </div>
 
 
       <section className={style.footerNutrition}>

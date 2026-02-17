@@ -132,61 +132,11 @@
    Alimentos Container
 ============================= */
 
-.alimentosContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-
-  padding: 20px;
-  margin: 10px;
-
-  border: 1px solid #3b3b3b;
-  border-radius: 10px;
-}
-
-.alimentoIndex {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-left: 40px;
-  gap: 20px;
-
-  padding: 20px;
-}
-
-.alimentoIndex label {
-  font-size: 1.8rem;
-}
 
 /* =============================
    Inputs
 ============================= */
 
-.alimentoIndex input {
-  width: 300px;
-  height: 20px;
-  padding: 15px;
-
-  font-size: 0.9rem;
-  color: inherit;
-
-  background-color: #3b3b3b;
-  border-radius: 10px;
-  border: none;
-
-  opacity: 0.5;
-  transition: all 0.4s ease;
-}
-
-.alimentoIndex input:hover {
-  background-color: #242424;
-  color: white;
-  opacity: 0.8;
-}
-
-.alimentoIndex input:active {
-  transform: scale(0.98);
-}
 
 /* =============================
    Nutrition Cards
@@ -398,6 +348,7 @@
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 0;
   padding: 0;
