@@ -1,0 +1,28 @@
+
+.alimentosContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #3b3b3b;
+  border-radius: 10px;
+}
+
+.alimentoIndex {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.alimentoIndex label {
+  font-size: 1.8rem;
+}
+
+.alimentoIndex input {
+  width: 300px;
+  padding: 15px;
+  background-color: #3b3b3b;
+  border-radius: 10px;
+  border: none;
+}

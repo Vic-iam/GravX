@@ -3,25 +3,21 @@
 // --------------------
 // Imports
 // --------------------
-import { useRef, useState } from "react";
 import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
 import Aurora from "../components/Aurora";
-import { alimentos as nutricion } from "../data/nutrition";
 import style from "./Style/Nutrition.module.css";
 
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
-import ItemNutrition from "../components/ButtonItemNutrition";
+import ItemListContainer from "../components/ItemListContainer";
 
 // --------------------
 // Component
 // --------------------
 const Nutrition = () => {
-  const searchRef = useRef<HTMLDivElement | null>(null);
-  const [search, setSearch] = useState("");
 
   return (
     <div className={style.nutritionBody}>
@@ -46,85 +42,15 @@ const Nutrition = () => {
           </p>
         </div>
 
-        <div className={style.titleStyle}>
-          <div className={style.listTitle}>
-            <h2>Lista de alimentos</h2>
-          </div>
-
-          <Link
-            to="/Nutrition"
-            className={style.iconStyle}
-            onClick={(e) => {
-              e.preventDefault();
-              searchRef.current?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }}
-          >
-            <GoChevronDown />
-          </Link>
-        </div>
-
+      
       </section>
 
       {/* ==================== */}
       {/* List Section */}
       {/* ==================== */}
-      <section ref={searchRef} className={style.listContainer}>
-        <div className={style.alimentosContainer}>
-          <div className={style.alimentoIndex}>
-            <label>Busca el alimento</label>
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Escribe el alimento"
-            />
-          </div>
 
-          
+      <ItemListContainer />
 
-          {nutricion.map((categoria) => {
-              const itemsFiltrados = categoria.types.filter((item) =>
-                item.nombre.toLowerCase().includes(search.toLowerCase())
-              );
-
-              if (itemsFiltrados.length === 0) return null;
-
-              return (
-                <div key={categoria.id}>
-                  <div className={style.titleAlimentancion}>
-                    <h3>{categoria.nombre}</h3>
-                  </div>
-
-                  <div className={style.styleNutricion}>
-                    {itemsFiltrados.map((item) => (
-                      <div
-                        key={item.nombre}
-                        className={style.alimentaciónDescripcion}
-                      >
-                        <div className={style.desAlimentacion}>
-                          <h4>{item.nombre}</h4>
-                          <p>Calorías: {item.calorias} kcal x 100g</p>
-                          <p>Proteínas: {item.proteina} g x 100g</p>
-
-                          <div className={style.verMasAlimentacion}>
-                            <ItemNutrition item={item} />
-                          </div>
-                        </div>
-
-                        <img src={item.imagen} alt={item.nombre} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-
-
-        </div>
-      </section>
 
       <section className={style.footerNutrition}>
 

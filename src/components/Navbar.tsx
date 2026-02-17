@@ -49,8 +49,6 @@ const Navbar = () => {
             <li><NavLink to="/Nutrition" className={activeClass} onClick={handleLinkClick}>Alimentación</NavLink></li>
             <li><NavLink to="/Workouts" className={activeClass} onClick={handleLinkClick}>Rutinas</NavLink></li>
             <li><NavLink to="/Calculator" className={activeClass} onClick={handleLinkClick}>Calculadora</NavLink></li>
-
-
           </ul>
 
           <div className={style.loginBlock}>

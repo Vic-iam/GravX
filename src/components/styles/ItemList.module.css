@@ -1,0 +1,19 @@
+.containerNutrition{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titleAlimentancion h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.styleNutricion {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}

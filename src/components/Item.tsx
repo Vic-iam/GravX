@@ -1,9 +1,24 @@
-import React from 'react'
+import style from "./styles/Item.module.css";
+import type { AlimentoItem } from "../data/nutrition";
+import ButtonItemNutrition from "./ButtonItemNutrition";
 
-const Item = () => {
-  return (
-    <div>Item</div>
-  )
+interface Props {
+  item: AlimentoItem;
 }
 
-export default Item
+const Item = ({ item }: Props) => {
+  return (
+    <div className={style.alimentacionDescripcion}>
+      <div className={style.desAlimentacion}>
+        <h4>{item.nombre}</h4>
+        <p>Calorías: {item.calorias} kcal x 100g</p>
+        <p>Proteínas: {item.proteina} g x 100g</p>
+        <ButtonItemNutrition item={item} />
+      </div>
+
+      <img src={item.imagen} alt={item.nombre} />
+    </div>
+  );
+};
+
+export default Item;

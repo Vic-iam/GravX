@@ -169,6 +169,20 @@ export const alimentos: Categoria[] = [
   },
 ];
 
+let error = false;
+
+export const getProducts = (): Promise<Categoria[]> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (error) {
+        reject("Hubo un error");
+      } else {
+        resolve(alimentos);
+      }
+    }, 500);
+  });
+};
+
 export const getOneProduct = (nombre: string): Promise<AlimentoItem> => {
   return new Promise((resolve, reject) => {
     const found = alimentos
@@ -179,3 +193,4 @@ export const getOneProduct = (nombre: string): Promise<AlimentoItem> => {
     else reject("No existe");
   });
 };
+
