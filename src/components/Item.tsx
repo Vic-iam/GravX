@@ -8,6 +8,7 @@ interface Props {
 
 const Item = ({ item }: Props) => {
   return (
+
     <div className={style.alimentacionDescripcion}>
       <div className={style.desAlimentacion}>
         <h4>{item.nombre}</h4>
@@ -21,6 +22,7 @@ const Item = ({ item }: Props) => {
 
       <img src={item.imagen} alt={item.nombre} />
     </div>
+
   );
 };
 

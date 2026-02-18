@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductsByCategory } from "../data/nutrition";
 import type { AlimentoItem } from "../data/nutrition";
-import Item from "./Item";
+import ItemCategory from "./ItemCategory";
 
 const CategoryNutritionContainer = () => {
   const { type } = useParams<{ type: string }>();
@@ -19,7 +19,7 @@ const CategoryNutritionContainer = () => {
   return (
     <div>
       {items.map(i => (
-        <Item key={i.nombre} item={i} />
+        <ItemCategory key={i.nombre} item={i} />
       ))}
     </div>
   );
