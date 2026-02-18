@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './routes/home'
+import Home from './routes/Home'
 import Calculator from './routes/Calculator'
 import Nutrition from './routes/Nutrition'
 import Workouts from './routes/Workouts'
