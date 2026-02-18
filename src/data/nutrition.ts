@@ -3,6 +3,8 @@ export interface AlimentoItem {
   nombre: string;
   calorias: number;
   proteina: number;
+  genero: string[];
+  categoria: string;
   imagen: string;
   detalle: string;
 }
@@ -21,23 +23,29 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Pollo",
+        genero: ["mayor-proteina","mayor-calorias"],
         detalle:
           "El pollo es una excelente fuente de proteínas de alto valor biológico, bajo en grasas (especialmente la pechuga sin piel) y rico en vitaminas del complejo B (B3, B6, B12) y minerales esenciales como fósforo, zinc, selenio y hierro, contribuyendo al metabolismo energético, el sistema inmunológico y la salud ósea, con bajo contenido calórico y carbohidratos nulos, haciéndolo ideal para dietas equilibradas. ",
         calorias: 239,
         proteina: 27,
+        categoria: "proteina",
         imagen: "/image/chicken.png",
       },
       {
         nombre: "Carne",
         calorias: 143,
+        genero: ["mayor-proteina", "menor-calorias"],
         proteina: 26,
         imagen: "/image/steak.png",
+        categoria: "proteina",
         detalle:
           "La carne de res es un alimento rico en nutrientes, destacando por su alto contenido de proteínas de alto valor biológico (aprox. 20-35g por cada 100g) y hierro hemo de fácil absorción. Proporciona vitaminas esenciales (especialmente B12) y minerales como zinc y selenio. En promedio, 100g de carne magra cocida aportan entre 170-250 calorías y de 2 a 10g de grasa, dependiendo del corte. ",
       },
       {
         nombre: "Atun",
         calorias: 130,
+        categoria: "proteina",
+        genero: ["mayor-proteina", "menor-calorias"],
         proteina: 29,
         imagen: "/image/atun.png",
         detalle:
@@ -46,7 +54,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Huevos",
         calorias: 155,
+        categoria: "proteina",
         proteina: 13,
+        genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/egg.png",
         detalle:
           "Un huevo mediano (50g) es un alimento de alto valor nutricional, con aproximadamente 70-75 kcal, 6-7g de proteínas de alto valor biológico y 5g de grasas saludables (mayormente insaturadas). Aporta vitaminas A, D, E, B12, así como colina, selenio y zinc, siendo un alimento básico versátil para la salud cardiovascular y cognitiva. ",
@@ -60,6 +70,8 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Arroz",
         calorias: 130,
+        categoria: "calorias",
+        genero: ["menor-proteina", "mayor-calorias"],
         proteina: 2.7,
         imagen: "/image/arroz.png",
         detalle:
@@ -68,7 +80,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Avena",
         calorias: 380,
+        categoria: "calorias",
         proteina: 13,
+        genero: ["mayor-protiena", "menor-calorias"],
         imagen: "/image/avena.png",
         detalle:
           "La avena es un cereal integral altamente nutritivo, rico en carbohidratos complejos, fibra (destacando el betaglucano) y proteínas vegetales. Por cada \(100\text{\ g}\), aporta aproximadamente \(360\text{-}390\text{\ kcal}\), \(\sim 12\text{-}13\text{\ g}\) de proteína, \(\sim 60\text{-}67\text{\ g}\) de carbohidratos y grasas saludables. Es una fuente excelente de energía sostenida, minerales como magnesio, fósforo y hierro, y vitaminas del grupo B. ",
@@ -76,7 +90,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Quinoa",
         calorias: 370,
+        categoria: "calorias",
         proteina: 14,
+        genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/quinoa.png",
         detalle:
           "La quinoa es un pseudocereal de alto valor nutricional, rico en proteínas completas (14-15%), fibra, y minerales como hierro, magnesio y zinc. Una taza (185g) de quinoa cocida aporta aproximadamente 222 calorías, 8g de proteínas, 5g de fibra y 39g de carbohidratos, siendo apta para celíacos al no contener gluten. ",
@@ -85,6 +101,8 @@ export const alimentos: Categoria[] = [
         nombre: "Cebada",
         calorias: 350,
         proteina: 11,
+        categoria: "calorias",
+        genero: ["menor-proteina", "mayor-calorias"],
         imagen: "/image/cebada.png",
         detalle:
           "La cebada es un cereal altamente nutritivo, rico en fibra (especialmente beta-glucanos) y minerales como potasio, magnesio y hierro. Una taza (157-184g) de cebada perlada cocida aporta aproximadamente 193-198 calorías, 3.5g de proteínas y alta fibra, ideal para la salud intestinal y la reducción del colesterol. Es baja en grasas y una excelente fuente de energía duradera. ",
@@ -98,7 +116,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Fresa",
         calorias: 33,
+        categoria: "calorias",
         proteina: 0.7,
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/fresas.png",
         detalle:
           "La fresa es una fruta de bajo aporte calórico (aprox. 32-35 kcal cada 100g) compuesta principalmente por agua. Es destacada por su alto contenido de Vitamina C (superior a la naranja), fibra, potasio y antioxidantes (antocianinas). Una porción de 100g aporta unos 7g de carbohidratos y menos de 1g de proteínas y grasas. ",
@@ -106,7 +126,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Sandia",
         calorias: 35,
+        categoria: "calorias",
         proteina: 1,
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/sandia.png",
         detalle:
           "La sandía es una fruta altamente hidratante, compuesta por más del 90% de agua, lo que la convierte en un alimento de muy bajo valor calórico (aprox. \(20-30\) kcal por \(100\) g). Es rica en licopeno (antioxidante), vitamina C, vitamina A y potasio, ideal para la salud cardiovascular y la hidratación. ",
@@ -114,7 +136,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Melon",
         calorias: 33,
+        categoria: "calorias",
         proteina: 0.6,
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/melon.png",
         detalle:
           "El melón es una fruta altamente refrescante, compuesta por más del 90% de agua y muy baja en calorías (aprox. 34-53 kcal por taza). Destaca por ser una excelente fuente de vitaminas A y C, además de potasio, folato y fibra, siendo beneficioso para la hidratación, la presión arterial y la salud ocular. ",
@@ -122,6 +146,8 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Banana",
         calorias: 95,
+        categoria: "calorias",
+        genero: ["menor-proteina", "menor-calorias"],
         proteina: 1.3,
         imagen: "/image/banana.png",
         detalle:
@@ -137,6 +163,8 @@ export const alimentos: Categoria[] = [
         nombre: "Apio",
         calorias: 15,
         proteina: 1,
+        categoria: "calorias",
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/apio.png",
         detalle:
           "El apio es una hortaliza extremadamente baja en calorías (aprox. 16-17 kcal por 100 g) y rica en agua, lo que lo hace muy hidratante. Aporta fibra, vitaminas A, B, C y K, ácido fólico, y minerales como potasio y magnesio. Es ideal para dietas de control de peso por su saciedad y acción depurativa. ",
@@ -144,7 +172,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Lechuga",
         calorias: 15,
+        categoria: "calorias",
         proteina: 1,
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/lechuga.png",
         detalle:
           "La lechuga es una hortaliza de muy bajo valor calórico (aprox. \(15\) kcal/100g) y alto contenido en agua (más del 95%), ideal para dietas de control de peso. Aporta fibra, vitamina K, vitamina C, folatos y potasio, siendo las hojas más verdes y externas las más densas nutricionalmente. Es baja en grasa y sodio, rica en antioxidantes y ayuda a la hidratación. ",
@@ -153,14 +183,18 @@ export const alimentos: Categoria[] = [
         nombre: "Pepino",
         calorias: 20,
         proteina: 1,
+        categoria: "calorias",
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/pepino.png",
         detalle:
           "El pepino es una hortaliza extremadamente hidratante (95-97% agua) y baja en calorías, ideal para dietas de control de peso y salud digestiva. Por cada 100g aporta aproximadamente 12-15 kcal, 0.6g de proteínas, 2g de hidratos de carbono y fibra. Es fuente de potasio, magnesio, vitamina C y K, además de compuestos antioxidantes como flavonoides. ",
       },
       {
         nombre: "Brocoli",
+        categoria: "calorias",
         calorias: 34,
         proteina: 2.8,
+        genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/brocoli.png",
         detalle:
           "El brócoli es un vegetal altamente nutritivo, bajo en calorías (\(34\) kcal por \(100\) g) y rico en fibra, vitamina C (\(89\)-\(91\) mg), vitamina K (\(77\)-\(102\) mcg) y folato. Contiene un \(90\%\) de agua, con bajos niveles de grasas y carbohidratos, siendo ideal para dietas saludables. Destaca por sus compuestos antioxidantes y anticancerígenos, como el sulforafano, que fortalecen el sistema inmunológico y la salud ósea. ",

@@ -1,21 +1,16 @@
-import style from "./Styles/ItemList.module.css";
+import style from "./Style/ItemList.module.css";
 import Item from "./Item";
 import type { Categoria } from "../data/nutrition";
 
 interface Props {
   categorias: Categoria[];
-  search: string;
+
 }
 
-const ItemList = ({ categorias, search }: Props) => {
+const ItemList = ({ categorias }: Props) => {
   return (
     <div className={style.containerNutrition}>
       {categorias.map((categoria) => {
-        const itemsFiltrados = categoria.types.filter((item) =>
-          item.nombre.toLowerCase().includes(search.toLowerCase())
-        );
-
-        if (itemsFiltrados.length === 0) return null;
 
         return (
           <div key={categoria.id}>
@@ -24,7 +19,7 @@ const ItemList = ({ categorias, search }: Props) => {
             </div>
 
             <div className={style.styleNutricion}>
-              {itemsFiltrados.map((item) => (
+              {categoria.types.map((item) => (
                 <Item key={item.nombre} item={item} />
               ))}
             </div>
