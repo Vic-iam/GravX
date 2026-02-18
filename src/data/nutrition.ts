@@ -228,3 +228,16 @@ export const getOneProduct = (nombre: string): Promise<AlimentoItem> => {
   });
 };
 
+export const getProductsByCategory = (
+  type: string
+): Promise<AlimentoItem[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const filtered = alimentos
+        .flatMap(c => c.types)
+        .filter(i => i.categoria.toLowerCase() === type.toLowerCase());
+
+      resolve(filtered);
+    }, 500);
+  });
+};

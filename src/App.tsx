@@ -11,6 +11,7 @@ import Register from './utils/Register'
 import Footer from './components/Footer'
 import Error from './components/Error'
 import ItemNutritionDetailtsContainer from './components/ItemNutritionDetailtsContainer'
+import CategoryNutritionContainer from './components/CategoryNutritionContainer'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/Workouts' element={<Workouts />} />
         <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Item/:id' element={<ItemNutritionDetailtsContainer />} />
+        <Route path='/categoria/:type' element={<CategoryNutritionContainer />} />
         <Route path='/*' element={<Error />} />
       </Routes>
       <Footer />
