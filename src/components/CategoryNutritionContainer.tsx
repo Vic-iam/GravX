@@ -17,7 +17,7 @@ const CategoryNutritionContainer = () => {
   if (!items.length) return <p>Cargando...</p>;
 
   return (
-    <div>
+    <div style={{display: "flex", zIndex: "88"}}>
       {items.map(i => (
         <ItemCategory key={i.nombre} item={i} />
       ))}
