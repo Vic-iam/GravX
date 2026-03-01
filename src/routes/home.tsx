@@ -13,153 +13,199 @@ import { LuBicepsFlexed, LuSalad } from "react-icons/lu";
 import Back from "../assets/rutinaBack.png";
 import Biceps from "../assets/rutinaBicep.png";
 import Pierna from "../assets/rutinaPierna.png";
+import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 
 const Home = () => {
-    
-    const velocity = 40;
+  const [isLoading, setIsLoading] = useState(true);
 
-    return (
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  const velocity = 40;
+
+  return (
+    <>
+      {isLoading ? (
+        <Loading text="...Cargando datos" />
+      ) : (
         <div className={style.homeBody}>
+          {/* HERO SECTION */}
+          <section className={style.presentationHome}>
+            <div className={style.auroraBg}>
+              <Aurora
+                colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
+                blend={0.5}
+                amplitude={1.0}
+                speed={0.5}
+              />
+            </div>
 
-            {/* HERO SECTION */}
-            <section className={style.presentationHome}>
-                <div className={style.auroraBg}>
-                    <Aurora
-                        colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-                        blend={0.5}
-                        amplitude={1.0}
-                        speed={0.5}
-                    />
+            <div className={style.homeContainer}>
+              <h1>Bienvenido a GravX</h1>
+              <p>
+                "Transforma tu cuerpo y mejora tu salud con rutinas guiadas,
+                planes alimenticios y herramientas diseñadas para ayudarte a
+                alcanzar tus metas."
+              </p>
+            </div>
+
+            <div className={style.iconHome}>
+              <div className={style.icon1}>
+                <IoMdFitness />
+              </div>
+              <div className={style.icon2}>
+                <IoFitness />
+              </div>
+              <div className={style.icon3}>
+                <FaCalculator />
+              </div>
+              <div className={style.icon4}>
+                <GiSteak />
+              </div>
+            </div>
+          </section>
+
+          {/* CALCULADORA IMC */}
+          <section className={style.calculatorHome}>
+            <div className={style.calHome}>
+              <h2>Calculá tu IMC (Índice de Masa Corporal)</h2>
+              <p>
+                La calculadora IMC te permite conocer si tu peso es adecuado
+                según tu altura.
+              </p>
+              <Link
+                to="/Calculator"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className={`${style.btnBase} ${style.verUbicacion}`}
+              >
+                Usar calculadora <FaChevronRight />
+              </Link>
+            </div>
+          </section>
+
+          {/* ANIMACIÓN SCROLL TEXT */}
+          <ScrollVelocity
+            texts={["Motivation", "Workouts"]}
+            velocity={velocity}
+            className="custom-scroll-text"
+          />
+
+          {/* RUTINAS */}
+          <section className={style.rutinasHome}>
+            <div className={style.rutinaStyle}>
+              <h3>Explorá rutinas diseñadas para cada grupo muscular</h3>
+
+              <div className={style.rutinas}>
+                <div className={style.imgStyle}>
+                  <img src={Back} alt="Back" />
+                  <h4>Rutinas de espalda</h4>
+                  <p>Aumentá fuerza y volumen</p>
                 </div>
 
-                <div className={style.homeContainer}>
-                    <h1>Bienvenido a GravX</h1>
-                    <p>
-                        "Transforma tu cuerpo y mejora tu salud con rutinas guiadas,
-                        planes alimenticios y herramientas diseñadas para ayudarte
-                        a alcanzar tus metas."
-                    </p>
+                <div className={style.imgStyle}>
+                  <img src={Pierna} alt="Pierna" />
+                  <h4>Rutinas de pierna</h4>
+                  <p>Construí potencia y resistencia</p>
                 </div>
 
-                <div className={style.iconHome}>
-                    <div className={style.icon1}><IoMdFitness /></div>
-                    <div className={style.icon2}><IoFitness /></div>
-                    <div className={style.icon3}><FaCalculator /></div>
-                    <div className={style.icon4}><GiSteak /></div>
+                <div className={style.imgStyle}>
+                  <img src={Biceps} alt="Biceps" />
+                  <h4>Rutinas de bíceps</h4>
+                  <p>Definí y desarrollá tus brazos</p>
                 </div>
-            </section>
+              </div>
 
+              <Link
+                to="/Workouts"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className={`${style.btnBase} ${style.verUbicacion}`}
+              >
+                Ver rutinas <FaChevronRight />
+              </Link>
+            </div>
+          </section>
 
-            {/* CALCULADORA IMC */}
-            <section className={style.calculatorHome}>
-                <div className={style.calHome}>
-                    <h2>Calculá tu IMC (Índice de Masa Corporal)</h2>
-                    <p>La calculadora IMC te permite conocer si tu peso es adecuado según tu altura.</p>
-                    <Link
-                        to="/Calculator"
-                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                        className={`${style.btnBase} ${style.verUbicacion}`}
-                    >
-                        Usar calculadora <FaChevronRight />
-                    </Link>
-                </div>
-            </section>
+          {/* CARDS DE MOTIVACIÓN */}
+          <section className={style.cardContainer}>
+            <div className={style.wrappers}>
+              <h5>Entrená por lo que querés ser</h5>
+              <span className={style.iconwrappers}>
+                <LuBicepsFlexed />
+              </span>
+              <p>
+                "No se trata de ser el mejor que alguien, sino de ser mejor tu
+                mejor version."
+              </p>
+            </div>
 
+            <div className={style.wrappers}>
+              <h5>La disciplina gana</h5>
+              <span className={style.iconwrappers}>
+                <FaRepeat />
+              </span>
+              <p>"Los resultados son un proceso, cada día cuenta."</p>
+            </div>
 
-            {/* ANIMACIÓN SCROLL TEXT */}
-            <ScrollVelocity
-                texts={['Motivation', 'Workouts']}
-                velocity={velocity}
-                className="custom-scroll-text"
-            />
+            <div className={style.wrappers}>
+              <h5>Comé para sentirte bien</h5>
+              <span className={style.iconwrappers}>
+                <LuSalad />
+              </span>
+              <p>
+                "Lo que comés hoy es la energía con la que vas a construir el
+                mañana."
+              </p>
+            </div>
+          </section>
 
+          {/*Alimentancion */}
+          <section className={style.homeNutrition}>
+            <div className={style.iconHome}>
+              <div className={style.icon1}>
+                <IoMdFitness />
+              </div>
+              <div className={style.icon2}>
+                <IoFitness />
+              </div>
+              <div className={style.icon3}>
+                <FaCalculator />
+              </div>
+              <div className={style.icon4}>
+                <GiSteak />
+              </div>
+            </div>
 
-            {/* RUTINAS */}
-            <section className={style.rutinasHome}>
-                <div className={style.rutinaStyle}>
-                    <h3>Explorá rutinas diseñadas para cada grupo muscular</h3>
+            <div className={style.auroraBgInverse}>
+              <Aurora
+                colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
+                blend={0.5}
+                amplitude={1.0}
+                speed={0.5}
+              />
+            </div>
 
-                    <div className={style.rutinas}>
-                        <div className={style.imgStyle}>
-                            <img src={Back} alt="Back" />
-                            <h4>Rutinas de espalda</h4>
-                            <p>Aumentá fuerza y volumen</p>
-                        </div>
-
-                        <div className={style.imgStyle}>
-                            <img src={Pierna} alt="Pierna" />
-                            <h4>Rutinas de pierna</h4>
-                            <p>Construí potencia y resistencia</p>
-                        </div>
-
-                        <div className={style.imgStyle}>
-                            <img src={Biceps} alt="Biceps" />
-                            <h4>Rutinas de bíceps</h4>
-                            <p>Definí y desarrollá tus brazos</p>
-                        </div>
-                    </div>
-
-                    <Link
-                        to="/Workouts"
-                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                        className={`${style.btnBase} ${style.verUbicacion}`}
-                    >
-                        Ver rutinas <FaChevronRight />
-                    </Link>
-                </div>
-            </section>
-
-
-            {/* CARDS DE MOTIVACIÓN */}
-            <section className={style.cardContainer}>
-                <div className={style.wrappers}>
-                    <h5>Entrená por lo que querés ser</h5>
-                    <span className={style.iconwrappers}><LuBicepsFlexed /></span>
-                    <p>"No se trata de ser el mejor que alguien, sino de ser mejor tu mejor version."</p>
-                </div>
-
-                <div className={style.wrappers}>
-                    <h5>La disciplina gana</h5>
-                    <span className={style.iconwrappers}><FaRepeat /></span>
-                    <p>"Los resultados son un proceso, cada día cuenta."</p>
-                </div>
-
-                <div className={style.wrappers}>
-                    <h5>Comé para sentirte bien</h5>
-                    <span className={style.iconwrappers}><LuSalad /></span>
-                    <p>"Lo que comés hoy es la energía con la que vas a construir el mañana."</p>
-                </div>
-            </section>
-
-            {/*Alimentancion */}
-            <section className={style.homeNutrition}>
-
-                <div className={style.iconHome}>
-                    <div className={style.icon1}><IoMdFitness /></div>
-                    <div className={style.icon2}><IoFitness /></div>
-                    <div className={style.icon3}><FaCalculator /></div>
-                    <div className={style.icon4}><GiSteak /></div>
-                </div>
-
-                <div className={style.auroraBgInverse}>
-                    <Aurora
-                        colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-                        blend={0.5}
-                        amplitude={1.0}
-                        speed={0.5}
-                    />
-                </div>
-
-                <div className={style.nutritionHomeContainer}>
-                    <h2>Transformá tu cuerpo desde la alimentación</h2>
-                    <p>Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos sin dietas extremas.</p>
-                    <Link to="/Nutrition" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Ver alimentación <FaChevronRight /></Link>
-                </div>
-
-            </section>
-
+            <div className={style.nutritionHomeContainer}>
+              <h2>Transformá tu cuerpo desde la alimentación</h2>
+              <p>
+                Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos
+                sin dietas extremas.
+              </p>
+              <Link
+                to="/Nutrition"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Ver alimentación <FaChevronRight />
+              </Link>
+            </div>
+          </section>
         </div>
-    );
+      )}
+    </>
+  );
 };
 
 export default Home;

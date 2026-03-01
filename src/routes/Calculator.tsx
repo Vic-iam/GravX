@@ -1,11 +1,23 @@
 
 import Aurora from "../components/Aurora";
+import Loading from "../components/Loading";
 import style from "./Style/Calculator.module.css";
+import { useState, useEffect } from "react";
 
 
 const  Calculator = () => {
-    return (
 
+  const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+    return (
+<>
+       { isLoading ? <Loading text="...Cargando datos" /> :
         <div className={style.calculatorBody}>
 
           <section className={style.presentationCalculator}>
@@ -15,7 +27,7 @@ const  Calculator = () => {
                 blend={0.5}
                 amplitude={1.0}
                 speed={0.5}
-              />
+                />
             </div>
 
             <div className={style.calculatorContainer}>
@@ -26,8 +38,9 @@ const  Calculator = () => {
 
           </section>
 
-        </div>
+        </div>}
 
+                </>
     );
 }
 
