@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProductsByCategory } from "../data/nutrition";
 import type { AlimentoItem } from "../data/nutrition";
 import ItemCategory from "./ItemCategory";
+import style from "./Style/CategoryNutritionContainer.module.css"
 
 const CategoryNutritionContainer = () => {
   const { type } = useParams<{ type: string }>();
@@ -17,7 +18,7 @@ const CategoryNutritionContainer = () => {
   if (!items.length) return <p>Cargando...</p>;
 
   return (
-    <div style={{display: "flex", zIndex: "88"}}>
+    <div className={style.containerCategory}>
       {items.map(i => (
         <ItemCategory key={i.nombre} item={i} />
       ))}

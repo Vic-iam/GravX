@@ -13,8 +13,14 @@
   z-index: 0;
 }
 
+.cardCategory{
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+}
 
 .cardCategory img{
+    z-index: 99;
     height: 100%;
     width: 100%;
     object-fit: cover;
