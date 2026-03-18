@@ -24,8 +24,6 @@
 
 }
 
-
-
 .alimentoIndex {
   position: relative;
   cursor: pointer;
@@ -81,13 +79,9 @@
 
 @media (max-width: 768px) {
 
-  .alimentoIndex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0;
-
+  .alimentosContainer{
+    margin: 10px;
   }
+
 
 }

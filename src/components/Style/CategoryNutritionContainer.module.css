@@ -7,10 +7,17 @@
     min-height: 100vh;
     position: relative;
     background-color: black;
+    padding: 30px;
 }
 
 .auroraBg {
     position: absolute;
     inset: 0;
     z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .containerCategory{
+        padding-top: 120px;
+    }
 }

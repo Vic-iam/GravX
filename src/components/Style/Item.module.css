@@ -35,14 +35,14 @@
         justify-content: center;
         align-items: center;
         padding: 20px;
-        height: 300px;
-        width: 300px;
+        height: 250px;
+        width: 200px;
     }
 
     .alimentacionDescripcion img {
 
-        width: 250px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         
     }
 
