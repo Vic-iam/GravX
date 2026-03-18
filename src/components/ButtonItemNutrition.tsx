@@ -1,5 +1,6 @@
 import type { AlimentoItem } from "../data/nutrition"
 import { Link } from "react-router-dom"
+import style from "./Style/ButtonItemNutrition.module.css"
 
 interface Props {
   item: AlimentoItem
@@ -7,7 +8,7 @@ interface Props {
 
 const ButtonItemNutrition = ({ item }: Props) => {
   return (
-    <Link to={`/Item/${item.nombre}`}>
+    <Link className={style.btn} to={`/Item/${item.nombre}`}>
       Ver detalle
     </Link>
   )

@@ -41,7 +41,7 @@ const NutritionDetail = ({ item }: Props) => {
                     <h2>{item.nombre}</h2>
                     <p>{item.calorias} kcal</p>
                     <p>{item.proteina} g proteína</p>
-                    <p style={{ fontSize: "1rem", maxWidth: "400px" }}>Que te ofrece: {item.detalle} </p>
+                    <p style={{ fontSize: "1.1rem", maxWidth: "500px" }}>Que te ofrece: {item.detalle} </p>
 
                 </div>
             </div>

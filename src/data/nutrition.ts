@@ -70,7 +70,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Arroz",
         calorias: 130,
-        categoria: "calorias",
+        categoria: "granos",
         genero: ["menor-proteina", "mayor-calorias"],
         proteina: 2.7,
         imagen: "/image/arroz.png",
@@ -80,9 +80,9 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Avena",
         calorias: 380,
-        categoria: "calorias",
+        categoria: "granos",
         proteina: 13,
-        genero: ["mayor-protiena", "menor-calorias"],
+        genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/avena.png",
         detalle:
           "La avena es un cereal integral altamente nutritivo, rico en carbohidratos complejos, fibra (destacando el betaglucano) y proteínas vegetales. Por cada \(100\text{\ g}\), aporta aproximadamente \(360\text{-}390\text{\ kcal}\), \(\sim 12\text{-}13\text{\ g}\) de proteína, \(\sim 60\text{-}67\text{\ g}\) de carbohidratos y grasas saludables. Es una fuente excelente de energía sostenida, minerales como magnesio, fósforo y hierro, y vitaminas del grupo B. ",
@@ -90,7 +90,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Quinoa",
         calorias: 370,
-        categoria: "calorias",
+        categoria: "granos",
         proteina: 14,
         genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/quinoa.png",
@@ -101,7 +101,7 @@ export const alimentos: Categoria[] = [
         nombre: "Cebada",
         calorias: 350,
         proteina: 11,
-        categoria: "calorias",
+        categoria: "granos",
         genero: ["menor-proteina", "mayor-calorias"],
         imagen: "/image/cebada.png",
         detalle:
@@ -116,7 +116,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Fresa",
         calorias: 33,
-        categoria: "calorias",
+        categoria: "frutas",
         proteina: 0.7,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/fresas.png",
@@ -126,7 +126,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Sandia",
         calorias: 35,
-        categoria: "calorias",
+        categoria: "frutas",
         proteina: 1,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/sandia.png",
@@ -136,7 +136,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Melon",
         calorias: 33,
-        categoria: "calorias",
+        categoria: "frutas",
         proteina: 0.6,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/melon.png",
@@ -146,7 +146,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Banana",
         calorias: 95,
-        categoria: "calorias",
+        categoria: "frutas",
         genero: ["menor-proteina", "menor-calorias"],
         proteina: 1.3,
         imagen: "/image/banana.png",
@@ -163,7 +163,7 @@ export const alimentos: Categoria[] = [
         nombre: "Apio",
         calorias: 15,
         proteina: 1,
-        categoria: "calorias",
+        categoria: "verduras",
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/apio.png",
         detalle:
@@ -172,7 +172,7 @@ export const alimentos: Categoria[] = [
       {
         nombre: "Lechuga",
         calorias: 15,
-        categoria: "calorias",
+        categoria: "verduras",
         proteina: 1,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/lechuga.png",
@@ -183,7 +183,7 @@ export const alimentos: Categoria[] = [
         nombre: "Pepino",
         calorias: 20,
         proteina: 1,
-        categoria: "calorias",
+        categoria: "verduras",
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/pepino.png",
         detalle:
@@ -191,7 +191,7 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Brocoli",
-        categoria: "calorias",
+        categoria: "verduras",
         calorias: 34,
         proteina: 2.8,
         genero: ["menor-proteina", "menor-calorias"],

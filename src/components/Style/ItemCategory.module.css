@@ -1,29 +1,31 @@
 .containerCardCategory {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
     color: #d9d9d9;
-    width: 100%;
-    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
     overflow: hidden;
 }
 
-.auroraBg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
 .cardCategory{
-    z-index: 99;
+    z-index: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid #3b3b3b;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 5px;
 }
 
 .cardCategory img{
-    z-index: 99;
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.desAlimentacion{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .imgStyle{

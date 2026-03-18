@@ -10,8 +10,8 @@ const ItemListContainer = () => {
   const [nutricion, setNutricion] = useState<Categoria[]>([]);
   const [showCat, setShowCat] = useState(false);
 
-    const handleLinkClick = () => { 
-    setShowCat(false); 
+  const handleLinkClick = () => {
+    setShowCat(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -26,23 +26,35 @@ const ItemListContainer = () => {
     <section className={style.listContainer}>
       <div className={style.alimentosContainer}>
         <div className={style.alimentoIndex} onClick={() => setShowCat(!showCat)}>
-          <label>Busca el alimento <FaChevronDown /></label>
+          <h1>
+            Busca el alimento
+            <FaChevronDown style={{
+              transform: showCat ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "0.3s"
+            }} />
+          </h1>
           {showCat && (
-            <div>
-            <Link to="/Nutrition" onClick={handleLinkClick}>
-              Ver Todos
-            </Link>
-            <Link to="/categoria/proteina">
-              Mayor proteina
-            </Link>
-            <Link to="/categoria/calorias">
-              Mayor calorias
-            </Link>
+            <div className={style.category}>
+              <Link to="/Item/nombre" onClick={handleLinkClick}>
+                Ver Todos
+              </Link>
+              <Link to="/categoria/frutas">
+                Frutas
+              </Link>
+              <Link to="/categoria/granos" onClick={handleLinkClick}>
+                Granos
+              </Link>
+              <Link to="/categoria/verduras">
+                Verduras
+              </Link>
+              <Link to="/categoria/proteina" onClick={handleLinkClick}>
+                Proteinas
+              </Link>
             </div>
           )}
         </div>
 
-        <ItemList categorias={nutricion}  />
+        <ItemList categorias={nutricion} />
       </div>
     </section>
   );
