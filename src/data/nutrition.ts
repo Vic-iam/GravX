@@ -7,6 +7,7 @@ export interface AlimentoItem {
   categoria: string;
   imagen: string;
   detalle: string;
+  td: string;
 }
 
 export interface Categoria {
@@ -23,12 +24,13 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Pollo",
-        genero: ["mayor-proteina","mayor-calorias"],
+        genero: ["mayor-proteina", "mayor-calorias"],
         detalle:
           "El pollo es una excelente fuente de proteínas de alto valor biológico, bajo en grasas (especialmente la pechuga sin piel) y rico en vitaminas del complejo B (B3, B6, B12) y minerales esenciales como fósforo, zinc, selenio y hierro, contribuyendo al metabolismo energético, el sistema inmunológico y la salud ósea, con bajo contenido calórico y carbohidratos nulos, haciéndolo ideal para dietas equilibradas. ",
         calorias: 239,
         proteina: 27,
         categoria: "proteina",
+        td: "todo",
         imagen: "/image/chicken.png",
       },
       {
@@ -38,6 +40,7 @@ export const alimentos: Categoria[] = [
         proteina: 26,
         imagen: "/image/steak.png",
         categoria: "proteina",
+        td: "todo",
         detalle:
           "La carne de res es un alimento rico en nutrientes, destacando por su alto contenido de proteínas de alto valor biológico (aprox. 20-35g por cada 100g) y hierro hemo de fácil absorción. Proporciona vitaminas esenciales (especialmente B12) y minerales como zinc y selenio. En promedio, 100g de carne magra cocida aportan entre 170-250 calorías y de 2 a 10g de grasa, dependiendo del corte. ",
       },
@@ -47,6 +50,7 @@ export const alimentos: Categoria[] = [
         categoria: "proteina",
         genero: ["mayor-proteina", "menor-calorias"],
         proteina: 29,
+        td: "todo",
         imagen: "/image/atun.png",
         detalle:
           "El atún es muy nutritivo, rico en proteínas (alrededor de 23-29g por 100g) y bajo en calorías y carbohidratos, siendo una excelente fuente de Omega-3, vitaminas del grupo B (B3, B6, B12) y minerales como potasio, fósforo, selenio y yodo, beneficiando la salud cardiovascular, cerebral e inmunológica.",
@@ -56,6 +60,7 @@ export const alimentos: Categoria[] = [
         calorias: 155,
         categoria: "proteina",
         proteina: 13,
+        td: "todo",
         genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/egg.png",
         detalle:
@@ -71,6 +76,7 @@ export const alimentos: Categoria[] = [
         nombre: "Arroz",
         calorias: 130,
         categoria: "granos",
+        td: "todo",
         genero: ["menor-proteina", "mayor-calorias"],
         proteina: 2.7,
         imagen: "/image/arroz.png",
@@ -81,6 +87,7 @@ export const alimentos: Categoria[] = [
         nombre: "Avena",
         calorias: 380,
         categoria: "granos",
+        td: "todo",
         proteina: 13,
         genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/avena.png",
@@ -91,6 +98,7 @@ export const alimentos: Categoria[] = [
         nombre: "Quinoa",
         calorias: 370,
         categoria: "granos",
+        td: "todo",
         proteina: 14,
         genero: ["mayor-proteina", "menor-calorias"],
         imagen: "/image/quinoa.png",
@@ -102,6 +110,7 @@ export const alimentos: Categoria[] = [
         calorias: 350,
         proteina: 11,
         categoria: "granos",
+        td: "todo",
         genero: ["menor-proteina", "mayor-calorias"],
         imagen: "/image/cebada.png",
         detalle:
@@ -117,6 +126,7 @@ export const alimentos: Categoria[] = [
         nombre: "Fresa",
         calorias: 33,
         categoria: "frutas",
+        td: "todo",
         proteina: 0.7,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/fresas.png",
@@ -127,6 +137,7 @@ export const alimentos: Categoria[] = [
         nombre: "Sandia",
         calorias: 35,
         categoria: "frutas",
+        td: "todo",
         proteina: 1,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/sandia.png",
@@ -137,6 +148,7 @@ export const alimentos: Categoria[] = [
         nombre: "Melon",
         calorias: 33,
         categoria: "frutas",
+        td: "todo",
         proteina: 0.6,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/melon.png",
@@ -147,6 +159,7 @@ export const alimentos: Categoria[] = [
         nombre: "Banana",
         calorias: 95,
         categoria: "frutas",
+        td: "todo",
         genero: ["menor-proteina", "menor-calorias"],
         proteina: 1.3,
         imagen: "/image/banana.png",
@@ -164,6 +177,7 @@ export const alimentos: Categoria[] = [
         calorias: 15,
         proteina: 1,
         categoria: "verduras",
+        td: "todo",
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/apio.png",
         detalle:
@@ -174,6 +188,7 @@ export const alimentos: Categoria[] = [
         calorias: 15,
         categoria: "verduras",
         proteina: 1,
+        td: "todo",
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/lechuga.png",
         detalle:
@@ -186,6 +201,7 @@ export const alimentos: Categoria[] = [
         categoria: "verduras",
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/pepino.png",
+        td: "todo",
         detalle:
           "El pepino es una hortaliza extremadamente hidratante (95-97% agua) y baja en calorías, ideal para dietas de control de peso y salud digestiva. Por cada 100g aporta aproximadamente 12-15 kcal, 0.6g de proteínas, 2g de hidratos de carbono y fibra. Es fuente de potasio, magnesio, vitamina C y K, además de compuestos antioxidantes como flavonoides. ",
       },
@@ -193,6 +209,7 @@ export const alimentos: Categoria[] = [
         nombre: "Brocoli",
         categoria: "verduras",
         calorias: 34,
+        td: "todo",
         proteina: 2.8,
         genero: ["menor-proteina", "menor-calorias"],
         imagen: "/image/brocoli.png",
@@ -233,11 +250,16 @@ export const getProductsByCategory = (
 ): Promise<AlimentoItem[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const filtered = alimentos
-        .flatMap(c => c.types)
-        .filter(i => i.categoria.toLowerCase() === type.toLowerCase());
+      const allItems = alimentos.flatMap(c => c.types);
 
-      resolve(filtered);
+      if (type.toLowerCase() === "todo") {
+        resolve(allItems);
+      } else {
+        const filtered = allItems.filter(
+          i => i.categoria.toLowerCase() === type.toLowerCase()
+        );
+        resolve(filtered);
+      }
     }, 500);
   });
 };

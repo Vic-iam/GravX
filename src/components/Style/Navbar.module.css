@@ -1,6 +1,6 @@
 :root {
-  --color-bg:  
-;
+  --color-bg:
+  ;
 }
 
 .header {
@@ -8,10 +8,16 @@
   position: fixed;
   top: 0;
   z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.hide {
+  transform: translateY(-120%);
 }
 
 .navbar {
-  background-color: black;
+   background-color: var(--card);
+   backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,22 +29,22 @@
   box-shadow: 0px 0px 10px black;
 }
 
-.menuLinks{
+.menuLinks {
   display: flex;
   gap: 10px;
 }
 
-.loginBlock a{
-  color: white;
+.loginBlock a {
+  color: var(--text);
   text-decoration: none;
-  border: 1px solid #2e2e2e;
+  border: 1px solid var(--border);
   padding: 15px;
   border-radius: 30px;
   transition: all 0.4s ease;
 }
 
-.loginBlock a:hover{
-   color: #e53935;
+.loginBlock a:hover {
+  color: #e53935;
 }
 
 .imageLogo img {
@@ -71,7 +77,7 @@ ul {
 }
 
 .Links a {
-  color: #d9d9d9;
+  color: var(--text);
   text-decoration: none;
   font-size: 1.1rem;
   transition: color 0.3s ease;
@@ -168,7 +174,7 @@ ul {
     opacity: 1;
   }
 
-  .loginBlock{
+  .loginBlock {
     display: flex;
     justify-content: center;
   }
@@ -235,6 +241,7 @@ ul {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

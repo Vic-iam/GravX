@@ -9,7 +9,7 @@
     gap: 60px;
 
     position: relative;
-    background-color: black;
+    background-color: var(--card);
 }
 
 .auroraBg {

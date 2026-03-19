@@ -3,14 +3,38 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/marcaGravX.png";
 import style from "./Style/Navbar.module.css";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const { toggleTheme, theme } = useTheme();
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollY.current && currentScroll > 80) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      lastScrollY.current = currentScroll;
+      currentScroll > 80
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
-    return () => {document.body.style.overflow = "auto"};
+    return () => { document.body.style.overflow = "auto" };
   }, [isOpen]);
 
   useEffect(() => {
@@ -33,7 +57,7 @@ const Navbar = () => {
     isActive ? style.activeLink : "";
 
   return (
-    <header className={style.header}>
+    <header className={`${style.header} ${!showNavbar ? style.hide : ""}`}>
       <div className={style.navbar}>
         <Link to="/" className={style.imageLogo}>
           <img src={Logo} alt="Logo GravX" />
@@ -50,6 +74,9 @@ const Navbar = () => {
             <li><NavLink to="/Workouts" className={activeClass} onClick={handleLinkClick}>Rutinas</NavLink></li>
             <li><NavLink to="/Calculator" className={activeClass} onClick={handleLinkClick}>Calculadora</NavLink></li>
           </ul>
+        <button onClick={toggleTheme}>
+          {theme === "dark" ? "🌙" : "☀️"}
+        </button>
 
           <div className={style.loginBlock}>
             <NavLink to="/Login" className={activeClass} onClick={handleLinkClick}>
@@ -64,6 +91,8 @@ const Navbar = () => {
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
+
+
       </div>
     </header>
   );

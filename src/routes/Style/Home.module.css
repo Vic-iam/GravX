@@ -3,8 +3,8 @@
 ============================================================ */
 .homeBody {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: #D9D9D9;
+    background-color: var(--bg);
+    color: var(--text);
     width: 100%;
     min-height: 100vh;
     overflow: hidden;

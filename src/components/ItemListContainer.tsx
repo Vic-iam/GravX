@@ -5,15 +5,35 @@ import ItemList from "./ItemList";
 import { Link } from "react-router-dom";
 import style from "./Style/ItemListContainer.module.css";
 import { FaChevronDown } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [nutricion, setNutricion] = useState<Categoria[]>([]);
   const [showCat, setShowCat] = useState(false);
+  const location = useLocation();
 
   const handleLinkClick = () => {
     setShowCat(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.getElementById(window.location.hash.replace("#", ""));
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
 
 
   useEffect(() => {
@@ -26,7 +46,7 @@ const ItemListContainer = () => {
     <section className={style.listContainer}>
       <div className={style.alimentosContainer}>
         <div className={style.alimentoIndex} onClick={() => setShowCat(!showCat)}>
-          <h1>
+          <h1 id="buscador">
             Busca el alimento
             <FaChevronDown style={{
               transform: showCat ? "rotate(180deg)" : "rotate(0deg)",
@@ -35,7 +55,7 @@ const ItemListContainer = () => {
           </h1>
           {showCat && (
             <div className={style.category}>
-              <Link to="/Item/nombre" onClick={handleLinkClick}>
+              <Link to="/categoria/todo" onClick={handleLinkClick}>
                 Ver Todos
               </Link>
               <Link to="/categoria/frutas">

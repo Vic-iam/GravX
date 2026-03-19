@@ -1,0 +1,52 @@
+
+:root {
+  --bg: black;
+  --text: #fff;
+  --card: black;
+  --border: #2e2e2e;
+  --accent: #e53935;
+}
+
+
+body[data-theme="dark"] {
+  --bg: #000;
+  --text: #fff;
+  --card: black;
+  --border: #2e2e2e;
+  --accent: #e53935;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+body[data-theme="light"] {
+  --bg: #f5f5f5;
+  --text: black;
+  --card: #ffffff;
+  --border: #ddd;
+  --accent: #e53935;
+}
+
+body[data-theme="dark"] {
+  background: black;
+  color: white;
+}
+
+body[data-theme="light"] {
+  background: #f5f5f5;
+  color: black;
+}
+body[data-theme="light"] {
+  background: yellow !important;
+}
+
+body[data-theme="dark"] {
+  --bg-navbar: black;
+}
+
+body[data-theme="light"] {
+  --bg-navbar: white;
+}

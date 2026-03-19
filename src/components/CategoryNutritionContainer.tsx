@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductsByCategory } from "../data/nutrition";
 import type { AlimentoItem } from "../data/nutrition";
+import { GoChevronLeft } from "react-icons/go";
 import ItemCategory from "./ItemCategory";
+import { useNavigate } from "react-router-dom";
 import style from "./Style/CategoryNutritionContainer.module.css"
 import Aurora from "./Aurora";
 import Loading from "./Loading";
@@ -15,15 +17,22 @@ const CategoryNutritionContainer = () => {
   useEffect(() => {
     if (!type) return;
 
-    getProductsByCategory(type).then(setItems);
-  }, [type]);
+    setIsLoading(true);
 
+    getProductsByCategory(type)
+      .then((res) => setItems(res))
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
+
+  }, [type]);
   
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+  const navigate =  useNavigate();
+
+  const hanldeVolver = () => {
+    navigate("/Nutrition", {
+      state: {scrollTo: "buscador"}
+    })
+  }
 
   return (
     <div className={style.containerCategory}>
@@ -36,14 +45,19 @@ const CategoryNutritionContainer = () => {
           speed={0.5}
         />
       </div>
-     
 
-      {isLoading ? ( <Loading text="...Cargando" />
-      ) : ( 
-        items.map(i => (
+      <button onClick={hanldeVolver} className={style.btn}> <GoChevronLeft/> Volver </button>
 
-      <ItemCategory key={i.nombre} item={i} />
-      )))}
+      <div className={style.indexCategory}>
+
+        {isLoading ? (<Loading text="...Cargando" />
+        ) : (
+          items.map(i => (
+
+            <ItemCategory key={i.nombre} item={i} />
+          )))}
+      </div>
+
     </div>
   );
 };

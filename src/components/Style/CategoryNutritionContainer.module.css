@@ -1,23 +1,37 @@
 .containerCategory{
+    background-color: var(--card);
+    gap: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    justify-content: center;
     min-height: 100vh;
-    position: relative;
-    background-color: black;
-    padding: 30px;
+}
+
+.indexCategory{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 2;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    color: white;
+    z-index: 3;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .auroraBg {
     position: absolute;
     inset: 0;
     z-index: 0;
-}
-
-@media (max-width: 768px) {
-    .containerCategory{
-        padding-top: 120px;
-    }
 }
