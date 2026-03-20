@@ -11,9 +11,9 @@
     flex-direction: column;
     gap: 20px;
     height: 95vh;
-    background-color: var(--bg);
+    background-color: black;
     z-index: 99;
-    color: var(--text);
+    color: white;
 }
 
 .loadingContainer p{

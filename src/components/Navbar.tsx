@@ -3,13 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/marcaGravX.png";
 import style from "./Style/Navbar.module.css";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
-import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const [showNavbar, setShowNavbar] = useState(true);
-  const { toggleTheme, theme } = useTheme();
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -74,10 +72,6 @@ const Navbar = () => {
             <li><NavLink to="/Workouts" className={activeClass} onClick={handleLinkClick}>Rutinas</NavLink></li>
             <li><NavLink to="/Calculator" className={activeClass} onClick={handleLinkClick}>Calculadora</NavLink></li>
           </ul>
-        <button onClick={toggleTheme}>
-          {theme === "dark" ? "🌙" : "☀️"}
-        </button>
-
           <div className={style.loginBlock}>
             <NavLink to="/Login" className={activeClass} onClick={handleLinkClick}>
               <FaUser /> Login

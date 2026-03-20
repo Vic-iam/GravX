@@ -1,5 +1,5 @@
 .containerCategory{
-    background-color: var(--card);
+    background-color: black;
     gap: 20px;
     display: flex;
     flex-direction: column;
