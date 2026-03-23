@@ -28,7 +28,7 @@ function App() {
         <Route path='/Dashboard' element={<Dashboard />} />
         <Route path='/Item/:id' element={<ItemNutritionDetailtsContainer />} />
         <Route path='/categoria/:type' element={<CategoryNutritionContainer />} />
-        <Route path='/categoria/:td' element={<CategoryNutritionContainer />} />
+        <Route path='/categoria/:td' element={<CategoryNutritionContainer />}  />
         <Route path='/*' element={<Error />} />
       </Routes>
       <Footer />
