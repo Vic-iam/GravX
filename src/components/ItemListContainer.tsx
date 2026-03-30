@@ -55,9 +55,6 @@ const ItemListContainer = () => {
           </h1>
           {showCat && (
             <div className={style.category}>
-              <Link to="/categoria/todo" onClick={handleLinkClick}>
-                Ver Todos
-              </Link>
               <Link to="/categoria/frutas">
                 Frutas
               </Link>

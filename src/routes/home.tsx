@@ -24,7 +24,6 @@ const Home = () => {
     }, 2000);
   }, []);
 
-  const velocity = 40;
 
   return (
     <>

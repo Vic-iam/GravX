@@ -19,17 +19,19 @@ const NutritionDetail = ({ item }: Props) => {
                     speed={0.5}
                 />
             </div>
-            <div className={style.LinkStyle}>
-                <Link
-                    to="/Nutrition"
-                    className={style.icon}
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                >
-                    <GoChevronLeft /> Regresar
-                </Link>
 
-            </div>
+
             <div className={style.detailInformtaion}>
+
+                <div className={style.LinkStyle}>
+                    <Link
+                        to="/Nutrition"
+                        className={style.icon}
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                        <GoChevronLeft /> Regresar
+                    </Link>
+                </div>
 
                 <div className={style.detailImage}>
                     <img src={item.imagen} />
