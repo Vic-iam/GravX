@@ -13,6 +13,7 @@ const Workouts = () => {
   }, []);
 
   return (
+    
     <>
       {isLoading ? (
         <Loading text="...Cargando datos" />
