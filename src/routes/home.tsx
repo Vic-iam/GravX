@@ -1,5 +1,4 @@
 import Aurora from "../components/Aurora";
-import ScrollVelocity from "../components/ScrollVelocity";
 import style from "./Style/Home.module.css";
 
 import { Link } from "react-router";
@@ -87,12 +86,6 @@ const Home = () => {
             </div>
           </section>
 
-          {/* ANIMACIÓN SCROLL TEXT */}
-          <ScrollVelocity
-            texts={["Motivation", "Workouts"]}
-            velocity={velocity}
-            className="custom-scroll-text"
-          />
 
           {/* RUTINAS */}
           <section className={style.rutinasHome}>
