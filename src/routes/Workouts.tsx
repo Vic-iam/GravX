@@ -30,7 +30,8 @@ const Workouts = () => {
             </div>
 
             <div className={style.workoutsContainer}>
-              <h1>Edita y organiza tus rutinas</h1>
+              <h1>Entrenamiento</h1>
+              <p>Organiza y descubre rutinas de entrenamiento</p>
             </div>
           </section>
         </div>
