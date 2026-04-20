@@ -20,9 +20,6 @@ const NutritionDetail = ({ item }: Props) => {
                 />
             </div>
 
-
-            <div className={style.detailInformtaion}>
-
                 <div className={style.LinkStyle}>
                     <Link
                         to="/Nutrition"
@@ -32,6 +29,9 @@ const NutritionDetail = ({ item }: Props) => {
                         <GoChevronLeft /> Regresar
                     </Link>
                 </div>
+
+            <div className={style.detailInformtaion}>
+
 
                 <div className={style.detailImage}>
                     <img src={item.imagen} />
