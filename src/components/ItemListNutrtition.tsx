@@ -1,5 +1,5 @@
 import style from "./Style/ItemList.module.css";
-import Item from "./Item";
+import Item from "./ItemNutrition";
 import type { Categoria } from "../data/nutrition";
 
 interface Props {

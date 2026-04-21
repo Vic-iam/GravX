@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts, } from "../data/nutrition";
 import type { Categoria } from "../data/nutrition";
-import ItemList from "./ItemList";
+import ItemList from "./ItemListNutrtition";
 import { Link } from "react-router-dom";
 import style from "./Style/ItemListContainer.module.css";
 import { FaChevronDown } from "react-icons/fa6";
