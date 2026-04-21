@@ -96,7 +96,7 @@ const Nutrition = () => {
               sobre todo alimentarse correctamente. Asi que con eso esto te
               ayudara a organizar y poder conocer tus macros de alimentancion
             </p>
-            <p>Que seria los macros?</p>
+            <p>¿Que seria los macros?</p>
           </div>
 
           <div className={style.macrosContainer}>
