@@ -58,7 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   border: 1px solid #2e2e2e;
   padding: 5px;
   width: 120px;
@@ -69,6 +69,7 @@
 .iconRotine a:hover{
   transition: all 0.2s ease;
   box-shadow: 0 0 15px rgba(220, 70, 40, 0.4);
+  opacity: 0.8;
 }
 
 .showcaseRutine{
