@@ -1,6 +1,6 @@
 import style from "./Style/ItemList.module.css";
 import Item from "./ItemNutrition";
-import type { Categoria } from "../data/nutrition";
+import type { Categoria } from "../../data/nutrition";
 
 interface Props {
   categorias: Categoria[];

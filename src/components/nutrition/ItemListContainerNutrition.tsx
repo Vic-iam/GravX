@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProducts, } from "../data/nutrition";
-import type { Categoria } from "../data/nutrition";
+import { getProducts, } from "../../data/nutrition";
+import type { Categoria } from "../../data/nutrition";
 import ItemList from "./ItemListNutrtition";
 import { Link } from "react-router-dom";
 import style from "./Style/ItemListContainer.module.css";

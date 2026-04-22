@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsByCategory } from "../data/nutrition";
-import type { AlimentoItem } from "../data/nutrition";
+import { getProductsByCategory } from "../../data/nutrition";
+import type { AlimentoItem } from "../../data/nutrition";
 import { GoChevronLeft } from "react-icons/go";
 import ItemCategory from "./ItemCategory";
 import { useNavigate } from "react-router-dom";
 import style from "./Style/CategoryNutritionContainer.module.css"
-import Aurora from "./Aurora";
-import Loading from "./Loading";
+import Aurora from "../Aurora";
+import Loading from "../ui/Loading";
 
 const CategoryNutritionContainer = () => {
   const { type } = useParams<{ type: string }>();

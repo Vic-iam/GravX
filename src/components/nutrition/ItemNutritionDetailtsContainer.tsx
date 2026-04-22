@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import type { AlimentoItem } from "../data/nutrition";
-import { getOneProduct } from "../data/nutrition";
+import type { AlimentoItem } from "../../data/nutrition";
+import { getOneProduct } from "../../data/nutrition";
 import NutritionDetail from "./NutritionDetail";
 
 const ItemNutritionDetailContainer = () => {

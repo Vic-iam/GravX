@@ -1,5 +1,5 @@
 import Aurora from "../components/Aurora";
-import Loading from "../components/Loading";
+import Loading from "../components/ui/Loading";
 import style from "./Style/Login.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";

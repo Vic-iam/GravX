@@ -1,4 +1,4 @@
-import type { Categoria } from "../data/workout";
+import type { Categoria } from "../../data/workout";
 import style from "./Style/ItemRutine.module.css"
 
 type Props = {

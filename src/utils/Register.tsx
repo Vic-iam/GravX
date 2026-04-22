@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./Style/Register.module.css";
 import Aurora from "../components/Aurora";
 import { Link } from "react-router";
-import Loading from "../components/Loading";
+import Loading from "../components/ui/Loading";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(true);

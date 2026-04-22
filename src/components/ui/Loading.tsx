@@ -1,6 +1,6 @@
 import { ClockLoader } from "react-spinners";
 import style from "./Style/Loading.module.css";
-import Aurora from "./Aurora";
+import Aurora from "../Aurora";
 
 interface LoadingProps {
   text: string;

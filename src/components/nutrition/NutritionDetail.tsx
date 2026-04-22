@@ -1,5 +1,5 @@
-import type { AlimentoItem } from "../data/nutrition"
-import Aurora from "./Aurora"
+import type { AlimentoItem } from "../../data/nutrition"
+import Aurora from "../Aurora"
 import style from "./Style/NutritionDetail.module.css"
 import { GoChevronLeft } from "react-icons/go";
 import { Link } from "react-router";

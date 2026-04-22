@@ -1,6 +1,6 @@
-import Aurora from "./Aurora"
+import Aurora from "../Aurora"
 import style from "./Style/Error.module.css"
-import errorImage from "../assets/error.png"
+import errorImage from "../../assets/error.png"
 
 
 const Error = () => {

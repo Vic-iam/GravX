@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Categoria } from "../data/workout";
-import { getProducts } from "../data/workout";
+import type { Categoria } from "../../data/workout";
+import { getProducts } from "../../data/workout";
 import ItemWorkouts from "./ItemWorkoust";
 import ItemRutine from "./ItemRutine";
 import style from "./Style/ItemWorkoustContainer.module.css";

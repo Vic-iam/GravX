@@ -1,8 +1,8 @@
 import style from "./Style/Workouts.module.css";
 import Aurora from "../components/Aurora";
 import { useEffect, useState } from "react";
-import Loading from "../components/Loading";
-import { ItemWorkoustContainer } from "../components/ItemWorkoustContainer";
+import Loading from "../components/ui/Loading";
+import { ItemWorkoustContainer } from "../components/workout/ItemWorkoustContainer";
 
 const Workouts = () => {
   const [isLoading, setIsLoading] = useState(true);

@@ -13,8 +13,8 @@ import style from "./Style/Nutrition.module.css";
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
-import ItemListContainer from "../components/ItemListContainerNutrition";
-import Loading from "../components/Loading";
+import ItemListContainer from "../components/nutrition/ItemListContainerNutrition";
+import Loading from "../components/ui/Loading";
 
 // --------------------
 // Component

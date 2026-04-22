@@ -13,7 +13,7 @@ import Back from "../assets/rutinaBack.png";
 import Biceps from "../assets/rutinaBicep.png";
 import Pierna from "../assets/rutinaPierna.png";
 import { useEffect, useState } from "react";
-import Loading from "../components/Loading";
+import Loading from "../components/ui/Loading";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
