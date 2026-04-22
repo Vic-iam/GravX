@@ -24,6 +24,30 @@ export const workouts: Categoria[] = [
         imagen: "/workouts/pressBanca.png",
         meta: "Fuerza",
       },
+      {
+        nombre: "Press Banca",
+        duracion: 45,
+        imagen: "/workouts/pressBanca.png",
+        meta: "Fuerza",
+      },
+      {
+        nombre: "Press Banca",
+        duracion: 45,
+        imagen: "/workouts/pressBanca.png",
+        meta: "Fuerza",
+      },
+      {
+        nombre: "Press Banca",
+        duracion: 45,
+        imagen: "/workouts/pressBanca.png",
+        meta: "Fuerza",
+      },
+      {
+        nombre: "Press Banca",
+        duracion: 45,
+        imagen: "/workouts/pressBanca.png",
+        meta: "Fuerza",
+      },
     ],
   },
   {
@@ -35,11 +59,11 @@ export const workouts: Categoria[] = [
         nombre: "Dominadas",
         duracion: 45,
         imagen: "",
-        meta: "Resistencia"
-      }
-    ]
+        meta: "Resistencia",
+      },
+    ],
   },
-    {
+  {
     id: 1,
     nombre: "Pecho",
     niveles: ["Principiante", "Intermedio", "Profesional"],
@@ -61,9 +85,9 @@ export const workouts: Categoria[] = [
         nombre: "Dominadas",
         duracion: 45,
         imagen: "",
-        meta: "Resistencia"
-      }
-    ]
+        meta: "Resistencia",
+      },
+    ],
   },
 ];
 

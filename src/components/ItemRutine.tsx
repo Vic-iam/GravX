@@ -1,4 +1,5 @@
 import type { Categoria } from "../data/workout";
+import style from "./Style/ItemRutine.module.css"
 
 type Props = {
   categoria: Categoria;
@@ -6,7 +7,7 @@ type Props = {
 
 const ItemRutine = ({ categoria }: Props) => {
   return (
-    <div>
+    <div className={style.ItemR}>
       {categoria.types.map((item, i) => (
         <div key={i}>
           <h2>{item.nombre}</h2>
