@@ -1,0 +1,13 @@
+.Item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.Item h2{
+    border: 1px solid #2e2e2e;
+    padding: 5px;
+    cursor: pointer;
+}

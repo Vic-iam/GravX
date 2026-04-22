@@ -1,16 +1,22 @@
 import type { Categoria } from "../data/workout";
+import style from "./Style/ItemWorkoust.module.css"
 
 type Props = {
   categorias: Categoria[];
+  onSelect: (categoria: Categoria) => void;
 };
 
-const ItemWorkouts = ({ categorias }: Props) => {
+const ItemWorkouts = ({ categorias, onSelect }: Props) => {
   return (
-    <div>
+    <div className={style.Item}>
       {categorias.map((categoria) => (
-        <div key={categoria.id}>
-          <h2>{categoria.nombre}</h2>
-        </div>
+        <h2
+          key={categoria.id}
+          onClick={() => onSelect(categoria)}
+      
+        >
+          {categoria.nombre}
+        </h2>
       ))}
     </div>
   );

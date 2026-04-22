@@ -1,6 +1,24 @@
 .workoutContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.indexWorkout{
+    border: 1px solid #2e2e2e;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    padding: 10px;
+    height: 350px;
+    width: 350px;
+}
+
+.linea{
+    background-color: white;
+    margin: 3px;
+    width: 100%;
+    height: 2px;
 }
