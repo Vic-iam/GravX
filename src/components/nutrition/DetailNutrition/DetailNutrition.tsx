@@ -1,6 +1,5 @@
-import type { AlimentoItem } from "../../data/nutrition"
-import Aurora from "../Aurora"
-import style from "./Style/NutritionDetail.module.css"
+import type { AlimentoItem } from "../../../data/nutrition"
+import style from "./DetailNutrition.module.css"
 import { GoChevronLeft } from "react-icons/go";
 import { Link } from "react-router";
 
@@ -8,17 +7,10 @@ interface Props {
     item: AlimentoItem
 }
 
-const NutritionDetail = ({ item }: Props) => {
+const DetailNutrition = ({ item }: Props) => {
     return (
         <div className={style.detailContainer}>
-            <div className={style.auroraBg}>
-                <Aurora
-                    colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-                    blend={0.5}
-                    amplitude={1.0}
-                    speed={0.5}
-                />
-            </div>
+
 
                 <div className={style.LinkStyle}>
                     <Link
@@ -51,4 +43,4 @@ const NutritionDetail = ({ item }: Props) => {
     )
 }
 
-export default NutritionDetail
+export default DetailNutrition

@@ -1,12 +1,12 @@
-import style from "./Style/Item.module.css";
-import type { AlimentoItem } from "../data/nutrition";
-import ButtonItemNutrition from "./ButtonItemNutrition";
+import style from "./NutritionItem.module.css";
+import type { AlimentoItem } from "../../../data/nutrition";
+import ButtonNutrition from "../ButtonNutrition/ButtonNutrition";
 
 interface Props {
   item: AlimentoItem;
 }
 
-const Item = ({ item }: Props) => {
+const NutritionItem = ({ item }: Props) => {
   return (
 
     <div className={style.alimentacionDescripcion}>
@@ -15,15 +15,17 @@ const Item = ({ item }: Props) => {
         <p>Calorías: {item.calorias} kcal x 100g</p>
         <p>Proteínas: {item.proteina} g x 100g</p>
         <div className={style.verDetalle}>
-
-        <ButtonItemNutrition item={item} />
+        <ButtonNutrition item={item} />
         </div>
       </div>
-
+      
+      <div className={style.itemImage}>
       <img src={item.imagen} alt={item.nombre} />
+
+      </div>
     </div>
 
   );
 };
 
-export default Item;
+export default NutritionItem;

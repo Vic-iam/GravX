@@ -1,5 +1,5 @@
-import style from "./Style/Footer.module.css"
-import Logo from "../assets/marcaGravX.png";
+import style from "./Footer.module.css"
+import Logo from "../../../assets/marcaGravX.png";
 import { Link } from "react-router";
 
 const Footer = () => {

@@ -1,0 +1,21 @@
+.alimentacionDescripcion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  gap: 10px;
+}
+
+.itemImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.itemImage {
+  height: 200px;
+  width: 250px;
+}

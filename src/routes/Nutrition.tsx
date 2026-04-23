@@ -7,14 +7,13 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router";
 import { GoChevronDown } from "react-icons/go";
 
-import Aurora from "../components/Aurora";
 import style from "./Style/Nutrition.module.css";
 
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
-import ItemListContainer from "../components/nutrition/ItemListContainerNutrition";
-import Loading from "../components/ui/Loading";
+import ItemListContainer from "../components/nutrition/ContainerNutrition/ContainerNutrition";
+import Loading from "../components/ui/Loading/Loading";
 
 // --------------------
 // Component
@@ -37,14 +36,7 @@ const Nutrition = () => {
         {/* Presentation Section */}
         {/* ==================== */}
         <section className={style.presentationNutrition}>
-          <div className={style.auroraBg}>
-            <Aurora
-              colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-              blend={0.5}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          </div>
+
 
           <div className={style.nutritionContainer}>
             <h1>Alimentación</h1>
@@ -80,14 +72,7 @@ const Nutrition = () => {
         </div>
 
         <section className={style.footerNutrition}>
-          <div className={style.auroraBgInverse}>
-            <Aurora
-              colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-              blend={0.5}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          </div>
+
 
           <div className={style.footerIndex}>
             <h5>¿Para qué te serviría?</h5>

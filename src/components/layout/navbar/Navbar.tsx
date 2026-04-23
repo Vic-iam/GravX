@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/marcaGravX.png";
-import style from "./Style/Navbar.module.css";
+import Logo from "../../../assets/marcaGravX.png";
+import style from "./Navbar.module.css";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {

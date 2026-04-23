@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./Style/Register.module.css";
-import Aurora from "../components/Aurora";
 import { Link } from "react-router";
-import Loading from "../components/ui/Loading";
+import Loading from "../components/ui/Loading/Loading";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,14 +30,6 @@ const Register = () => {
     <>
       { isLoading ? <Loading text="...Cargando datos"/> :
         <section className={style.adminContainer}>
-          <div className={style.auroraBg}>
-            <Aurora
-              colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-              blend={0.5}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          </div>
 
           <form onSubmit={handleSubmit} className={style.adminCard}>
             <h1>Registrate</h1>

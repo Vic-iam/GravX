@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import type { Categoria } from "../../data/workout";
-import { getProducts } from "../../data/workout";
-import ItemWorkouts from "./ItemWorkoust";
-import ItemRutine from "./ItemRutine";
-import style from "./Style/ItemWorkoustContainer.module.css";
+import type { Categoria } from "../../../data/workout";
+import { getProducts } from "../../../data/workout";
+import WorkoutItem from "../WorkoutItem/WorkoutItem";
+import RutineItem from "../RutineItem/RutineItem";
+import style from "./WorkoutContainer.module.css";
 
 export const ItemWorkoustContainer = () => {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
@@ -25,7 +25,7 @@ export const ItemWorkoustContainer = () => {
         <h1>Elige la rutina</h1>
         <div className={style.linea}></div>
         <div className={style.indexWorkout}>
-          <ItemWorkouts
+          <WorkoutItem
             categorias={categorias}
             onSelect={setCategoriaSeleccionada}
           />
@@ -36,7 +36,7 @@ export const ItemWorkoustContainer = () => {
         <h2>Rutinas</h2>
         <div className={style.linea}></div>
         {categoriaSeleccionada && (
-          <ItemRutine categoria={categoriaSeleccionada} />
+          <RutineItem categoria={categoriaSeleccionada} />
         )}
       </div>
     </div>

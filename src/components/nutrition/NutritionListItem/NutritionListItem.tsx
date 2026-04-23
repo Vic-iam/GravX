@@ -1,13 +1,13 @@
-import style from "./Style/ItemList.module.css";
-import Item from "./ItemNutrition";
-import type { Categoria } from "../../data/nutrition";
+import style from "./NutritionListItem.module.css";
+import NutritionItem from "../NutritionItem/NutritionItem";
+import type { Categoria } from "../../../data/nutrition";
 
 interface Props {
   categorias: Categoria[];
 
 }
 
-const ItemList = ({ categorias }: Props) => {
+const NutritionListItem = ({ categorias }: Props) => {
   return (
     <div className={style.containerNutrition}>
       {categorias.map((categoria) => {
@@ -15,12 +15,12 @@ const ItemList = ({ categorias }: Props) => {
         return (
           <div key={categoria.id}>
             <div className={style.titleAlimentancion}>
-              <h3>{categoria.nombre}</h3>
+              <h1>{categoria.nombre}</h1>
             </div>
 
             <div className={style.styleNutricion}>
               {categoria.types.map((item) => (
-                <Item key={item.nombre} item={item} />
+                <NutritionItem key={item.nombre} item={item} />
               ))}
             </div>
           </div>
@@ -30,4 +30,4 @@ const ItemList = ({ categorias }: Props) => {
   );
 };
 
-export default ItemList;
+export default NutritionListItem;

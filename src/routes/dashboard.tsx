@@ -1,4 +1,4 @@
-import Loading from "../components/ui/Loading";
+import Loading from "../components/ui/Loading/Loading";
 import style from "./Style/Dashboard.module.css";
 import { useEffect, useState } from "react";
 

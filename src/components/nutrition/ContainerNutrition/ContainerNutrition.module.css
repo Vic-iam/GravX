@@ -6,6 +6,7 @@
   padding: 30px;
   margin: 20px auto;
   max-width: 900px;
+  background: #181818;
 
   border: 1px solid #3b3b3b;
   border-radius: 10px;
@@ -37,12 +38,12 @@
 .category {
   display: flex;
   flex-direction: column;
+  
   gap: 10px;
 
   padding: 15px;
   border-radius: 12px;
 
-  background: rgba(0, 0, 0, 0.8);
   border: 1px solid #3b3b3b;
 
   animation: fadeIn 0.3s ease;

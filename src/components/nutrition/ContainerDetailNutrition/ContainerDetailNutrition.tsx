@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import type { AlimentoItem } from "../../data/nutrition";
-import { getOneProduct } from "../../data/nutrition";
-import NutritionDetail from "./NutritionDetail";
+import type { AlimentoItem } from "../../../data/nutrition";
+import { getOneProduct } from "../../../data/nutrition";
+import DetailNutrition from "../DetailNutrition/DetailNutrition";
 
-const ItemNutritionDetailContainer = () => {
+const ContainerDetailNutrition = () => {
   const { id } = useParams<{ id: string }>();
   const [item, setItem] = useState<AlimentoItem | null>(null);
   const [error, setError] = useState(false);
@@ -20,7 +20,7 @@ const ItemNutritionDetailContainer = () => {
   if (error) return <p>No existe el alimento</p>;
   if (!item) return <p>Cargando...</p>;
 
-  return <NutritionDetail item={item} />;
+  return <DetailNutrition item={item} />;
 };
 
-export default ItemNutritionDetailContainer;
+export default ContainerDetailNutrition;

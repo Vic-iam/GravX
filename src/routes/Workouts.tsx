@@ -1,8 +1,7 @@
 import style from "./Style/Workouts.module.css";
-import Aurora from "../components/Aurora";
 import { useEffect, useState } from "react";
-import Loading from "../components/ui/Loading";
-import { ItemWorkoustContainer } from "../components/workout/ItemWorkoustContainer";
+import Loading from "../components/ui/Loading/Loading";
+import { ItemWorkoustContainer } from "../components/workout/WorkoutContainer/WorkoutContainer";
 
 const Workouts = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,14 +20,7 @@ const Workouts = () => {
       ) : (
         <div className={style.workoutsBody}>
           <section className={style.presentationWorkouts}>
-            <div className={style.auroraBg}>
-              <Aurora
-                colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-                blend={0.5}
-                amplitude={1.0}
-                speed={0.5}
-              />
-            </div>
+
 
             <div className={style.workoutsContainer}>
               <h1>Entrenamiento</h1>

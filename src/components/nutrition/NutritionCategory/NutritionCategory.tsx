@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsByCategory } from "../../data/nutrition";
-import type { AlimentoItem } from "../../data/nutrition";
+import { getProductsByCategory } from "../../../data/nutrition";
+import type { AlimentoItem } from "../../../data/nutrition";
 import { GoChevronLeft } from "react-icons/go";
-import ItemCategory from "./ItemCategory";
+import ItemCategory from "../CategoryItem/CategoryItem";
 import { useNavigate } from "react-router-dom";
-import style from "./Style/CategoryNutritionContainer.module.css"
-import Aurora from "../Aurora";
-import Loading from "../ui/Loading";
+import style from "./NutritionCategory.module.css"
+import Loading from "../../ui/Loading/Loading";
 
-const CategoryNutritionContainer = () => {
+const NutritionCategory = () => {
   const { type } = useParams<{ type: string }>();
   const [items, setItems] = useState<AlimentoItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,14 +36,6 @@ const CategoryNutritionContainer = () => {
   return (
     <div className={style.containerCategory}>
 
-      <div className={style.auroraBg}>
-        <Aurora
-          colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={0.5}
-        />
-      </div>
 
       <button onClick={hanldeVolver} className={style.btn}> <GoChevronLeft/> Volver </button>
 
@@ -62,4 +53,4 @@ const CategoryNutritionContainer = () => {
   );
 };
 
-export default CategoryNutritionContainer;
+export default NutritionCategory;

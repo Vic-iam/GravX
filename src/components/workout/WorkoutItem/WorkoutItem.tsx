@@ -1,12 +1,12 @@
-import type { Categoria } from "../../data/workout";
-import style from "./Style/ItemWorkoust.module.css"
+import type { Categoria } from "../../../data/workout";
+import style from "./WorkoutItem.module.css"
 
 type Props = {
   categorias: Categoria[];
   onSelect: (categoria: Categoria) => void;
 };
 
-const ItemWorkouts = ({ categorias, onSelect }: Props) => {
+const WorkoutItem = ({ categorias, onSelect }: Props) => {
   return (
     <div className={style.Item}>
       {categorias.map((categoria) => (
@@ -22,4 +22,4 @@ const ItemWorkouts = ({ categorias, onSelect }: Props) => {
   );
 };
 
-export default ItemWorkouts;
+export default WorkoutItem;

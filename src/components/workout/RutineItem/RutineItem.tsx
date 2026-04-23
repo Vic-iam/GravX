@@ -1,11 +1,11 @@
-import type { Categoria } from "../../data/workout";
-import style from "./Style/ItemRutine.module.css"
+import type { Categoria } from "../../../data/workout";
+import style from "./RutineItem.module.css"
 
 type Props = {
   categoria: Categoria;
 };
 
-const ItemRutine = ({ categoria }: Props) => {
+const RutineItem = ({ categoria }: Props) => {
   return (
     <div className={style.ItemR}>
       {categoria.types.map((item, i) => (
@@ -20,4 +20,4 @@ const ItemRutine = ({ categoria }: Props) => {
   );
 };
 
-export default ItemRutine;
+export default RutineItem;

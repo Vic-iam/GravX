@@ -1,5 +1,4 @@
-import Aurora from "../components/Aurora";
-import Loading from "../components/ui/Loading";
+import Loading from "../components/ui/Loading/Loading";
 import style from "./Style/Login.module.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
@@ -24,14 +23,7 @@ const Login = () => {
     <>
       { isLoading ? <Loading text="...Cargando datos" /> :
         <section className={style.loginContainer}>
-          <div className={style.auroraBg}>
-            <Aurora
-              colorStops={["#9C1107", "#0C0A09", "#9C1107"]}
-              blend={0.5}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          </div>
+
 
           <form onSubmit={handleSubmit} className={style.loginCard}>
             <h1>Iniciar sesión</h1>

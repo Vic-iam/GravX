@@ -1,0 +1,55 @@
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+.containerNutrition {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* ===========================
+   CATEGORY TITLE
+=========================== */
+.titleAlimentancion {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.titleAlimentancion h1 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* ===========================
+   GRID OF ITEMS
+=========================== */
+.styleNutricion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .containerNutrition {
+    gap: 35px;
+    padding: 30px 15px;
+  }
+
+  .titleAlimentancion h1 {
+    font-size: 1.5rem;
+  }
+
+  .styleNutricion {
+    grid-template-columns: 1fr;
+  }
+}

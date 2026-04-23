@@ -1,12 +1,12 @@
-import type { AlimentoItem } from '../data/nutrition'
-import ButtonItemNutrition from './ButtonItemNutrition'
-import style from "./Style/ItemCategory.module.css"
+import type { AlimentoItem } from '../../../data/nutrition'
+import ButtonNutrition from '../ButtonNutrition/ButtonNutrition'
+import style from "./CategoryItem.module.css"
 
 interface Prosp {
     item: AlimentoItem
 }
 
-const ItemCategory = ({ item }: Prosp) => {
+const CategoryItem = ({ item }: Prosp) => {
     return (
         <div className={style.containerCardCategory}>
 
@@ -16,7 +16,7 @@ const ItemCategory = ({ item }: Prosp) => {
                     <p>Calorías: {item.calorias} kcal x 100g</p>
                     <p>Proteínas: {item.proteina} g x 100g</p>
                     <div className={style.verDetalle}>
-                        <ButtonItemNutrition item={item} />
+                        <ButtonNutrition item={item} />
                     </div>
                 </div>
 
@@ -29,4 +29,4 @@ const ItemCategory = ({ item }: Prosp) => {
     )
 }
 
-export default ItemCategory
+export default CategoryItem

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { getProducts, } from "../../data/nutrition";
-import type { Categoria } from "../../data/nutrition";
-import ItemList from "./ItemListNutrtition";
+import { getProducts, } from "../../../data/nutrition";
+import type { Categoria } from "../../../data/nutrition";
+import NutritionListItem from "../NutritionListItem/NutritionListItem";
 import { Link } from "react-router-dom";
-import style from "./Style/ItemListContainer.module.css";
+import style from "./ContainerNutrition.module.css";
 import { FaChevronDown } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
 
-const ItemListContainer = () => {
+const ContainerNutrition = () => {
   const [nutricion, setNutricion] = useState<Categoria[]>([]);
   const [showCat, setShowCat] = useState(false);
   const location = useLocation();
@@ -71,10 +71,10 @@ const ItemListContainer = () => {
           )}
         </div>
 
-        <ItemList categorias={nutricion} />
+        <NutritionListItem categorias={nutricion} />
       </div>
     </section>
   );
 };
 
-export default ItemListContainer;
+export default ContainerNutrition;
