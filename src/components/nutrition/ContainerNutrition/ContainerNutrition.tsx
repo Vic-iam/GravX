@@ -55,13 +55,13 @@ const ContainerNutrition = () => {
           </h1>
           {showCat && (
             <div className={style.category}>
-              <Link to="/categoria/frutas">
+              <Link to="/categoria/frutas" onClick={handleLinkClick}>
                 Frutas
               </Link>
               <Link to="/categoria/granos" onClick={handleLinkClick}>
                 Granos
               </Link>
-              <Link to="/categoria/verduras">
+              <Link to="/categoria/verduras" onClick={handleLinkClick}>
                 Verduras
               </Link>
               <Link to="/categoria/proteina" onClick={handleLinkClick}>

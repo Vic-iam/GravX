@@ -2,12 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
 }
 
-.Item h2{
-    border: 1px solid #2e2e2e;
+.nameStyle{
+    border: 1px solid var(--border-color);
+    background-color: var(--surface);
+    color: var(--text);
+    width: 200px;
+    text-align: center;
     padding: 5px;
     cursor: pointer;
+    font-size: 1.6rem;
 }

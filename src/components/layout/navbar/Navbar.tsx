@@ -1,96 +1,99 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FaBars, FaTimes, FaUser } from "react-icons/fa";
+
 import Logo from "../../../assets/marcaGravX.png";
-import style from "./Navbar.module.css";
-import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import DarkMode from "../../ui/DarkMode/DarkMode";
+import style from "./Navbar.module.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const [showNavbar, setShowNavbar] = useState(true);
+
+  const menuRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
+      const currentScrollY = window.scrollY;
 
-      if (currentScroll > lastScrollY.current && currentScroll > 80) {
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
 
-      lastScrollY.current = currentScroll;
-      currentScroll > 80
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
-    return () => { document.body.style.overflow = "auto" };
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isOpen]);
 
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (!menuRef.current?.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };
 
-    if (isOpen) document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [isOpen]);
 
-  const handleLinkClick = () => {
+  const closeMenu = () => {
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const activeClass = ({ isActive }: any) =>
+  const activeClass = ({ isActive }: { isActive: boolean }) =>
     isActive ? style.activeLink : "";
 
   return (
     <header className={`${style.header} ${!showNavbar ? style.hide : ""}`}>
-      <div className={style.navbar}>
+      <nav className={style.navbar}>
         <Link to="/" className={style.imageLogo}>
           <img src={Logo} alt="Logo GravX" />
         </Link>
 
-        {isOpen && <div className={style.backdrop} />}
-
-        <DarkMode />
+        {isOpen && <div className={style.backdrop}></div>}
 
         <div
           ref={menuRef}
-          className={`${style.menuLinks} ${isOpen ? style.open : ""}`} >
-          <ul className={style.Links}>
-            <li><NavLink to="/" className={activeClass} onClick={handleLinkClick}>Inicio</NavLink></li>
-            <li><NavLink to="/Nutrition" className={activeClass} onClick={handleLinkClick}>Alimentación</NavLink></li>
-            <li><NavLink to="/Workouts" className={activeClass} onClick={handleLinkClick}>Rutinas</NavLink></li>
-            <li><NavLink to="/Calculator" className={activeClass} onClick={handleLinkClick}>Calculadora</NavLink></li>
+          className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
+        >
+          <ul className={style.links}>
+            <li><NavLink to="/" className={activeClass} onClick={closeMenu}>Inicio</NavLink></li>
+            <li><NavLink to="/Nutrition" className={activeClass} onClick={closeMenu}>Alimentación</NavLink></li>
+            <li><NavLink to="/Workouts" className={activeClass} onClick={closeMenu}>Rutinas</NavLink></li>
+            <li><NavLink to="/Calculator" className={activeClass} onClick={closeMenu}>Calculadora</NavLink></li>
           </ul>
-          <div className={style.loginBlock}>
-            <NavLink to="/Login" className={activeClass} onClick={handleLinkClick}>
-              <FaUser /> Login
+
+          <div className={style.actions}>
+            <NavLink to="/Login" className={style.loginBtn} onClick={closeMenu}>
+              <FaUser />
+              Login
             </NavLink>
+            <DarkMode />
           </div>
         </div>
 
-        <button
-          className={style.itemToggle}
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className={style.itemToggle} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
-
-
-      </div>
+      </nav>
     </header>
   );
 };

@@ -8,10 +8,12 @@ interface LoadingProps {
 const Loading = ({ text }: LoadingProps) => {
   return (
     <div className={style.loadingContainer}>
+      <div className={style.auroraBg}></div>
 
-      <ClockLoader size={150} color="#ffffff" />
-
-      <p> {text} </p>
+      <div className={style.loaderContent}>
+        <ClockLoader size={120} color="var(--text)" />
+        <p>{text}</p>
+      </div>
     </div>
   );
 };

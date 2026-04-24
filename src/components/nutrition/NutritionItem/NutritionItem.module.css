@@ -4,9 +4,27 @@
   align-items: center;
   padding: 10px;
   flex-wrap: wrap;
-  border: 1px solid #2e2e2e;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
   border-radius: 16px;
   gap: 10px;
+}
+
+.desAlimentacion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.desAlimentacion h1{
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.desAlimentacion p{
+  color: var(--text-secondary);
+  font-size: 1rem;
 }
 
 .itemImage img {
@@ -17,5 +35,5 @@
 
 .itemImage {
   height: 200px;
-  width: 250px;
+  width: 200px;
 }

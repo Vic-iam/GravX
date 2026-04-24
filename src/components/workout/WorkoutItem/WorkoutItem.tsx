@@ -1,5 +1,5 @@
 import type { Categoria } from "../../../data/workout";
-import style from "./WorkoutItem.module.css"
+import style from "./WorkoutItem.module.css";
 
 type Props = {
   categorias: Categoria[];
@@ -10,13 +10,11 @@ const WorkoutItem = ({ categorias, onSelect }: Props) => {
   return (
     <div className={style.Item}>
       {categorias.map((categoria) => (
-        <h2
-          key={categoria.id}
-          onClick={() => onSelect(categoria)}
-      
-        >
-          {categoria.nombre}
-        </h2>
+        <div className={style.nameStyle}>
+          <h3 key={categoria.id} onClick={() => onSelect(categoria)}>
+            {categoria.nombre}
+          </h3>
+        </div>
       ))}
     </div>
   );

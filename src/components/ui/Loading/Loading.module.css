@@ -1,23 +1,85 @@
+/* =========================
+   CONTAINER
+========================= */
+.loadingContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* =========================
+   BACKGROUND EFFECT
+========================= */
 .auroraBg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(193, 18, 31, 0.25), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(193, 18, 31, 0.18), transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04), transparent 45%);
+
+  animation: auroraMove 6s ease-in-out infinite alternate;
 }
 
-.loadingContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    height: 120vh;
-    background-color: black;
-    z-index: 99;
-    color: white;
+/* =========================
+   CONTENT
+========================= */
+.loaderContent {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  padding: 40px 50px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-.loadingContainer p{
-    color: white;
-    font-size: 1.4rem;
-    z-index: 99;
+/* =========================
+   TEXT
+========================= */
+.loaderContent p {
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  animation: pulseText 1.8s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes pulseText {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes auroraMove {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-10px, 10px);
+  }
 }

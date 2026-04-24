@@ -12,7 +12,7 @@ const CategoryItem = ({ item }: Prosp) => {
 
             <div className={style.cardCategory}>
                 <div className={style.desAlimentacion}>
-                    <h4>{item.nombre}</h4>
+                    <h1>{item.nombre}</h1>
                     <p>Calorías: {item.calorias} kcal x 100g</p>
                     <p>Proteínas: {item.proteina} g x 100g</p>
                     <div className={style.verDetalle}>

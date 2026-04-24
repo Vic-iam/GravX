@@ -6,9 +6,16 @@ interface Props {
   item: AlimentoItem
 }
 
+
 const ButtonNutrition = ({ item }: Props) => {
+
+    const closeMenu = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
   return (
-    <Link className={style.btn} to={`/Item/${item.nombre}`}>
+    <Link onClick={closeMenu} className={style.btn} to={`/Item/${item.nombre}`}>
       Ver detalle
     </Link>
   )

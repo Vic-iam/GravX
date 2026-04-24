@@ -1,6 +1,5 @@
 .containerCardCategory {
-    color: #d9d9d9;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--text);
     position: relative;
     overflow: hidden;
 
@@ -9,10 +8,13 @@
 .cardCategory{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    border: 1px solid #3b3b3b;
+    border: 1px solid var(--border-color);
+    background: var(--surface);
     padding: 20px;
     border-radius: 20px;
+    width: 250px;
     gap: 10px;
 }
 
@@ -28,12 +30,26 @@
     gap: 5px;
 }
 
+.desAlimentacion h1{
+    font-size: 2.4rem;
+    color: var(--text);
+}
+
+.desAlimentacion p{
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
 .imgStyle{
     height: 200px;
-    width: 300px;
+    width: 200px;
 }
 
 @media (max-width: 768px) {
+
+    .desAlimentacion h1{
+        font-size: 1.8rem;
+    }
 
     .imgStyle{
         height: 150px;

@@ -1,9 +1,10 @@
-
-
+/* =========================
+   HEADER
+========================= */
 .header {
-  width: 100%;
   position: fixed;
   top: 0;
+  width: 100%;
   z-index: 999;
   transition: transform 0.3s ease;
 }
@@ -12,234 +13,179 @@
   transform: translateY(-120%);
 }
 
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
-   background: var(--surface);
-   backdrop-filter: blur(12px);
-   color: var(--text);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 20px;
-  height: 60px;
   margin: 10px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px black;
-}
+  padding: 0 20px;
+  height: 70px;
 
-.menuLinks {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--bg);
+
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
-.loginBlock a {
-  color: white;
-  text-decoration: none;
-  border: 1px solid #2e2e2e;
-  padding: 15px;
-  border-radius: 30px;
-  transition: all 0.4s ease;
-}
-
-.loginBlock a:hover {
-  color: #e53935;
-}
-
+/* =========================
+   LOGO
+========================= */
 .imageLogo img {
-  height: 100px;
   width: 150px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
 .imageLogo img:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
-ul {
-  padding: 0;
-  margin: 0;
+/* =========================
+   MENU LINKS
+========================= */
+.menuLinks {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-.Links li,
-.LinksDate li {
+.links {
+  display: flex;
+  gap: 20px;
   list-style: none;
 }
 
-.Links,
-.LinksDate {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.Links a {
+.links a {
+  position: relative;
   text-decoration: none;
-  font-size: 1.1rem;
+  color: var(--text);
+  font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
-.Links a:hover {
-  color: #e53935;
+.links a:hover {
+  color: var(--primary);
 }
 
-.itemToggle {
-  display: none;
-  font-size: 28px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.itemToggle:hover {
-  transform: scale(1.2);
-  color: #e53935;
-}
-
-.LinksDate {
-  text-align: center;
-}
-
-.Links a {
-  position: relative;
-  transition: color 0.25s ease;
-}
-
-.Links a::after {
+.links a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -6px;
   width: 0;
   height: 2px;
-  background: #e53935;
-  transition: width 0.25s ease;
+  background: var(--primary);
+  transition: width 0.3s ease;
 }
 
-.Links a:hover::after {
+.links a:hover::after,
+.activeLink::after {
   width: 100%;
 }
 
 .activeLink {
-  color: #e53935 !important;
+  color: var(--primary) !important;
 }
 
-.activeLink::after {
-  width: 100% !important;
+/* =========================
+   ACTIONS
+========================= */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.linksDateToggle {
+.loginBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+
+  text-decoration: none;
+  color: var(--text);
+
+  transition: all 0.3s ease;
+}
+
+.loginBtn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* =========================
+   TOGGLE
+========================= */
+.itemToggle {
   display: none;
+  font-size: 28px;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
+/* =========================
+   BACKDROP
+========================= */
 .backdrop {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.35);
   z-index: 998;
-  animation: fadeIn 0.25s ease;
+
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.35);
 }
 
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
-  .navbar {
-    height: 40px;
-  }
-
   .menuLinks {
     position: fixed;
-    right: 0;
     top: 0;
+    right: 0;
+
+    width: 300px;
     height: 100vh;
-    width: 320px;
-    background: rgba(0, 0, 0, 0.9);
-    transform: translateX(100%);
-    opacity: 0;
-    transition: all 0.35s ease;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     padding: 40px 20px;
-  }
 
-  .menuLinks.open {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .loginBlock {
-    display: flex;
-    justify-content: center;
-  }
-
-  .linea {
-    width: 50%;
-    height: 3px;
-    background-color: white;
-    margin: 20px auto;
-    border-radius: 2px;
-  }
-
-  .Links {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 50px;
-  }
-
-  .LinksDate {
-    display: none;
-  }
-
-  .linksDateToggle {
-    display: flex;
-  }
-
-  .loginStyleToggle {
-    color: #d9d9d9;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 40px;
+
+    background: var(--surface);
+
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+
+    z-index: 999;
   }
 
-  .loginStyleToggle a {
-    text-decoration: none;
-    text-align: center;
-    color: #d9d9d9;
-    border: 1px solid #2e2e2e;
-    border-radius: 20px;
-    padding: 15px;
-    transition: all 0.4s;
-    display: flex;
-    gap: 5px;
+  .open {
+    transform: translateX(0);
   }
 
-  .loginStyleToggle a:hover {
-    background-color: #440e03;
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .actions {
+    flex-direction: column;
   }
 
   .itemToggle {
     display: block;
     z-index: 1000;
-  }
-
-  .imageLogo img {
-    width: 150px;
-    height: 100px;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }

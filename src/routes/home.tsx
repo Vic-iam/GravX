@@ -193,7 +193,7 @@ const Home = () => {
             </div>
 
             <div className={style.nutritionHomeContainer}>
-              <h2>Transformá tu cuerpo desde la alimentación</h2>
+              <h4>Transformá tu cuerpo desde la alimentación</h4>
               <p>
                 Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos
                 sin dietas extremas.

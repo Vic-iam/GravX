@@ -10,6 +10,10 @@ export const ItemWorkoustContainer = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] =
     useState<Categoria | null>(null);
 
+  const [nivelSeleccionado, setNivelSeleccionado] = useState<
+    "principiante" | "intermedio" | "profesional"
+  >("principiante");
+
   useEffect(() => {
     getProducts()
       .then((res) => {
@@ -23,7 +27,6 @@ export const ItemWorkoustContainer = () => {
     <div className={style.workoutContainer}>
       <div className={style.hdf}>
         <h1>Elige la rutina</h1>
-        <div className={style.linea}></div>
         <div className={style.indexWorkout}>
           <WorkoutItem
             categorias={categorias}
@@ -34,10 +37,44 @@ export const ItemWorkoustContainer = () => {
 
       <div className={style.rutineContainer}>
         <h2>Rutinas</h2>
-        <div className={style.linea}></div>
-        {categoriaSeleccionada && (
-          <RutineItem categoria={categoriaSeleccionada} />
-        )}
+
+        <div className={style.levelTabs}>
+          <button
+            className={`${style.levelButton} ${
+              nivelSeleccionado === "principiante" ? style.active : ""
+            }`}
+            onClick={() => setNivelSeleccionado("principiante")}
+          >
+            Principiante
+          </button>
+
+          <button
+            className={`${style.levelButton} ${
+              nivelSeleccionado === "intermedio" ? style.active : ""
+            }`}
+            onClick={() => setNivelSeleccionado("intermedio")}
+          >
+            Intermedio
+          </button>
+
+          <button
+            className={`${style.levelButton} ${
+              nivelSeleccionado === "profesional" ? style.active : ""
+            }`}
+            onClick={() => setNivelSeleccionado("profesional")}
+          >
+            Profesional
+          </button>
+        </div>
+
+        <div className={style.rutineList}>
+          {categoriaSeleccionada && (
+            <RutineItem
+              categoria={categoriaSeleccionada}
+              nivel={nivelSeleccionado}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,160 +1,153 @@
-footer {
+/* =========================
+   FOOTER BASE
+========================= */
+.footer {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
-  color: #D9D9D9;
+  background: var(--bg);
+  color: var(--text);
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
 }
 
+/* =========================
+   CONTAINER
+========================= */
 .footerContainer {
   max-width: 1400px;
   margin: auto;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
+  padding: 50px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: start;
 }
 
+/* =========================
+   LOGO
+========================= */
 .imageLogo img {
-  height: 130px;
-  width: 220px;
-  object-fit: contain;
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 
-img{
-  border-radius: 20px;
-}
-
 .imageLogo img:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-5px) scale(1.03);
 }
 
-.linkFooter {
-  flex: 1;
-  min-width: 170px;
-}
-
-.linkFooter h2 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+/* =========================
+   LINKS
+========================= */
+.linkFooter h2,
+.contact h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
 }
 
 .linkFooter ul {
   padding: 0;
+  margin: 0;
 }
 
 .linkFooter li {
-  margin-bottom: 8px;
   list-style: none;
+  margin-bottom: 10px;
 }
 
 .linkFooter a {
-  color: #D9D9D9;
   text-decoration: none;
+  color: var(--text);
   transition: color 0.3s ease;
 }
 
 .linkFooter a:hover {
-  color: #C11007; 
+  color: var(--primary);
 }
 
-.sobreGravx {
-  flex: 2;
-  text-align: center;
-  max-width: 500px;
+/* =========================
+   ABOUT
+========================= */
+.about h3 {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.sobreGravx h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.sobreGravx p {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
+.about p {
+  font-size: 0.95rem;
   opacity: 0.8;
+  margin-bottom: 5px;
 }
 
-.copy {
-  background-color: black;
-  color: #D9D9D9;
-  text-align: center;
-  padding: 15px 10px;
+/* =========================
+   CONTACT
+========================= */
+.contact p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
-.copy h1 {
-  font-size: 1rem;
-  margin: 0;
-}
+.mailBtn {
+  display: inline-block;
+  padding: 12px 18px;
 
-.contact{
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.contact a{
-  color: #D9D9D9;
   text-decoration: none;
-  transition: all 0.4s;
+  color: var(--text);
+  background: var(--surface);
+
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
 }
 
-
-.contact h4{
-  font-size: 1.4rem;
+.mailBtn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
-.contact h5{
-  font-size: 1.1rem;
-  font-weight: 200;
+/* =========================
+   COPYRIGHT
+========================= */
+.copy {
+  text-align: center;
+  padding: 18px 10px;
+  border-top: 1px solid var(--border-color);
 }
 
-
-.contact a:hover{
-  color: #C11007;
+.copy p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
 }
 
-.linkGmail{
-  border: 1px solid #2E2E2E;
-  border-radius: 10px;
-  padding: 10px;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .footerContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .footerContainer {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
+  .about,
+  .contact,
   .linkFooter {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .sobreGravx{
-    display: grid;
-    text-align: start;
-    justify-content: center;
-    padding: 10px;
-  }
-  .sobreGravx h3{
-    font-size: 1rem;
-  }
-
-  .contact{
-    display: grid;
-    text-align: start;
-    padding: 10px;
-  }
-
- .contact h5{
-  text-align: center;
- }
-
-  .linkGmail{
     text-align: center;
   }
 
+  .imageLogo {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -1,36 +1,30 @@
-/* ===========================
-   BASE / LAYOUT
-=========================== */
+
+.sectionDivider {
+  width: 70%;
+  height: 2px;
+  margin: 30px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(193, 18, 31, 0.8),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(193, 18, 31, 0.35);
+  border-radius: 999px;
+}
+
+
 .nutritionBody {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--text-main);
-  background: var(--hero-gradient);
+  color: var(--text);
+  background: var(--bg);
 }
 
-/* ===========================
-   BACKGROUNDS
-=========================== */
-.auroraBg,
-.auroraBgInverse {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.auroraBgInverse {
-  transform: rotate(180deg);
-}
-
-/* ===========================
-   PRESENTATION SECTION
-=========================== */
+/* PRESENTATION */
 .presentationNutrition {
-  position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,9 +37,6 @@
 }
 
 .nutritionContainer {
-  position: relative;
-  z-index: 2;
-
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -55,159 +46,48 @@
   padding: 30px;
 
   text-align: center;
-  background: var(--card-bg);
+  background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  backdrop-filter: blur(6px);
 }
 
 .nutritionContainer h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
+  color: var(--text);
 }
 
 .nutritionContainer p {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
-.nutricionPresentation {
-  z-index: 4;
-
-  width: 80%;
-  padding: 20px;
-
-  background: #181818;
-  border: 1px solid #2e2e2e;
-  border-radius: 20px;
-}
-
-.presentationIndex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.presentationIndex h5 {
-  font-size: 2rem;
-}
-
-.linea {
-  height: 3px;
-  margin: 20px;
-
-  background-color: white;
-  border-radius: 10px;
-}
-
-/* ===========================
-   TITLES / ICONS
-=========================== */
+/* TITLE */
 .titleStyle {
   display: grid;
   place-items: center;
-  z-index: 2;
 }
 
-.listTitle h2,
-.titleAlimentancion h3 {
-  margin: 20px;
+.listTitle h2 {
   text-align: center;
   font-size: 2rem;
+  color: var(--text);
 }
 
-.iconStyle {
-  z-index: 1;
-
+.iconStyle  {
   font-size: 3rem;
-  text-align: center;
-  color: #d9d9d9;
-
+  color: var(--text);
   transition: color 0.4s ease;
 }
 
 .iconStyle:hover {
-  color: #440e03;
+  color: var(--primary);
 }
 
-/* ===========================
-   NUTRITION CARDS
-=========================== */
-.styleNutricion {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.styleNutricion h3 {
-  margin-left: 40px;
-  font-size: 2rem;
-}
-
-.styleNutricion img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-}
-
-/* ===========================
-   FOOD DESCRIPTION
-=========================== */
-.alimentaciónDescripcion {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 20px;
-
-  border: 1px solid #3b3b3b;
-  border-radius: 10px;
-
-  transition: all 0.4s;
-}
-
-.alimentaciónDescripcion:hover {
-  transform: translateY(-5px);
-}
-
-.alimentaciónDescripcion h4 {
-  font-size: 1.8rem;
-}
-
-.alimentaciónDescripcion p {
-  font-size: 0.9rem;
-}
-
-.desAlimentacion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.verMasAlimentacion a {
-  font-size: 1rem;
-  color: #d9d9d9;
-  transition: all 0.4s;
-}
-
-.verMasAlimentacion a:hover {
-  color: #440e03;
-}
-
-/* ===========================
-   FOOTER SECTION
-=========================== */
+/* FOOTER */
 .footerNutrition {
-  position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 50px;
 
   width: 100%;
@@ -215,76 +95,46 @@
   padding: 80px 0;
 }
 
-.footerIndex {
-  z-index: 10;
+.footerIndex,
+.macrosContainer {
+  width: 80%;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  text-align: center;
+}
 
+.macrosContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  width: 80%;
-  max-width: 900px;
-  padding: 30px;
-
-  color: #d9d9d9;
-  text-align: center;
-
-  border: 1px solid #2e2e2e;
-  border-radius: 20px;
+  gap: 15px;
 }
 
-.footerNutrition h5 {
-  font-size: 2rem;
-}
-
-.footerNutrition p {
-  max-width: 900px;
-
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-.footerIn {
+.footerIndex{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--surface);
 }
 
-.footerIn h6 {
-  font-size: 1.8rem;
+.footerIndex h3 {
+  font-size: 2.4rem;
+  color: var(--text);
 }
 
-.inCalorias {
-  text-align: center;
-}
-
-.inCalorias p {
-  max-width: 400px;
+.footerIndex p{ 
+  color: var(--text-secondary);
   font-size: 1rem;
 }
 
-/* ===========================
-   MACROS SECTION
-=========================== */
 .macrosContainer {
-  z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-
-  width: 80%;
   max-width: 1090px;
-  padding: 30px;
+  background: var(--surface);
+}
 
-  background: #181818;
-  border: 1px solid #242424;
-  border-radius: 10px;
+.macrosContainer p{
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .titleMacros,
@@ -292,103 +142,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
-.titleMacros {
-  gap: 10px;
+.titleMacros h4{
+  font-size: 2.4rem;
+  color: var(--text);
 }
 
-.titleInformation {
-  gap: 20px;
-  padding: 20px;
-}
-
-.titleMacros h6,
-.titleInformation h6 {
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-.macrosInformation h6 {
-  font-size: 1.4rem;
-  text-align: center;
+.titleMacros p{
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .information {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
-/* ===========================
-   LISTS
-=========================== */
+.titleInformation h6{
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+}
+
+.titleInformation li{
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 .liProteina,
 .liCarbohidratos,
 .liGrasas,
 .liVegetales {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0;
   padding: 0;
-
-  font-size: 1.2rem;
+  margin: 0;
+  list-style: none;
 }
 
-.liProteina li,
-.liCarbohidratos li,
-.liGrasas li,
-.liVegetales li {
-  margin: 4px 0;
+
+@media (max-width: 768px) {
+  
+.nutritionContainer h1,
+.footerIndex h3,
+.titleMacros h4{
+  font-size: 1.8rem;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 760px) {
-  .alimentoIndex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    margin-left: 10px;
-  }
-
-  .alimentoIndex label {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  .alimentaciónDescripcion {
-    display: grid;
-    width: 250px;
-  }
-
-  .titleMacros h6 {
-    font-size: 1.4rem;
-  }
-
-  .macrosInformation h6 {
-    font-size: 1.2rem;
-  }
-
-  .titleInformation h6 {
-    font-size: 1rem;
-  }
-
-  .liProteina,
-  .liCarbohidratos,
-  .liGrasas,
-  .liVegetales {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
 }

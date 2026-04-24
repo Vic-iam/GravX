@@ -1,5 +1,7 @@
 
 import { useEffect, useState } from "react";
+import style from "./DarkMode.module.css"
+import { IoMdSunny, IoMdMoon  } from "react-icons/io";
 
 export default function DarkMode() {
   const [theme, setTheme] = useState("dark");
@@ -9,11 +11,11 @@ export default function DarkMode() {
   }, [theme]);
 
   return (
-    <button
+    <button className={style.themeToggle}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
         
-      {theme === "dark" ? "☀️" : "🌙"}
+      {theme === "dark" ? <IoMdSunny/> : <IoMdMoon />}
     </button>
   );
 }

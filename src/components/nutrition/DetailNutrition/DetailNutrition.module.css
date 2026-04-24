@@ -9,14 +9,9 @@
     gap: 20px;
 
     position: relative;
-    background-color: black;
+    background: var(--bg);
 }
 
-.auroraBg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
 
 .detailInformtaion {
 
@@ -25,13 +20,11 @@
     min-height: 150px;
     padding: 30px;
 
-    font-size: 1.2rem;
-    color: #D9D9D9;
     text-align: end;
 
-    border: 1px solid #2E2E2E;
+    border: 1px solid var(--border-color);
     border-radius: 20px;
-    backdrop-filter: blur(6px);
+    background: var(--surface);
 
     display: flex;
     justify-content: space-around;
@@ -59,21 +52,32 @@
   
 }
 
+.indexDetail h1{
+    font-size: 2.4rem;
+    color: var(--text);
+}
+
+.indexDetail p{
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 600px;
+}
+
 .LinkStyle{
     z-index: 2;
     display: flex;
 }
 
 .LinkStyle a{
-    font-size: 1.4rem;
-    color: #D9D9D9;
+    font-size: 1rem;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.4s ease;
     
 }
 
 .LinkStyle a:hover{
-    color: #440e03;
+    color: var(--primary);
 }
 
 .icon{

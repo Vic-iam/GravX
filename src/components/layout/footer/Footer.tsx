@@ -1,55 +1,60 @@
-import style from "./Footer.module.css"
+import { Link } from "react-router-dom";
 import Logo from "../../../assets/marcaGravX.png";
-import { Link } from "react-router";
+import style from "./Footer.module.css";
 
 const Footer = () => {
-    return (
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-        <>
-            <footer>
+  return (
+    <footer className={style.footer}>
+      <div className={style.footerContainer}>
+        
+        {/* LOGO */}
+        <div className={style.imageLogo}>
+          <Link to="/" onClick={scrollTop}>
+            <img src={Logo} alt="Logo GravX" />
+          </Link>
+        </div>
 
-                <div className={style.footerContainer}>
+        {/* LINKS */}
+        <div className={style.linkFooter}>
+          <h2>Enlaces</h2>
+          <ul>
+            <li><Link to="/" onClick={scrollTop}>Inicio</Link></li>
+            <li><Link to="/Nutrition" onClick={scrollTop}>Alimentación</Link></li>
+            <li><Link to="/Workouts" onClick={scrollTop}>Rutinas</Link></li>
+            <li><Link to="/Calculator" onClick={scrollTop}>Calculadora</Link></li>
+          </ul>
+        </div>
 
-                    <div className={style.imageLogo}>
-                        <Link to="/">
-                            <img src={Logo} alt="Logo GravX" />
-                        </Link>
-                    </div>
-                    
-                    <div className={style.linkFooter}>
-                        <h2>Enlances</h2>
-                        <ul>
-                            <li><Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Inicio</Link></li>
-                            <li><Link to="/Nutrition" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Alimentacion</Link></li>
-                            <li><Link to="/Workouts" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Rutinas</Link></li>
-                            <li><Link to="/Calculator" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Calculadora</Link></li>
-                        </ul>
-                    </div>
+        {/* ABOUT */}
+        <div className={style.about}>
+          <h3>
+            GravX es una plataforma educativa para mejorar tus hábitos
+            alimenticios y rutinas de entrenamiento.
+          </h3>
+          <p>Versión v1.0.0</p>
+          <p>Hecho con React</p>
+        </div>
 
-                    <div className={style.sobreGravx}>
-                     <h3>"GravX es una plataforma educativa para mejorar tus hábitos alimenticios y rutinas de entrenamiento."</h3>
-                     <p>Version "v1.0.0" </p> 
-                     <p>Hecho con React</p>
-                    </div>
+        {/* CONTACT */}
+        <div className={style.contact}>
+          <h4>Contacto</h4>
+          <p>¿Tienes sugerencias o quieres reportar algún error?</p>
 
-                    <div className={style.contact}>
-                     <h4>Contactos</h4>
-                     <p>¿Tienes sugerencias o quieres reportar algún error?</p>
-                     <h5>Contactame</h5>
-                     <div className={style.linkGmail}>
-                     <a href="mailto:josevicentevitriago12@gmail.com">Escribeme por correo</a>
-                     </div>
-                    </div>
+          <a href="mailto:josevicentevitriago12@gmail.com" className={style.mailBtn}>
+            Escríbeme por correo
+          </a>
+        </div>
+      </div>
 
-                </div>
+      <div className={style.copy}>
+        <p>© 2025 GravX. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  );
+};
 
-            </footer>
-
-            <div className={style.copy}>
-                <h1> © 2025 GravX. Todos los derechos reservados. </h1>
-            </div>
-        </>
-    )
-}
-
-export default Footer
+export default Footer;
