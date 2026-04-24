@@ -7,8 +7,8 @@
   overflow: hidden;
 
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  background-color: black;
+  color: var(--text-main);
+  background: var(--hero-gradient);
 }
 
 /* ===========================
@@ -55,8 +55,8 @@
   padding: 30px;
 
   text-align: center;
-  background: #181818;
-  border: 1px solid #2e2e2e;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   backdrop-filter: blur(6px);
 }

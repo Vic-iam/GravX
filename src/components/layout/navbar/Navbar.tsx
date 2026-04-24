@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../assets/marcaGravX.png";
 import style from "./Navbar.module.css";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
+import DarkMode from "../../ui/DarkMode/DarkMode";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +63,8 @@ const Navbar = () => {
         </Link>
 
         {isOpen && <div className={style.backdrop} />}
+
+        <DarkMode />
 
         <div
           ref={menuRef}

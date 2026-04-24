@@ -8,9 +8,6 @@ import { FaRepeat } from "react-icons/fa6";
 import { GiSteak } from "react-icons/gi";
 import { LuBicepsFlexed, LuSalad } from "react-icons/lu";
 
-import Back from "../assets/rutinaBack.png";
-import Biceps from "../assets/rutinaBicep.png";
-import Pierna from "../assets/rutinaPierna.png";
 import { useEffect, useState } from "react";
 import Loading from "../components/ui/Loading/Loading";
 
@@ -23,7 +20,6 @@ const Home = () => {
     }, 2000);
   }, []);
 
-
   return (
     <>
       {isLoading ? (
@@ -32,14 +28,22 @@ const Home = () => {
         <div className={style.homeBody}>
           {/* HERO SECTION */}
           <section className={style.presentationHome}>
-
             <div className={style.homeContainer}>
-              <h1>Bienvenido a GravX</h1>
+              <h1>Transformá tu cuerpo con GravX</h1>
               <p>
-                "Transforma tu cuerpo y mejora tu salud con rutinas guiadas,
-                planes alimenticios y herramientas diseñadas para ayudarte a
-                alcanzar tus metas."
+                Rutinas inteligentes, nutrición personalizada y herramientas
+                diseñadas para ayudarte a alcanzar tus objetivos.
               </p>
+
+              <div className={style.heroButtons}>
+                <Link to="/Workouts" className={style.primaryBtn}>
+                  Empezar ahora
+                </Link>
+
+                <Link to="/Calculator" className={style.secondaryBtn}>
+                  Calcular IMC
+                </Link>
+              </div>
             </div>
 
             <div className={style.iconHome}>
@@ -58,14 +62,36 @@ const Home = () => {
             </div>
           </section>
 
+          <div className={style.sectionDivider}></div>
+
           {/* CALCULADORA IMC */}
           <section className={style.calculatorHome}>
             <div className={style.calHome}>
-              <h2>Calculá tu IMC (Índice de Masa Corporal)</h2>
+              <h2>Calculá tu IMC</h2>
+
               <p>
-                La calculadora IMC te permite conocer si tu peso es adecuado
-                según tu altura.
+                Descubrí si tu peso está dentro del rango saludable según tu
+                altura y obtené una referencia rápida para empezar a mejorar tu
+                condición física.
               </p>
+
+              <div className={style.imcBenefits}>
+                <div>
+                  <strong>Rápido</strong>
+                  <span>Resultado en segundos</span>
+                </div>
+
+                <div>
+                  <strong>Simple</strong>
+                  <span>Solo altura y peso</span>
+                </div>
+
+                <div>
+                  <strong>Útil</strong>
+                  <span>Conocé tu estado actual</span>
+                </div>
+              </div>
+
               <Link
                 to="/Calculator"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -75,28 +101,30 @@ const Home = () => {
               </Link>
             </div>
           </section>
-
+         
+          <div className={style.sectionDivider}></div>
 
           {/* RUTINAS */}
           <section className={style.rutinasHome}>
             <div className={style.rutinaStyle}>
-              <h3>Explorá rutinas diseñadas para cada grupo muscular</h3>
+              <h3>Descubre rutinas</h3>
+              <p>
+                Explora rutinas diseñadas para cada grupo muscular
+              </p>
 
               <div className={style.rutinas}>
-                <div className={style.imgStyle}>
-                  <img src={Back} alt="Back" />
+
+                <div className={style.workoutBg}>
                   <h4>Rutinas de espalda</h4>
                   <p>Aumentá fuerza y volumen</p>
                 </div>
 
-                <div className={style.imgStyle}>
-                  <img src={Pierna} alt="Pierna" />
+                <div className={style.workoutBg}>
                   <h4>Rutinas de pierna</h4>
                   <p>Construí potencia y resistencia</p>
                 </div>
 
-                <div className={style.imgStyle}>
-                  <img src={Biceps} alt="Biceps" />
+                <div className={style.workoutBg}>
                   <h4>Rutinas de bíceps</h4>
                   <p>Definí y desarrollá tus brazos</p>
                 </div>
@@ -112,6 +140,7 @@ const Home = () => {
             </div>
           </section>
 
+          <div className={style.sectionDivider}></div>
           {/* CARDS DE MOTIVACIÓN */}
           <section className={style.cardContainer}>
             <div className={style.wrappers}>
@@ -144,6 +173,7 @@ const Home = () => {
               </p>
             </div>
           </section>
+
 
           {/*Alimentancion */}
           <section className={style.homeNutrition}>
