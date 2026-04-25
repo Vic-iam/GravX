@@ -30,7 +30,7 @@ const DetailNutrition = ({ item }: Props) => {
               className={style.icon}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <GoChevronLeft /> Regresar
+              <GoChevronLeft /> Volver
             </Link>
           </div>
 
