@@ -10,10 +10,12 @@ const WorkoutItem = ({ categorias, onSelect }: Props) => {
   return (
     <div className={style.Item}>
       {categorias.map((categoria) => (
-        <div className={style.nameStyle}>
-          <h3 key={categoria.id} onClick={() => onSelect(categoria)}>
-            {categoria.nombre}
-          </h3>
+        <div className={style.boxX}>
+          <div className={style.nameStyle}>
+            <h3 key={categoria.id} onClick={() => onSelect(categoria)}>
+              {categoria.nombre}
+            </h3>
+          </div>
         </div>
       ))}
     </div>
