@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/navbar/Navbar";
-import Home from "./routes/Home";
+import Home from "./routes/home";
 import Calculator from "./routes/Calculator";
 import Nutrition from "./routes/Nutrition";
 import Workouts from "./routes/Workouts";
-import Dashboard from "./routes/Dashboard";
+import Dashboard from "./routes/dashboard";
 import Login from "./utils/Login";
 import Register from "./utils/Register";
 import Footer from "./components/layout/footer/Footer";
