@@ -30,7 +30,7 @@ export const workouts: Categoria[] = [
           duracion: 30,
           areas: "Pecho medio",
           meta: "Fuerza",
-          imagen: "/workouts/press-maquina.png",
+          imagen: "/workouts/apMachine.png",
         },
       ],
       intermedio: [
@@ -50,7 +50,7 @@ export const workouts: Categoria[] = [
           duracion: 50,
           areas: "Pecho superior",
           meta: "Fuerza máxima",
-          imagen: "/workouts/press-inclinado.png",
+          imagen: "/workouts/pressInclinadoBarra.png",
         },
       ],
     },
@@ -67,7 +67,7 @@ export const workouts: Categoria[] = [
           duracion: 30,
           areas: "Dorsales",
           meta: "Resistencia",
-          imagen: "/workouts/jalon-pecho.png",
+          imagen: "/workouts/jalonAlPecho.png",
         },
       ],
       intermedio: [
@@ -77,7 +77,7 @@ export const workouts: Categoria[] = [
           duracion: 40,
           areas: "Espalda media",
           meta: "Hipertrofia",
-          imagen: "/workouts/remo-barra.png",
+          imagen: "/workouts/remoConBarra.png",
         },
       ],
       profesional: [
@@ -87,7 +87,7 @@ export const workouts: Categoria[] = [
           duracion: 50,
           areas: "Dorsales",
           meta: "Fuerza",
-          imagen: "/workouts/dominadas.png",
+          imagen: "/workouts/dominadaLastrada.png",
         },
       ],
     },
@@ -103,7 +103,7 @@ export const workouts: Categoria[] = [
           duracion: 30,
           areas: "Biced",
           meta: "Resistencia",
-          imagen: "/Workouts/curlBiceds.png",
+          imagen: "/workouts/curlBiceds.png",
         },
       ],
       intermedio: [
@@ -113,7 +113,7 @@ export const workouts: Categoria[] = [
           duracion: 40,
           areas: "biced",
           meta: "hipertrofia",
-          imagen: "/Workouts/curlBarra",
+          imagen: "/workouts/curlBarra.png",
         },
       ],
 
@@ -124,10 +124,72 @@ export const workouts: Categoria[] = [
           duracion: 50,
           areas: "biced",
           meta: "Fuerza",
-          imagen: "/Workouts/curlAraña.png"
+          imagen: "/workouts/curlAraña.png",
         },
       ],
     },
+  },
+  {
+    id: 4,
+    nombre: "Triceds",
+    types: {
+      principiante: [
+        {
+          id: 11,
+          nombre: "Extensiones de triceps en polea",
+          duracion: 30,
+          areas: "triced",
+          meta: "Resistencia",
+          imagen: "/workouts/extenTricedPolea.png",
+        },
+      ],
+      intermedio: [
+        {
+          id: 10,
+          nombre: "Extensiones de triceps en polea alta",
+          duracion: 40,
+          areas: "triced",
+          meta: "Hipertofia",
+          imagen: "/workouts/extenTricedPoleaAlta.png",
+        },
+      ],
+      profesional: [
+        {
+          id: 11,
+          nombre: "Extensiones horizontal con barra Z",
+          duracion: 50,
+          areas: "triced",
+          meta: "Fuerza",
+          imagen: "/workouts/extenTricepBarraZ.png",
+        },
+      ],
+    },
+  },
+  {
+    id: 5,
+    nombre: "Hombro",
+    types: {
+      principiante: [
+        {
+          id: 12,
+          nombre: "Press Militar",
+          duracion: 30,
+          areas: "hombro",
+          meta: "Resistencia",
+          imagen: "/workout/pressMilitar.png"
+        },
+      ],
+      intermedio: [
+        {
+          id: 13,
+          nombre: ""
+        }
+      ]
+    }
+  },
+  {
+    id: 6,
+    nombre: "Pierna",
   },
 ];
 

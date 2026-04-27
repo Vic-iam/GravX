@@ -1,4 +1,7 @@
-.ItemR{
+/* =========================================================
+   CARDS DE RUTINA
+========================================================= */
+.ItemR {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,21 +9,36 @@
     gap: 10px;
 }
 
-.ItemRInformation{
+.ItemRInformation {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 3px;
+    padding: 10px;
+
+    height: 250px;
+    width: 200px;
     border: 1px solid var(--border-color);
     background: var(--surface);
     color: var(--text);
-    padding: 10px;
 }
 
-.ItemRInformation h4{
-    font-size: 1.6rem;
+.ItemRInformation h4 {
+    font-size: 1.4rem;
+    
 }
 
-.ItemRInformation p{
+.ItemRInformation p {
     font-size: 1rem;
     color: var(--text-secondary);
+}
+
+.ItemRImage img{
+    height: 100%;
+    width: 100%;
+}
+
+.ItemRImage{
+    height: 150px;
+    width: 150px;
 }

@@ -19,8 +19,8 @@ const Workouts = () => {
         <Loading text="...Cargando datos" />
       ) : (
         <div className={style.workoutsBody}>
-          <section className={style.presentationWorkouts}>
 
+          <section className={style.presentationWorkouts}>
 
             <div className={style.workoutsContainer}>
               <h1>Entrenamiento</h1>
@@ -35,6 +35,7 @@ const Workouts = () => {
               <a>HOMBRO</a>
               <a>PIERNA</a>
             </div>
+          <div className={style.sectionDivider}></div>
           </section>
 
           <section className={style.showcaseRutine}>

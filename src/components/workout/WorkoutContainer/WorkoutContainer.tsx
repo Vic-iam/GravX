@@ -36,7 +36,10 @@ export const ItemWorkoustContainer = () => {
       </div>
 
       <div className={style.rutineContainer}>
+
         <h2>Rutinas</h2>
+
+      <div className={style.boxRutine}>
 
         <div className={style.levelTabs}>
           <button
@@ -44,7 +47,7 @@ export const ItemWorkoustContainer = () => {
               nivelSeleccionado === "principiante" ? style.active : ""
             }`}
             onClick={() => setNivelSeleccionado("principiante")}
-          >
+            >
             Principiante
           </button>
 
@@ -53,7 +56,7 @@ export const ItemWorkoustContainer = () => {
               nivelSeleccionado === "intermedio" ? style.active : ""
             }`}
             onClick={() => setNivelSeleccionado("intermedio")}
-          >
+            >
             Intermedio
           </button>
 
@@ -62,7 +65,7 @@ export const ItemWorkoustContainer = () => {
               nivelSeleccionado === "profesional" ? style.active : ""
             }`}
             onClick={() => setNivelSeleccionado("profesional")}
-          >
+            >
             Profesional
           </button>
         </div>
@@ -70,10 +73,11 @@ export const ItemWorkoustContainer = () => {
         <div className={style.rutineList}>
           {categoriaSeleccionada && (
             <RutineItem
-              categoria={categoriaSeleccionada}
-              nivel={nivelSeleccionado}
+            categoria={categoriaSeleccionada}
+            nivel={nivelSeleccionado}
             />
           )}
+          </div>
         </div>
       </div>
     </div>
