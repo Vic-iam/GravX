@@ -176,20 +176,30 @@ export const workouts: Categoria[] = [
           duracion: 30,
           areas: "hombro",
           meta: "Resistencia",
-          imagen: "/workout/pressMilitar.png"
+          imagen: "/workout/pressMilitar.png",
         },
       ],
       intermedio: [
         {
           id: 13,
-          nombre: ""
-        }
-      ]
-    }
-  },
-  {
-    id: 6,
-    nombre: "Pierna",
+          nombre: "gsaas",
+          duracion: 32,
+          areas: "hombor",
+          meta: "Hipertrofia",
+          imagen: "/",
+        },
+      ],
+      profesional: [
+        {
+          id: 14,
+          nombre: "gsaas",
+          duracion: 32,
+          areas: "hombor",
+          meta: "Hipertrofia",
+          imagen: "/",
+        },
+      ],
+    },
   },
 ];
 
