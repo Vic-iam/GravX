@@ -86,8 +86,8 @@ const Navbar = () => {
               <FaUser />
               Login
             </NavLink>
-            <DarkMode />
           </div>
+            <DarkMode />
         </div>
 
         <button className={style.itemToggle} onClick={() => setIsOpen(!isOpen)}>
