@@ -18,7 +18,6 @@ export const ItemWorkoustContainer = () => {
     getProducts()
       .then((res) => {
         setCategorias(res);
-        setCategoriaSeleccionada(res[0]);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -27,6 +26,7 @@ export const ItemWorkoustContainer = () => {
     <div className={style.workoutContainer}>
       <div className={style.hdf}>
         <h1>Elige la rutina</h1>
+
         <div className={style.indexWorkout}>
           <WorkoutItem
             categorias={categorias}
@@ -35,50 +35,56 @@ export const ItemWorkoustContainer = () => {
         </div>
       </div>
 
-      <div className={style.rutineContainer}>
+      <div
+        className={`${style.rutineContainer} ${
+          categoriaSeleccionada ? style.open : style.closed
+        }`}
+      >
+        {categoriaSeleccionada ? (
+          <>
+            <h2>Rutinas</h2>
 
-        <h2>Rutinas</h2>
+            <div className={style.boxRutine}>
+              <div className={style.levelTabs}>
+                <button
+                  className={`${style.levelButton} ${
+                    nivelSeleccionado === "principiante" ? style.active : ""
+                  }`}
+                  onClick={() => setNivelSeleccionado("principiante")}
+                >
+                  Principiante
+                </button>
 
-      <div className={style.boxRutine}>
+                <button
+                  className={`${style.levelButton} ${
+                    nivelSeleccionado === "intermedio" ? style.active : ""
+                  }`}
+                  onClick={() => setNivelSeleccionado("intermedio")}
+                >
+                  Intermedio
+                </button>
 
-        <div className={style.levelTabs}>
-          <button
-            className={`${style.levelButton} ${
-              nivelSeleccionado === "principiante" ? style.active : ""
-            }`}
-            onClick={() => setNivelSeleccionado("principiante")}
-            >
-            Principiante
-          </button>
+                <button
+                  className={`${style.levelButton} ${
+                    nivelSeleccionado === "profesional" ? style.active : ""
+                  }`}
+                  onClick={() => setNivelSeleccionado("profesional")}
+                >
+                  Profesional
+                </button>
+              </div>
 
-          <button
-            className={`${style.levelButton} ${
-              nivelSeleccionado === "intermedio" ? style.active : ""
-            }`}
-            onClick={() => setNivelSeleccionado("intermedio")}
-            >
-            Intermedio
-          </button>
-
-          <button
-            className={`${style.levelButton} ${
-              nivelSeleccionado === "profesional" ? style.active : ""
-            }`}
-            onClick={() => setNivelSeleccionado("profesional")}
-            >
-            Profesional
-          </button>
-        </div>
-
-        <div className={style.rutineList}>
-          {categoriaSeleccionada && (
-            <RutineItem
-            categoria={categoriaSeleccionada}
-            nivel={nivelSeleccionado}
-            />
-          )}
+              <RutineItem
+                categoria={categoriaSeleccionada}
+                nivel={nivelSeleccionado}
+              />
+            </div>
+          </>
+        ) : (
+          <div className={style.placeholder}>
+            Selecciona un grupo muscular para ver la rutina
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
