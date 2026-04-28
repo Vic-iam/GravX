@@ -153,6 +153,14 @@
     background: linear-gradient(180deg, #d61c2c, #b0101c);
 }
 
+@media (max-width: 768px) {
+    
+    .workoutContainer{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
 
+}
 
 
