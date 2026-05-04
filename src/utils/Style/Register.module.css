@@ -28,6 +28,10 @@
     border-radius: 20px;
     border: 1px solid var(--border-color);
 
+    
+    height: 400px;
+    width: 400px;
+
 }
 
 .adminCard h1 {
@@ -42,18 +46,16 @@
 }
 
 .adminCard input {
-    padding: 15px;
+   padding: 15px;
     font-size: 0.9rem;
 
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3B3B3B;
-    border: 1px solid #2E2E2E;
-
+    background: var(--surface);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    border: none;
 
     transition: all ease 0.4s;
     opacity: 0.5;
@@ -61,8 +63,8 @@
 
 .adminCard input:focus {
     border: none;
-    background-color: #242424;
-    color: white; 
+    background: var(--bg);
+    color: var(--text); 
     opacity: 0.8;
 }
 
@@ -81,30 +83,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 15px;
 }
 
 .btnAdmin button {
     font-size: 1rem;
-    padding: 5px;
 
-    border: 1px solid #2E2E2E;
+    border: 1px solid var(--border-color);
+    color: var(--text);
     border-radius: 10px;
-    background-color: #3B3B3B;
-    color: white;
+    background: var(--primary);
 
-    width: 100%;
-    height: 30px;
+    width: 200px;
+    height: 40px;
 
     transition: all 0.4s;
 
     cursor: pointer;
-
     opacity: 0.8;
 }
 
 .btnAdmin button:hover {
-    background-color: #242424;
-    color: #C4C4C4;
+background: var(--surface);
 }
 
 .btnAdmin button:active{
@@ -126,8 +126,9 @@
 }
 
 .adminLogin a {
-    color:#9C1107;
+    color: var(--primary);
     text-decoration: none;
+    font-size: 0.9rem;
 }
 
 .adminLogin a:hover{
