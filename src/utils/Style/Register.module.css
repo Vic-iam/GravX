@@ -14,7 +14,6 @@
     background: var(--bg);
 }
 
-
 .adminCard {
     display: flex;
     justify-content: space-evenly;
@@ -71,7 +70,6 @@
 .adminCard input:active {
     transform: scale(0.98);
 }
-
 
 .adminIndex {
     display: flex;
@@ -135,9 +133,7 @@ background: var(--surface);
     text-decoration: underline;
 }
 
-
 @media (max-width: 760px) {
-
     .adminCard{
         width: 320px;
     }
