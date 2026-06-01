@@ -1,30 +1,49 @@
-/* =========================================================
-   ITEMS DE CATEGORIAS
-========================================================= */
 .Item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .nameStyle {
-    border: 1px solid var(--border-color);
-    background: var(--bg);
-    color: var(--text);
-    width: 220px;
-    text-align: center;
-    padding: 14px;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+  width: 240px;
+
+  padding: 16px;
+
+  text-align: center;
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
 }
 
 .nameStyle:hover {
-    transform: translateY(-4px);
-    color: var(--primary);
-    box-shadow: 0 8px 20px rgba(193, 18, 31, 0.25);
+  transform: translateY(-4px);
+
+  border-color: #c1121f;
+
+  color: var(--primary);
+
+  box-shadow: 0 10px 25px rgba(193, 18, 31, 0.2);
+}
+
+.selected {
+  background: linear-gradient(
+    135deg,
+    #c1121f,
+    #8b0914
+  );
+
+  color: white;
+
+  border-color: #c1121f;
 }

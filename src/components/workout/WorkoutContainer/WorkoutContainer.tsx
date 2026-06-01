@@ -35,57 +35,47 @@ export const ItemWorkoustContainer = () => {
         </div>
       </div>
 
-      <div
-        className={`${style.rutineContainer} ${
-          categoriaSeleccionada ? style.open : style.closed
-        }`}
-      >
-        {categoriaSeleccionada ? (
-          <>
-            <h2>Rutinas</h2>
+      {categoriaSeleccionada && (
+        <div className={style.rutineContainer}>
+          <h2>{categoriaSeleccionada.nombre}</h2>
 
-            <div className={style.boxRutine}>
-              <div className={style.levelTabs}>
-                <button
-                  className={`${style.levelButton} ${
-                    nivelSeleccionado === "principiante" ? style.active : ""
-                  }`}
-                  onClick={() => setNivelSeleccionado("principiante")}
-                >
-                  Principiante
-                </button>
+          <div className={style.boxRutine}>
+            <div className={style.levelTabs}>
+              <button
+                className={`${style.levelButton} ${
+                  nivelSeleccionado === "principiante" ? style.active : ""
+                }`}
+                onClick={() => setNivelSeleccionado("principiante")}
+              >
+                Principiante
+              </button>
 
-                <button
-                  className={`${style.levelButton} ${
-                    nivelSeleccionado === "intermedio" ? style.active : ""
-                  }`}
-                  onClick={() => setNivelSeleccionado("intermedio")}
-                >
-                  Intermedio
-                </button>
+              <button
+                className={`${style.levelButton} ${
+                  nivelSeleccionado === "intermedio" ? style.active : ""
+                }`}
+                onClick={() => setNivelSeleccionado("intermedio")}
+              >
+                Intermedio
+              </button>
 
-                <button
-                  className={`${style.levelButton} ${
-                    nivelSeleccionado === "profesional" ? style.active : ""
-                  }`}
-                  onClick={() => setNivelSeleccionado("profesional")}
-                >
-                  Profesional
-                </button>
-              </div>
-
-              <RutineItem
-                categoria={categoriaSeleccionada}
-                nivel={nivelSeleccionado}
-              />
+              <button
+                className={`${style.levelButton} ${
+                  nivelSeleccionado === "profesional" ? style.active : ""
+                }`}
+                onClick={() => setNivelSeleccionado("profesional")}
+              >
+                Profesional
+              </button>
             </div>
-          </>
-        ) : (
-          <div className={style.placeholder}>
-            Selecciona un grupo muscular para ver la rutina
+
+            <RutineItem
+              categoria={categoriaSeleccionada}
+              nivel={nivelSeleccionado}
+            />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

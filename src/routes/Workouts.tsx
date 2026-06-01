@@ -2,6 +2,7 @@ import style from "./Style/Workouts.module.css";
 import { useEffect, useState } from "react";
 import Loading from "../components/ui/Loading/Loading";
 import { ItemWorkoustContainer } from "../components/workout/WorkoutContainer/WorkoutContainer";
+import RoutineBuilder from "../components/workout/RoutineBuilder/RoutineBuilder";
 
 const Workouts = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +41,11 @@ const Workouts = () => {
 
           <section className={style.showcaseRutine}>
                   <ItemWorkoustContainer />
+          </section>
+
+
+          <section>
+             <RoutineBuilder />
           </section>
         </div>
       )}

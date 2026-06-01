@@ -1,0 +1,40 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+}
+
+th {
+  background: #c1121f;
+  color: white;
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px;
+}
+
+.addButton {
+  margin-top: 15px;
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #c1121f;
+  color: white;
+
+  cursor: pointer;
+}

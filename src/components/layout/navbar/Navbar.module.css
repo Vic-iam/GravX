@@ -2,16 +2,12 @@
    HEADER
 ========================= */
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 999;
-  transition: transform 0.3s ease;
 }
 
-.hide {
-  transform: translateY(-120%);
-}
 
 /* =========================
    NAVBAR
@@ -25,11 +21,8 @@
   align-items: center;
   justify-content: space-between;
 
-  background: var(--bg);
 
   border-radius: 20px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* =========================
