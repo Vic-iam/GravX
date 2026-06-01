@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import style from "./RoutineBuilder.module.css";
 
 type Exercise = {
@@ -6,21 +6,6 @@ type Exercise = {
   series: string;
   reps: string;
 };
-
-const saveRoutine = () => {
-  localStorage.setItem("myRoutine", JSON.stringify(rows));
-
-  alert("Rutina guardada");
-};
-
-useEffect(() => {
-  const savedRoutine =
-    localStorage.getItem("myRoutine");
-
-  if (savedRoutine) {
-    setRows(JSON.parse(savedRoutine));
-  }
-}, []);
 
 const RoutineBuilder = () => {
   const [rows, setRows] = useState<Exercise[]>([
@@ -46,6 +31,24 @@ const RoutineBuilder = () => {
     setRows(newRows);
   };
 
+  const saveRoutine = () => {
+    localStorage.setItem("myRoutine", JSON.stringify(rows));
+
+    alert("Rutina guardada");
+  };
+
+  useEffect(() => {
+    const savedRoutine = localStorage.getItem("myRoutine");
+
+    if (savedRoutine) {
+      setRows(JSON.parse(savedRoutine));
+    }
+  }, []);
+
+  const removeRow = (index: number) => {
+    setRows(rows.filter((_, i) => i !== index));
+  };
+
   const addRow = () => {
     setRows([
       ...rows,
@@ -55,10 +58,6 @@ const RoutineBuilder = () => {
         reps: "",
       },
     ]);
-  };
-
-  const removeRow = (index: number) => {
-    setRows(rows.filter((_, i) => i !== index));
   };
 
   return (
