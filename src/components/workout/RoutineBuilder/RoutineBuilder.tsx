@@ -110,8 +110,8 @@ const RoutineBuilder = () => {
         </tbody>
       </table>
 
-      <button onClick={addRow}>+ Agregar ejercicio</button>
-      <button onClick={saveRoutine}>Guardar rutina</button>
+      <button className={style.addButton} onClick={addRow}>Agregar ejercicio</button>
+      <button className={style.addButton} onClick={saveRoutine}>Guardar rutina</button>
     </div>
   );
 };
