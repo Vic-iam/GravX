@@ -15,6 +15,14 @@ td {
   padding: 12px;
 }
 
+td button{
+  font-size: 1.8rem;
+  display: flex;
+  border: none;
+  background: var(--surface);
+  color: red;
+}
+
 th {
   background: var(--surface);
   color: var(--text);
