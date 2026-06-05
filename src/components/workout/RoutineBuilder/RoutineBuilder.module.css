@@ -1,49 +1,40 @@
 .container {
-  max-width: 800px;
   padding: 120px 100px;
-  margin: auto;
-}
+  margin: 10px;
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 1px solid var(--border-color);
-  padding: 12px;
-}
-
-td button{
-  font-size: 1.8rem;
   display: flex;
-  border: none;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+
+  border: 1px solid var(--border-color);
+
   background: var(--surface);
-  color: red;
+
 }
 
-th {
-  background: var(--surface);
+.container h2{
+  text-align: center;
+  font-size: 1.8rem;
   color: var(--text);
 }
 
-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 8px;
+th{
+  font-size: 1.1rem;
+  color: var(--text);
 }
 
-.addButton {
-  margin-top: 15px;
-  padding: 12px 20px;
-
-  border: none;
-  border-radius: 10px;
-
-  background: var(--surface);
+select{
+  width: 120px;
+  height: 50px;
+  background: var(--bg);
   color: var(--text);
+  border: none;
+  text-align: center;
+}
 
-  cursor: pointer;
+@media (max-width: 768px) {
+  .tableWapper{
+    display: grid;
+  }
 }
