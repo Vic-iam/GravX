@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import style from "./RoutineBuilder.module.css";
 import { IoIosClose } from "react-icons/io";
 import jsPDF from "jspdf";
+import Select from "react-select";
 
 type Exercise = {
   dia: string;
@@ -10,6 +11,82 @@ type Exercise = {
   series: string;
   reps: string;
 };
+
+const customSelectStyles = {
+  control: (provided: any, state: any) => ({
+    ...provided,
+    backgroundColor: "var(--bg)",
+    borderColor: state.isFocused ? "#E11D48" : "var(--border-color)",
+    minHeight: "44px",
+    height: "44px",
+    borderRadius: "5px",
+  }),
+
+  menu: (provided: any) => ({
+    ...provided,
+    backgroundColor: "var(--surface)",
+    borderRadius: "12px",
+    overflow: "hidden",
+  }),
+
+  option: (provided: any, state: any) => ({
+    ...provided,
+    backgroundColor: state.isFocused ? "#E11D48" : "var(--surface)",
+    color: "var(--text)",
+    cursor: "pointer",
+  }),
+
+  singleValue: (provided: any) => ({
+    ...provided,
+    color: "var(--text)",
+  }),
+
+  placeholder: (provided: any) => ({
+    ...provided,
+    color: "var(--text)",
+  }),
+
+  dropdownIndicator: (provided: any) => ({
+    ...provided,
+    color: "#E11D48",
+  }),
+
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+};
+
+const diasOptions = [
+  { value: "Lunes", label: "Lunes" },
+  { value: "Martes", label: "Martes" },
+  { value: "Miércoles", label: "Miércoles" },
+  { value: "Jueves", label: "Jueves" },
+  { value: "Viernes", label: "Viernes" },
+  { value: "Sábado", label: "Sábado" },
+  { value: "Domingo", label: "Domingo" },
+];
+
+const grupoOptions = [
+  { value: "Pecho", label: "Pecho" },
+  { value: "Espalda", label: "Espalda" },
+  { value: "Biceps", label: "Biceps" },
+  { value: "Triceps", label: "Triceps" },
+  { value: "Hombro", label: "Hombro" },
+  { value: "Pierna", label: "Pierna" },
+];
+
+const seriesOptions = [
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
+];
+
+const repsOptions = [
+  { value: "15", label: "15" },
+  { value: "12", label: "12" },
+  { value: "10", label: "10" },
+  { value: "8", label: "8" },
+];
 
 const ejerciciosPorRutina = {
   Pecho: ["Press banca", "Press inclinado", "Aperturas", "Fondos"],
@@ -134,109 +211,10 @@ const RoutineBuilder = () => {
       <h2>Mi Rutina Personalizada</h2>
       <div className={style.tableWrapper}>
         <table>
-          <thead>
-            <tr>
-              <th>Día</th>
-              <th>Grupo</th>
-              <th>Ejercicio</th>
-              <th>Series</th>
-              <th>Reps</th>
-              <th></th>
-            </tr>
-          </thead>
-
           <tbody>
             {rows.map((row, index) => (
               <tr key={index}>
-                <td>
-                  <select
-                    value={row.dia}
-                    onChange={(e) => handleChange(index, "dia", e.target.value)}
-                  >
-                    <option value="">Seleccionar</option>
-                    <option>Lunes</option>
-                    <option>Martes</option>
-                    <option>Miércoles</option>
-                    <option>Jueves</option>
-                    <option>Viernes</option>
-                    <option>Sábado</option>
-                    <option>Domingo</option>
-                  </select>
-                </td>
-
-                <td>
-                  <select
-                    value={row.rutina}
-                    onChange={(e) => {
-                      handleChange(index, "rutina", e.target.value);
-                      handleChange(index, "ejercicio", "");
-                    }}
-                  >
-                    <option value="">Seleccionar</option>
-                    <option value="Pecho">Pecho</option>
-                    <option value="Espalda">Espalda</option>
-                    <option value="Biceps">Biceps</option>
-                    <option value="Triceps">Triceps</option>
-                    <option value="Hombro">Hombro</option>
-                    <option value="Pierna">Pierna</option>
-                  </select>
-                </td>
-
-                <td>
-                  <select
-                    value={row.ejercicio}
-                    disabled={
-                      !ejerciciosPorRutina[
-                        row.rutina as keyof typeof ejerciciosPorRutina
-                      ]
-                    }
-                    onChange={(e) =>
-                      handleChange(index, "ejercicio", e.target.value)
-                    }
-                  >
-                    <option value="">Seleccionar</option>
-
-                    {(
-                      ejerciciosPorRutina[
-                        row.rutina as keyof typeof ejerciciosPorRutina
-                      ] || []
-                    ).map((ejercicio) => (
-                      <option key={ejercicio} value={ejercicio}>
-                        {ejercicio}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-
-                <td>
-                  <select
-                    value={row.series}
-                    onChange={(e) =>
-                      handleChange(index, "series", e.target.value)
-                    }
-                  >
-                    <option value="">Seleccionar</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </td>
-
-                <td>
-                  <select
-                    value={row.reps}
-                    onChange={(e) =>
-                      handleChange(index, "reps", e.target.value)
-                    }
-                  >
-                    <option value="">Seleccionar</option>
-                    <option value="15">15</option>
-                    <option value="12">12</option>
-                    <option value="10">10</option>
-                    <option value="8">8</option>
-                  </select>
-                </td>
-
+                
                 <td>
                   <button
                     className={style.deleteButton}
@@ -246,6 +224,114 @@ const RoutineBuilder = () => {
                     <IoIosClose />
                   </button>
                 </td>
+
+                <td>
+                  <span className={style.mobileLabel}>Día</span>
+                  <div className={style.selectWrapper}>
+                    <Select
+                      styles={customSelectStyles}
+                      options={diasOptions}
+                      placeholder="Seleccionar"
+                      value={
+                        diasOptions.find(
+                          (option) => option.value === row.dia,
+                        ) || null
+                      }
+                      onChange={(selected) =>
+                        handleChange(index, "dia", selected?.value || "")
+                      }
+                    />
+                  </div>
+                </td>
+
+                <td>
+                  <span className={style.mobileLabel}>Rutina</span>
+                  <div className={style.selectWrapper}>
+                    <Select
+                      styles={customSelectStyles}
+                      options={grupoOptions}
+                      placeholder="Seleccionar"
+                      value={
+                        grupoOptions.find(
+                          (option) => option.value === row.rutina,
+                        ) || null
+                      }
+                      onChange={(selected) => {
+                        handleChange(index, "rutina", selected?.value || "");
+
+                        handleChange(index, "ejercicio", "");
+                      }}
+                    />
+                  </div>
+                </td>
+
+                <td>
+                  <span className={style.mobileLabel}>Ejercicio</span>
+                  <div className={style.selectWrapper}>
+                    <Select
+                      styles={customSelectStyles}
+                      placeholder="Seleccionar"
+                      isDisabled={!row.rutina}
+                      options={(
+                        ejerciciosPorRutina[
+                          row.rutina as keyof typeof ejerciciosPorRutina
+                        ] || []
+                      ).map((ejercicio) => ({
+                        value: ejercicio,
+                        label: ejercicio,
+                      }))}
+                      value={
+                        row.ejercicio
+                          ? {
+                              value: row.ejercicio,
+                              label: row.ejercicio,
+                            }
+                          : null
+                      }
+                      onChange={(selected) =>
+                        handleChange(index, "ejercicio", selected?.value || "")
+                      }
+                    />
+                  </div>
+                </td>
+
+                <td>
+                  <span className={style.mobileLabel}>Series</span>
+                  <div className={style.selectWrapper}>
+                    <Select
+                      styles={customSelectStyles}
+                      options={seriesOptions}
+                      placeholder="Seleccionar"
+                      value={
+                        seriesOptions.find(
+                          (option) => option.value === row.series,
+                        ) || null
+                      }
+                      onChange={(selected) =>
+                        handleChange(index, "series", selected?.value || "")
+                      }
+                    />
+                  </div>
+                </td>
+
+                <td>
+                  <span className={style.mobileLabel}>Repeticiones</span>
+                  <div className={style.selectWrapper}>
+                    <Select
+                      styles={customSelectStyles}
+                      options={repsOptions}
+                      placeholder="Seleccionar"
+                      value={
+                        repsOptions.find(
+                          (option) => option.value === row.reps,
+                        ) || null
+                      }
+                      onChange={(selected) =>
+                        handleChange(index, "reps", selected?.value || "")
+                      }
+                    />
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -253,12 +339,12 @@ const RoutineBuilder = () => {
       </div>
 
       <div className={style.stats}>
-        <div>
+        <div className={style.stats1}>
           <h4>Ejercicios</h4>
           <p>{rows.length}</p>
         </div>
 
-        <div>
+        <div className={style.stats2}>
           <h4>Total Series</h4>
           <p>{totalSeries}</p>
         </div>

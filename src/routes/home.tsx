@@ -62,7 +62,6 @@ const Home = () => {
             </div>
           </section>
 
-          <div className={style.sectionDivider}></div>
 
           {/* CALCULADORA IMC */}
           <section className={style.calculatorHome}>
@@ -102,7 +101,6 @@ const Home = () => {
             </div>
           </section>
          
-          <div className={style.sectionDivider}></div>
 
           {/* RUTINAS */}
           <section className={style.rutinasHome}>
@@ -140,7 +138,6 @@ const Home = () => {
             </div>
           </section>
 
-          <div className={style.sectionDivider}></div>
           {/* CARDS DE MOTIVACIÓN */}
           <section className={style.cardContainer}>
             <div className={style.wrappers}>
