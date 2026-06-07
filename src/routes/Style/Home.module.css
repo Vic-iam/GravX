@@ -3,33 +3,18 @@
 ============================================================ */
 
 .sectionDivider {
-  width: 50%;
+  width: 70%;
   height: 2px;
-  margin: 80px auto;
-
+  margin: 30px auto;
   background: linear-gradient(
     to right,
     transparent,
     rgba(193, 18, 31, 0.8),
     transparent
   );
-
   box-shadow: 0 0 10px rgba(193, 18, 31, 0.35);
   border-radius: 999px;
 }
-
-.heroStats{
-  display: flex;
-  gap: 20px;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.heroStats strong{
-  opacity: 0.5;
-  padding: 3px;
-}
-
 
 .homeBody {
   width: 100%;
@@ -40,31 +25,50 @@
   background: var(--bg);
 }
 
+.heroStats{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+strong{
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  padding: 2px;
+}
+
+span{
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+
+
 /* ============================================================
    HERO / PRESENTATION
 ============================================================ */
-
 .presentationHome,
 .homeNutrition {
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.homeNutrition{
+  background:rgba(255,255,255,0.04);
+}
+
 .presentationHome {
   width: 100%;
-  padding: 120px 20px 80px;
+  padding-top: 100px;
   gap: 60px;
 }
 
 .homeNutrition {
   width: 100%;
-  
   gap: 30px;
-  padding: 100px 20px;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 120px 20px;
 }
 
 .homeContainer,
@@ -73,83 +77,64 @@
 .nutritionHomeContainer {
   width: 80%;
   max-width: 900px;
-  padding: 35px;
+  padding: 30px;
 
   text-align: center;
 
-  background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
 }
 
 .homeContainer {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  background: var(--surface);
   gap: 20px;
+
 }
 
-.homeContainer h1 {
-  font-size: 2.6rem;
+.homeContainer h1{
+  font-size: 2.4rem;
 }
 
 .homeContainer p {
-  max-width: 600px;
-
   font-size: 1rem;
+  max-width: 600px;
   text-align: center;
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   HERO BUTTONS
-============================================================ */
 
-.heroButtons {
+.heroButtons{
   display: flex;
   justify-content: center;
-  gap: 10px;
-
   font-size: 1.1rem;
+  gap: 5px;
 }
 
-.primaryBtn,
-.secondaryBtn {
-  padding: 12px 20px;
-
+.primaryBtn, .secondaryBtn{
+  border: 1px solid var(--border-color);
+  border-radius: 10%;
+  padding: 10px;
   text-decoration: none;
   color: var(--text-secondary);
-
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-
-  transition: 0.3s ease;
-}
-
-.primaryBtn:hover,
-.secondaryBtn:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary);
 }
 
 /* ============================================================
    MAIN ICONS
 ============================================================ */
-
 .iconHome {
   z-index: 4;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 20px;
-  padding: 20px;
 
+  padding: 20px;
   font-size: 1.5rem;
 }
 
@@ -163,16 +148,13 @@
 
   width: 40px;
   height: 30px;
-
   padding: 20px;
 
   color: var(--text);
-
-  background: var(--surface);
   border: 1px solid var(--border-color);
+  background-color: var(--surface);
   border-radius: 20px;
-
-  box-shadow: 0 0 5px rgba(193, 18, 31, 0.25);
+  box-shadow: 0 0 2px var(--primary);
 
   transition: all 0.4s ease;
 }
@@ -182,68 +164,73 @@
 .icon3:hover,
 .icon4:hover {
   transform: translateY(-5px);
-  background: var(--primary);
+  background-color: var(--primary);
 }
 
 /* ============================================================
    CALCULATOR SECTION
 ============================================================ */
-
-.calculatorHome {
-  position: relative;
-
+.calculatorHome,
+.rutinasHome {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  padding: 100px 20px;
+  padding: 40px 20px;
+  gap: 30px;
+}
 
-  gap: 40px;
+.calculatorHome{
+  background:rgba(255,255,255,0.04);
 }
 
 .calHome {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 20px;
+  background: var(--surface);
 }
 
-.calHome h2 {
+.calHome h2{
   font-size: 2.4rem;
   color: var(--text);
 }
 
 .calHome p {
   max-width: 600px;
-
   font-size: 1rem;
   color: var(--text-secondary);
 }
 
+
 .imcBenefits {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-
   gap: 20px;
+  flex-wrap: wrap;
   margin: 15px 0;
 }
 
 .imcBenefits div {
-  min-width: 140px;
+  min-width: 150px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 15px;
-
   border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
   border: 1px solid var(--border-color);
-
-  background: rgba(255, 255, 255, 0.04);
 }
 
 .imcBenefits strong {
   display: block;
   margin-bottom: 6px;
+  font-size: 1rem;
+  color: var(--text);
 }
 
 .imcBenefits span {
@@ -251,23 +238,25 @@
   opacity: 0.85;
 }
 
+
+
+
 /* ============================================================
    LINKS
 ============================================================ */
-
 .calHome a,
 .rutinaStyle a,
 .nutritionHomeContainer a {
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 10px;
 
-  color: var(--text-secondary);
+  font-size: 1rem;
   text-decoration: none;
+  color: var(--text-secondary);
 
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
 }
 
 .calHome a:hover,
@@ -279,94 +268,78 @@
 /* ============================================================
    ROUTINES SECTION
 ============================================================ */
-
-.rutinasHome {
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  padding: 100px 20px;
-
-  gap: 40px;
-
-  background: rgba(255, 255, 255, 0.02);
-}
-
 .rutinaStyle {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  background: var(--surface);
   gap: 20px;
+
 }
 
-.rutinaStyle h3 {
+.rutinaStyle h3{
   font-size: 2.4rem;
+  color: var(--text);
 }
+
 
 .rutinas {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-
   gap: 20px;
   padding: 20px;
+
+ 
 }
 
 .workoutBg {
   flex: 1;
   min-width: 220px;
-
+  min-height: 90px;
   padding: 25px;
+  border-radius: 20px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  justify-content: center;
   gap: 12px;
 
   text-align: center;
 
-  background: rgba(255, 255, 255, 0.04);
-
+   background: rgba(255,255,255,0.04);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
 
-  transition: 0.3s ease;
 }
 
-.workoutBg:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-}
-
-.workoutBg h4 {
+.workoutBg h4{
   font-size: 1.1rem;
+  color: var(--text);
 }
 
-.workoutBg p {
+.workoutBg p{
+  font-size: 1rem;
   color: var(--text-secondary);
 }
+
 
 /* ============================================================
    FEATURE CARDS
 ============================================================ */
-
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-
   gap: 30px;
+
   padding: 40px;
 }
 
 .wrappers {
   width: 150px;
   height: 200px;
-
   padding: 40px;
 
   display: flex;
@@ -375,12 +348,19 @@
   justify-content: space-between;
 
   text-align: center;
-  color: var(--text);
+  color: #d9d9d9;
+  font-size: 1.1rem;
 
-  background: var(--surface);
+background: linear-gradient(
+  135deg,
+  #c1121f,
+  #7a0c14,
+  #c1121f
+);
 
-  background-size: 300% 300%;
+background-size: 300% 300%;
 
+box-shadow: 0 0 10px var(--primary);
 
   animation: gradientAnimation 6s ease infinite;
 }
@@ -394,39 +374,39 @@
 }
 
 /* ============================================================
-   NUTRITION
+   NUTRITION SECTION
 ============================================================ */
-
 .nutritionHomeContainer {
+  z-index: 10;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 20px;
+
+  background: var(--surface);
 }
 
-.nutritionHomeContainer h4 {
+.nutritionHomeContainer h4{
   font-size: 2.4rem;
+  color: var(--text);
 }
 
-.nutritionHomeContainer p {
+.nutritionHomeContainer p{
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
 /* ============================================================
    ANIMATIONS
 ============================================================ */
-
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
@@ -435,26 +415,12 @@
 /* ============================================================
    RESPONSIVE
 ============================================================ */
-
 @media (max-width: 760px) {
-  .homeContainer,
-  .calHome,
-  .rutinaStyle,
-  .nutritionHomeContainer {
-    width: 92%;
-    padding: 25px;
-  }
-
   .homeContainer h1,
-  .calHome h2,
+  .calculatorHome h2,
   .rutinaStyle h3,
-  .nutritionHomeContainer h4 {
+  .nutritionHomeContainer h4{
     font-size: 1.8rem;
-  }
-
-  .heroStats{
-    display: flex;
-    font-size: 0.8rem;
   }
 
   .icon1,
@@ -474,7 +440,16 @@
     height: 150px;
   }
 
-  .sectionDivider {
-    width: 80%;
+  .heroStats{
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+
+  span{
+    font-size: 1rem;
+  }
+
+  strong{
+    padding: 2px;
   }
 }
