@@ -25,7 +25,12 @@ export const ItemWorkoustContainer = () => {
   return (
     <div className={style.workoutContainer}>
       <div className={style.hdf}>
-        <h1>Elige la rutina</h1>
+        <h1>Explora Técnicas y Ejercicios</h1>
+
+        <p>
+          Descubre ejercicios para cada grupo muscular, aprende la técnica
+          correcta y crea una rutina personalizada adaptada a tus objetivos.
+        </p>
 
         <div className={style.indexWorkout}>
           <WorkoutItem

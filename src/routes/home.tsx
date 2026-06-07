@@ -29,11 +29,29 @@ const Home = () => {
           {/* HERO SECTION */}
           <section className={style.presentationHome}>
             <div className={style.homeContainer}>
-              <h1>Transformá tu cuerpo con GravX</h1>
+              <h1>Transformá tu físico con GravX</h1>
+
               <p>
-                Rutinas inteligentes, nutrición personalizada y herramientas
-                diseñadas para ayudarte a alcanzar tus objetivos.
+                Todo lo que necesitás para progresar: rutinas, ejercicios,
+                nutrición y herramientas para alcanzar tus objetivos.
               </p>
+
+              <div className={style.heroStats}>
+                <div>
+                  <strong>+30</strong>
+                  <span>Ejercicios</span>
+                </div>
+
+                <div>
+                  <strong>6</strong>
+                  <span>Grupos musculares</span>
+                </div>
+
+                <div>
+                  <strong>100%</strong>
+                  <span>Gratis</span>
+                </div>
+              </div>
 
               <div className={style.heroButtons}>
                 <Link to="/Workouts" className={style.primaryBtn}>
@@ -62,16 +80,14 @@ const Home = () => {
             </div>
           </section>
 
-
           {/* CALCULADORA IMC */}
           <section className={style.calculatorHome}>
             <div className={style.calHome}>
-              <h2>Calculá tu IMC</h2>
+              <h2>Conocé tu punto de partida</h2>
 
               <p>
-                Descubrí si tu peso está dentro del rango saludable según tu
-                altura y obtené una referencia rápida para empezar a mejorar tu
-                condición física.
+                Calculá tu IMC y obtené una referencia rápida para comenzar tu
+                transformación física.
               </p>
 
               <div className={style.imcBenefits}>
@@ -100,18 +116,17 @@ const Home = () => {
               </Link>
             </div>
           </section>
-         
 
           {/* RUTINAS */}
           <section className={style.rutinasHome}>
             <div className={style.rutinaStyle}>
-              <h3>Descubre rutinas</h3>
+              <h3>Entrená cada músculo correctamente</h3>
               <p>
-                Explora rutinas diseñadas para cada grupo muscular
+                Explorá ejercicios para pecho, espalda, piernas, hombros y
+                brazos con explicaciones claras y técnicas correctas.
               </p>
 
               <div className={style.rutinas}>
-
                 <div className={style.workoutBg}>
                   <h4>Rutinas de espalda</h4>
                   <p>Aumentá fuerza y volumen</p>
@@ -141,60 +156,45 @@ const Home = () => {
           {/* CARDS DE MOTIVACIÓN */}
           <section className={style.cardContainer}>
             <div className={style.wrappers}>
-              <h5>Entrená por lo que querés ser</h5>
+              <h5>Rutinas organizadas</h5>
+
               <span className={style.iconwrappers}>
                 <LuBicepsFlexed />
               </span>
-              <p>
-                "No se trata de ser el mejor que alguien, sino de ser mejor tu
-                mejor version."
-              </p>
+
+              <p>Encontrá ejercicios clasificados por grupo muscular.</p>
             </div>
 
             <div className={style.wrappers}>
-              <h5>La disciplina gana</h5>
+              <h5>Técnicas correctas</h5>
+
               <span className={style.iconwrappers}>
                 <FaRepeat />
               </span>
-              <p>"Los resultados son un proceso, cada día cuenta."</p>
+
+              <p>Aprendé la ejecución adecuada para cada ejercicio.</p>
             </div>
 
             <div className={style.wrappers}>
-              <h5>Comé para sentirte bien</h5>
+              <h5>Rutinas personalizadas</h5>
+
               <span className={style.iconwrappers}>
                 <LuSalad />
               </span>
-              <p>
-                "Lo que comés hoy es la energía con la que vas a construir el
-                mañana."
-              </p>
+
+              <p>Creá y guardá tus propias rutinas de entrenamiento.</p>
             </div>
           </section>
 
-
           {/*Alimentancion */}
           <section className={style.homeNutrition}>
-            <div className={style.iconHome}>
-              <div className={style.icon1}>
-                <IoMdFitness />
-              </div>
-              <div className={style.icon2}>
-                <IoFitness />
-              </div>
-              <div className={style.icon3}>
-                <FaCalculator />
-              </div>
-              <div className={style.icon4}>
-                <GiSteak />
-              </div>
-            </div>
-
             <div className={style.nutritionHomeContainer}>
-              <h4>Transformá tu cuerpo desde la alimentación</h4>
+              <h4>La alimentación también importa</h4>
               <p>
-                Descubrí tu TMB, planificá tus comidas y alcanzá tus objetivos
-                sin dietas extremas.
+                Calculá tu metabolismo basal y obtené información útil para
+                complementar tus entrenamientos.
               </p>
+
               <Link
                 to="/Nutrition"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

@@ -105,7 +105,9 @@ const emptyRow: Exercise = {
   reps: "",
 };
 
+
 const RoutineBuilder = () => {
+  const [error, setError] = useState("");
   const [rows, setRows] = useState<Exercise[]>([emptyRow]);
 
   useEffect(() => {
@@ -125,6 +127,8 @@ const RoutineBuilder = () => {
     field: keyof Exercise,
     value: string,
   ) => {
+    setError("");
+
     setRows((prev) =>
       prev.map((item, i) =>
         i === index
@@ -136,6 +140,16 @@ const RoutineBuilder = () => {
       ),
     );
   };
+
+  useEffect(() => {
+  if (!error) return;
+
+  const timer = setTimeout(() => {
+    setError("");
+  }, 3000);
+
+  return () => clearTimeout(timer);
+}, [error]);
 
   const addRow = () => {
     if (rows.length === 0) {
@@ -152,9 +166,24 @@ const RoutineBuilder = () => {
       !lastRow.series ||
       !lastRow.reps
     ) {
+      setError("Completa todos los campos antes de agregar otro ejercicio.");
       return;
     }
 
+    const existeDuplicado = rows.some(
+      (row, index) =>
+        index !== rows.length - 1 &&
+        row.dia === lastRow.dia &&
+        row.rutina === lastRow.rutina &&
+        row.ejercicio === lastRow.ejercicio,
+    );
+
+    if (existeDuplicado) {
+      setError("Ese ejercicio ya fue agregado para ese día.");
+      return;
+    }
+
+    setError("");
     setRows([...rows, { ...emptyRow }]);
   };
 
@@ -177,30 +206,76 @@ const RoutineBuilder = () => {
   );
 
   const downloadPDF = () => {
+    const filasInvalidas = rows.some(
+      (row) =>
+        !row.dia || !row.rutina || !row.ejercicio || !row.series || !row.reps,
+    );
+
+    if (filasInvalidas) {
+      setError("Completa todos los ejercicios antes de descargar el PDF.");
+      return;
+    }
+
+    setError("");
+
     const doc = new jsPDF();
 
-    doc.setFontSize(20);
+    doc.setFontSize(22);
     doc.text("Mi Rutina Personalizada", 20, 20);
 
-    let y = 40;
+    doc.setFontSize(11);
+    doc.text(`Ejercicios totales: ${rows.length}`, 20, 30);
 
-    rows.forEach((row, index) => {
-      doc.setFontSize(12);
+    doc.text(`Series totales: ${totalSeries}`, 20, 37);
 
-      doc.text(`${index + 1}. ${row.ejercicio}`, 20, y);
-      y += 7;
+    doc.text(`Generado: ${new Date().toLocaleDateString()}`, 20, 44);
 
-      doc.text(`Dia: ${row.dia}`, 20, y);
-      y += 7;
+    let y = 60;
 
-      doc.text(`Grupo muscular: ${row.rutina}`, 20, y);
-      y += 7;
+    const groupedByDay = rows.reduce(
+      (acc, row) => {
+        if (!row.dia) return acc;
 
-      doc.text(`Series: ${row.series}`, 20, y);
-      y += 7;
+        if (!acc[row.dia]) {
+          acc[row.dia] = {};
+        }
 
-      doc.text(`Repeticiones: ${row.reps}`, 20, y);
-      y += 12;
+        if (!acc[row.dia][row.rutina]) {
+          acc[row.dia][row.rutina] = [];
+        }
+
+        acc[row.dia][row.rutina].push(row);
+
+        return acc;
+      },
+      {} as Record<string, Record<string, Exercise[]>>,
+    );
+
+    Object.entries(groupedByDay).forEach(([dia, grupos]) => {
+      doc.setFontSize(16);
+      doc.text(dia.toUpperCase(), 20, y);
+      y += 10;
+
+      Object.entries(grupos).forEach(([grupo, ejercicios]) => {
+        doc.setFontSize(13);
+        doc.text(grupo.toUpperCase(), 25, y);
+
+        y += 8;
+
+        ejercicios.forEach((ejercicio) => {
+          doc.setFontSize(11);
+
+          doc.text(`• ${ejercicio.ejercicio}`, 30, y);
+
+          doc.text(`${ejercicio.series} x ${ejercicio.reps}`, 140, y);
+
+          y += 7;
+        });
+
+        y += 5;
+      });
+
+      y += 10;
     });
 
     doc.save("mi-rutina.pdf");
@@ -209,26 +284,23 @@ const RoutineBuilder = () => {
   return (
     <div className={style.container}>
       <h2>Mi Rutina Personalizada</h2>
+
+      <p className={style.description}>
+        Diseña tu rutina de entrenamiento seleccionando el día, grupo muscular,
+        ejercicio, series y repeticiones. Agrega tantos ejercicios como
+        necesites y descarga tu planificación en PDF para llevar el control de
+        tus entrenamientos.
+      </p>
       <div className={style.tableWrapper}>
         <table>
           <tbody>
             {rows.map((row, index) => (
               <tr key={index}>
-                
-                <td>
-                  <button
-                    className={style.deleteButton}
-                    disabled={rows.length === 1}
-                    onClick={() => removeRow(index)}
-                  >
-                    <IoIosClose />
-                  </button>
-                </td>
-
                 <td>
                   <span className={style.mobileLabel}>Día</span>
                   <div className={style.selectWrapper}>
                     <Select
+                      isSearchable={false}
                       styles={customSelectStyles}
                       options={diasOptions}
                       placeholder="Seleccionar"
@@ -248,6 +320,7 @@ const RoutineBuilder = () => {
                   <span className={style.mobileLabel}>Rutina</span>
                   <div className={style.selectWrapper}>
                     <Select
+                      isSearchable={false}
                       styles={customSelectStyles}
                       options={grupoOptions}
                       placeholder="Seleccionar"
@@ -269,6 +342,7 @@ const RoutineBuilder = () => {
                   <span className={style.mobileLabel}>Ejercicio</span>
                   <div className={style.selectWrapper}>
                     <Select
+                      isSearchable={false}
                       styles={customSelectStyles}
                       placeholder="Seleccionar"
                       isDisabled={!row.rutina}
@@ -299,6 +373,7 @@ const RoutineBuilder = () => {
                   <span className={style.mobileLabel}>Series</span>
                   <div className={style.selectWrapper}>
                     <Select
+                      isSearchable={false}
                       styles={customSelectStyles}
                       options={seriesOptions}
                       placeholder="Seleccionar"
@@ -318,6 +393,7 @@ const RoutineBuilder = () => {
                   <span className={style.mobileLabel}>Repeticiones</span>
                   <div className={style.selectWrapper}>
                     <Select
+                      isSearchable={false}
                       styles={customSelectStyles}
                       options={repsOptions}
                       placeholder="Seleccionar"
@@ -332,11 +408,22 @@ const RoutineBuilder = () => {
                     />
                   </div>
                 </td>
+
+                <td>
+                  <button
+                    className={style.deleteButton}
+                    disabled={rows.length === 1}
+                    onClick={() => removeRow(index)}
+                  >
+                    <IoIosClose />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
 
       <div className={style.stats}>
         <div className={style.stats1}>
@@ -349,6 +436,9 @@ const RoutineBuilder = () => {
           <p>{totalSeries}</p>
         </div>
       </div>
+
+      {error && <div className={style.errorMessage}>{error}</div>}
+
 
       <div className={style.actions}>
         <button className={style.addButton} onClick={addRow}>
