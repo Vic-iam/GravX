@@ -76,6 +76,51 @@ const Calculator = () => {
           </div>
         )}
       </div>
+
+      <section className={style.infoSection}>
+        <h2>¿Qué es el IMC?</h2>
+
+        <p>
+          El Índice de Masa Corporal (IMC) es una medida que relaciona el peso y
+          la altura de una persona para estimar si se encuentra dentro de un
+          rango saludable.
+        </p>
+
+        <h3>¿Para qué sirve?</h3>
+
+        <ul>
+          <li>Evaluar si tu peso es adecuado para tu altura.</li>
+          <li>Detectar posibles riesgos asociados al bajo peso o sobrepeso.</li>
+          <li>Llevar un seguimiento de tu estado físico.</li>
+          <li>Establecer objetivos de salud y entrenamiento.</li>
+        </ul>
+
+        <h3>Interpretación de resultados</h3>
+
+        <div className={style.table}>
+          <div className={style.thead}>
+              <th>IMC</th>
+              <th>Clasificación</th>
+          </div>
+          <tbody>
+              <td>Menor a 18.5</td>
+              <td>Bajo peso</td>
+              <td>18.5 - 24.9</td>
+              <td>Peso normal</td>
+              <td>25 - 29.9</td>
+              <td>Sobrepeso</td>
+              <td>30 o más</td>
+              <td>Obesidad</td>
+          </tbody>
+        </div>
+
+        <p>
+          <strong>Importante:</strong> El IMC es una referencia general y no
+          distingue entre masa muscular y grasa corporal. Personas con gran
+          cantidad de músculo, como atletas o fisicoculturistas, pueden tener un
+          IMC elevado sin que esto implique un exceso de grasa.
+        </p>
+      </section>
     </div>
   );
 };

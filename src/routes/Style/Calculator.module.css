@@ -4,6 +4,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 50px;
 }
 
 .presentationCalculator {
@@ -54,4 +55,26 @@
   border: 1px solid var(--border-color);
   border-radius: 10px;
   cursor: pointer;
+}
+
+.infoSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--surface);
+  padding: 10px;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.thead{
+  display: flex;
+  gap: 20px;
 }
