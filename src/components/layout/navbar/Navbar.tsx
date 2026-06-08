@@ -76,8 +76,8 @@ const Navbar = () => {
         >
           <ul className={style.links}>
             <li><NavLink to="/" className={activeClass} onClick={closeMenu}>Inicio</NavLink></li>
-            <li><NavLink to="/Nutrition" className={activeClass} onClick={closeMenu}>Alimentación</NavLink></li>
             <li><NavLink to="/Workouts" className={activeClass} onClick={closeMenu}>Rutinas</NavLink></li>
+            <li><NavLink to="/Nutrition" className={activeClass} onClick={closeMenu}>Alimentación</NavLink></li>
             <li><NavLink to="/Calculator" className={activeClass} onClick={closeMenu}>Calculadora</NavLink></li>
           </ul>
 

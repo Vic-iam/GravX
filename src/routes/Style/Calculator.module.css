@@ -74,8 +74,6 @@
 }
 
 .infoSection {
-  width: 100%;
-  max-width: 900px;
 
   display: flex;
   flex-direction: column;
@@ -102,7 +100,6 @@
 }
 
 .table {
-  width: 100%;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
@@ -134,94 +131,14 @@
 
 @media (max-width: 768px) {
   .calculatorBody {
-    padding: 100px 15px 40px;
     gap: 30px;
   }
 
-  .presentationCalculator {
-    max-width: 100%;
-    padding: 25px;
+  .presentationCalculator{
+    max-width: 320px;
   }
-
-  .infoSection {
-    max-width: 100%;
-    padding: 25px;
-  }
-
 
   .btn button {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .calculatorBody {
-    padding: 90px 10px 30px;
-  }
-
-  .presentationCalculator {
-    padding: 20px;
-    border-radius: 12px;
-  }
-
-  .presentationCalculator h1 {
-    font-size: 1.6rem;
-  }
-
-  .calculatorBody input {
-    padding: 12px;
-    font-size: 0.9rem;
-  }
-
-  .infoSection {
-    padding: 20px;
-    border-radius: 12px;
-  }
-
-  .infoSection h2 {
-    font-size: 1.4rem;
-  }
-
-  .infoSection h3 {
-    font-size: 1.1rem;
-  }
-
-  .infoSection p,
-  .infoSection li {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .thead,
-  .tr {
-    grid-template-columns: 1fr;
-    gap: 5px;
-    text-align: center;
-  }
-
-  .thead {
-    padding: 12px;
-  }
-
-  .tr {
-    padding: 12px;
-  }
-}
-
-@media (max-width: 320px) {
-  .presentationCalculator {
-    padding: 15px;
-  }
-
-  .calculatorBody input {
-    font-size: 0.85rem;
-  }
-
-  .presentationCalculator h1 {
-    font-size: 1.3rem;
-  }
-
-  .infoSection {
-    padding: 15px;
   }
 }
