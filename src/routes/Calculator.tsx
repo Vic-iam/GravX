@@ -99,19 +99,27 @@ const Calculator = () => {
 
         <div className={style.table}>
           <div className={style.thead}>
-              <th>IMC</th>
-              <th>Clasificación</th>
+            <span>IMC</span>
+            <span>Clasificación</span>
           </div>
-          <tbody>
-              <td>Menor a 18.5</td>
-              <td>Bajo peso</td>
-              <td>18.5 - 24.9</td>
-              <td>Peso normal</td>
-              <td>25 - 29.9</td>
-              <td>Sobrepeso</td>
-              <td>30 o más</td>
-              <td>Obesidad</td>
-          </tbody>
+          <div className={style.tbody}>
+            <div className={style.tr}>
+              <span>Menor a 18.5</span>
+              <span>Bajo peso</span>
+            </div>
+            <div className={style.tr}>
+              <span>18.5 - 24.9</span>
+              <span>Peso normal</span>
+            </div>
+            <div className={style.tr}>
+              <span>25 - 29.9</span>
+              <span>Sobrepeso</span>
+            </div>
+            <div className={style.tr}>
+              <span>30 o más</span>
+              <span>Obesidad</span>
+            </div>
+          </div>
         </div>
 
         <p>

@@ -8,73 +8,220 @@
 }
 
 .presentationCalculator {
-  display: grid;
-  gap: 5px;
+  width: 100%;
+  max-width: 450px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
   background: var(--surface);
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 120px 20px;
+  border-radius: 16px;
+
+  padding: 30px;
+}
+
+.presentationCalculator h1 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .calculatorBody input {
   padding: 15px;
-  font-size: 0.9rem;
 
-  width: 300px;
   background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 10px;
 
-  transition: all ease 0.4s;
   color: var(--text);
+
+  transition: all 0.3s ease;
 }
 
 .calculatorBody input:focus {
-    border: none;
-    background: var(--bg);
-    color: var(--text); 
-    opacity: 0.8;
+  outline: none;
+  background: var(--bg);
 }
 
-.calculatorBody input:active {
-
-    transform: scale(0.98);
-
-}
-
-.btn{
+.btn {
   display: flex;
-  justify-content: center;
+  gap: 10px;
 }
 
-.btn button{
+.btn button {
+  flex: 1;
+
+  height: 45px;
+
   background: var(--bg);
   color: var(--text);
-  width: 150px;
-  height: 40px;
+
   border: 1px solid var(--border-color);
   border-radius: 10px;
+
   cursor: pointer;
+
+  transition: transform 0.2s ease;
 }
 
-.infoSection{
+.btn button:hover {
+  transform: translateY(-2px);
+}
+
+.btn button:active {
+  transform: scale(0.98);
+}
+
+.infoSection {
+  width: 100%;
+  max-width: 900px;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  background: var(--surface);
-  padding: 10px;
-}
-
-.table{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.thead{
-  display: flex;
   gap: 20px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  padding: 30px;
+}
+
+.infoSection h2,
+.infoSection h3 {
+  margin: 0;
+}
+
+.infoSection ul {
+  padding-left: 20px;
+}
+
+.infoSection li {
+  margin-bottom: 8px;
+}
+
+.table {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.thead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 15px;
+
+  border-bottom: 1px solid var(--border-color);
+
+  font-weight: 600;
+}
+
+.tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 15px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .calculatorBody {
+    padding: 100px 15px 40px;
+    gap: 30px;
+  }
+
+  .presentationCalculator {
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .infoSection {
+    max-width: 100%;
+    padding: 25px;
+  }
+
+
+  .btn button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculatorBody {
+    padding: 90px 10px 30px;
+  }
+
+  .presentationCalculator {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .presentationCalculator h1 {
+    font-size: 1.6rem;
+  }
+
+  .calculatorBody input {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .infoSection {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .infoSection h2 {
+    font-size: 1.4rem;
+  }
+
+  .infoSection h3 {
+    font-size: 1.1rem;
+  }
+
+  .infoSection p,
+  .infoSection li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .thead,
+  .tr {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    text-align: center;
+  }
+
+  .thead {
+    padding: 12px;
+  }
+
+  .tr {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .presentationCalculator {
+    padding: 15px;
+  }
+
+  .calculatorBody input {
+    font-size: 0.85rem;
+  }
+
+  .presentationCalculator h1 {
+    font-size: 1.3rem;
+  }
+
+  .infoSection {
+    padding: 15px;
+  }
 }
