@@ -1,46 +1,57 @@
-
 .calculatorBody {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.auroraBg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .presentationCalculator {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  padding-top: 100px;
+  display: grid;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 120px 20px;
+}
 
+.calculatorBody input {
+  padding: 15px;
+  font-size: 0.9rem;
+
+  width: 300px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  transition: all ease 0.4s;
+  color: var(--text);
+}
+
+.calculatorBody input:focus {
+    border: none;
+    background: var(--bg);
+    color: var(--text); 
+    opacity: 0.8;
+}
+
+.calculatorBody input:active {
+
+    transform: scale(0.98);
+
+}
+
+.btn{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
-.calculatorContainer {
-    position: relative;
-    z-index: 2;
-
-    width: 80%;
-    max-width: 900px;
-    padding: 30px;
-
-    text-align: center;
-    color: var(--text);
-
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+.btn button{
+  background: var(--bg);
+  color: var(--text);
+  width: 150px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
 }

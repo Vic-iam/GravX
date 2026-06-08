@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router";
-import { GoChevronDown } from "react-icons/go";
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
@@ -35,25 +33,6 @@ const Nutrition = () => {
           </p>
         </div>
 
-        <div className={style.titleStyle}>
-          <div className={style.listTitle}>
-            <h2>Lista de alimentos</h2>
-          </div>
-
-          <Link
-            to="/Nutrition"
-            className={style.iconStyle}
-            onClick={(e) => {
-              e.preventDefault();
-              searchRef.current?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }}
-          >
-            <GoChevronDown />
-          </Link>
-        </div>
         <div className={style.sectionDivider}></div>
       </section>
 
