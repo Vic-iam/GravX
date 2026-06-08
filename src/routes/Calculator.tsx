@@ -95,6 +95,16 @@ const Calculator = () => {
           <li>Establecer objetivos de salud y entrenamiento.</li>
         </ul>
 
+        <h3>Recomendaciones</h3>
+
+        <ul>
+          <li>Mantén una alimentación equilibrada.</li>
+          <li>Realiza actividad física regularmente.</li>
+          <li>Duerme entre 7 y 9 horas diarias.</li>
+          <li>
+            Consulta a un profesional de la salud para una evaluación completa.
+          </li>
+        </ul>
         <h3>Interpretación de resultados</h3>
 
         <div className={style.table}>
