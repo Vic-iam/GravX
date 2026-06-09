@@ -16,25 +16,33 @@ const Calculator = () => {
 
   if (isLoading) return <Loading text="...Cargando datos" />;
 
-const calcularIMC = () => {
-  const pesoNum = Number(peso);
-  const alturaNum = Number(altura) / 100;
+  const calcularIMC = () => {
+    const pesoNum = Number(peso);
+    const alturaCm = Number(altura);
 
-  if (!pesoNum || !alturaNum) return;
+    if (!pesoNum || !alturaCm) return;
 
-  if (
-    pesoNum < 20 ||
-    pesoNum > 300 ||
-    alturaNum < 0.5 ||
-    alturaNum > 2.5
-  ) {
-    return;
-  }
+    if (pesoNum < 20 || pesoNum > 300 || alturaCm < 50 || alturaCm > 250) {
+      return;
+    }
 
-  const resultado = pesoNum / (alturaNum * alturaNum);
+    const alturaM = alturaCm / 100;
+    const resultado = pesoNum / (alturaM * alturaM);
 
-  setImc(Number(resultado.toFixed(2)));
-};
+    const imcCalculado = Number(resultado.toFixed(2));
+
+    setImc(imcCalculado);
+
+    if (imcCalculado < 18.5) {
+      setCategoria("Bajo peso");
+    } else if (imcCalculado < 25) {
+      setCategoria("Peso normal");
+    } else if (imcCalculado < 30) {
+      setCategoria("Sobrepeso");
+    } else {
+      setCategoria("Obesidad");
+    }
+  };
 
   const limpiarCalculadora = () => {
     setPeso("");
@@ -63,16 +71,13 @@ const calcularIMC = () => {
         />
         <input
           type="text"
-          inputMode="decimal"
+          inputMode="numeric"
           placeholder="Altura (m)"
           value={altura}
           onChange={(e) => {
             const value = e.target.value.replace(/[^0-9.]/g, "");
 
-            if (
-              value === "" ||
-              (Number(value) >= 0.5 && Number(value) <= 2.5)
-            ) {
+            if (value === "" || Number(value) <= 250) {
               setAltura(value);
             }
           }}
