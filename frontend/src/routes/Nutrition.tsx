@@ -33,7 +33,6 @@ const Nutrition = () => {
           </p>
         </div>
 
-        <div className={style.sectionDivider}></div>
       </section>
 
       {/* FOOD LIST */}
@@ -43,7 +42,6 @@ const Nutrition = () => {
 
       {/* FOOTER INFO */}
       <section className={style.footerNutrition}>
-        <div className={style.sectionDivider}></div>
         <div className={style.footerIndex}>
           <h3>¿Para qué te serviría?</h3>
           <p>
