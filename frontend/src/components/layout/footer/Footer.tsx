@@ -36,7 +36,6 @@ const Footer = () => {
             alimenticios y rutinas de entrenamiento.
           </h3>
           <p>Versión v1.0.0</p>
-          <p>Hecho con React</p>
         </div>
 
         {/* CONTACT */}

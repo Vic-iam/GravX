@@ -346,21 +346,12 @@ span{
   justify-content: space-between;
 
   text-align: center;
-  color: #d9d9d9;
+  color: var(--text);
   font-size: 1.1rem;
+  background: var(--surface);
 
-background: linear-gradient(
-  135deg,
-  #c1121f,
-  #7a0c14,
-  #c1121f
-);
+  border: 1px solid var(--border-color);
 
-background-size: 300% 300%;
-
-box-shadow: 0 0 10px var(--primary);
-
-  animation: gradientAnimation 6s ease infinite;
 }
 
 .wrappers p {

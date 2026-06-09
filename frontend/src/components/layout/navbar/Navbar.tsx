@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 import Logo from "../../../assets/marcaGravX.png";
 import DarkMode from "../../ui/DarkMode/DarkMode";
@@ -75,19 +75,49 @@ const Navbar = () => {
           className={`${style.menuLinks} ${isOpen ? style.open : ""}`}
         >
           <ul className={style.links}>
-            <li><NavLink to="/" className={activeClass} onClick={closeMenu}>Inicio</NavLink></li>
-            <li><NavLink to="/Workouts" className={activeClass} onClick={closeMenu}>Rutinas</NavLink></li>
-            <li><NavLink to="/Nutrition" className={activeClass} onClick={closeMenu}>Alimentación</NavLink></li>
-            <li><NavLink to="/Calculator" className={activeClass} onClick={closeMenu}>Calculadora</NavLink></li>
+            <li>
+              <NavLink to="/" className={activeClass} onClick={closeMenu}>
+                Inicio
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/Workouts"
+                className={activeClass}
+                onClick={closeMenu}
+              >
+                Rutinas
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/Nutrition"
+                className={activeClass}
+                onClick={closeMenu}
+              >
+                Alimentación
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/Calculator"
+                className={activeClass}
+                onClick={closeMenu}
+              >
+                Calculadora
+              </NavLink>
+            </li>
           </ul>
 
-          <div className={style.actions}>
-            <NavLink to="/Login" className={style.loginBtn} onClick={closeMenu}>
-              <FaUser />
+          {/*
+           <div className={style.actions}>
+                <NavLink to="/Login" className={style.loginBtn} onClick={closeMenu}>
+               <FaUser />
               Login
             </NavLink>
           </div>
-            <DarkMode />
+          */}
+          <DarkMode />
         </div>
 
         <button className={style.itemToggle} onClick={() => setIsOpen(!isOpen)}>
