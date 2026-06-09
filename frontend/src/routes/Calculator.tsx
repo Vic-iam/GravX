@@ -16,26 +16,25 @@ const Calculator = () => {
 
   if (isLoading) return <Loading text="...Cargando datos" />;
 
-  const calcularIMC = () => {
-    const pesoNum = Number(peso);
-    const alturaNum = Number(altura) / 100;
+const calcularIMC = () => {
+  const pesoNum = Number(peso);
+  const alturaNum = Number(altura) / 100;
 
-    if (!pesoNum || !alturaNum) return;
+  if (!pesoNum || !alturaNum) return;
 
-    const resultado = pesoNum / (alturaNum * alturaNum);
+  if (
+    pesoNum < 20 ||
+    pesoNum > 300 ||
+    alturaNum < 0.5 ||
+    alturaNum > 2.5
+  ) {
+    return;
+  }
 
-    setImc(Number(resultado.toFixed(2)));
+  const resultado = pesoNum / (alturaNum * alturaNum);
 
-    if (resultado < 18.5) {
-      setCategoria("Bajo peso");
-    } else if (resultado < 25) {
-      setCategoria("Peso normal");
-    } else if (resultado < 30) {
-      setCategoria("Sobrepeso");
-    } else {
-      setCategoria("Obesidad");
-    }
-  };
+  setImc(Number(resultado.toFixed(2)));
+};
 
   const limpiarCalculadora = () => {
     setPeso("");
@@ -50,17 +49,33 @@ const Calculator = () => {
         <h1>Calculadora IMC</h1>
 
         <input
-          type="number"
+          type="text"
+          inputMode="numeric"
           placeholder="Peso (kg)"
           value={peso}
-          onChange={(e) => setPeso(e.target.value)}
-        />
+          onChange={(e) => {
+            const value = e.target.value.replace(/[^0-9]/g, "");
 
+            if (value === "" || Number(value) <= 300) {
+              setPeso(value);
+            }
+          }}
+        />
         <input
-          type="number"
-          placeholder="Altura (cm)"
+          type="text"
+          inputMode="decimal"
+          placeholder="Altura (m)"
           value={altura}
-          onChange={(e) => setAltura(e.target.value)}
+          onChange={(e) => {
+            const value = e.target.value.replace(/[^0-9.]/g, "");
+
+            if (
+              value === "" ||
+              (Number(value) >= 0.5 && Number(value) <= 2.5)
+            ) {
+              setAltura(value);
+            }
+          }}
         />
 
         <div className={style.btn}>
