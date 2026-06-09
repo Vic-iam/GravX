@@ -36,7 +36,6 @@ const Workouts = () => {
               <a>HOMBRO</a>
               <a>PIERNA</a>
             </div>
-          <div className={style.sectionDivider}></div>
           </section>
 
           <section className={style.showcaseRutine}>
