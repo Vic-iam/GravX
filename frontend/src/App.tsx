@@ -5,7 +5,7 @@ import Home from "./routes/home";
 import Calculator from "./routes/Calculator";
 import Nutrition from "./routes/Nutrition";
 import Workouts from "./routes/Workouts";
-import Dashboard from "./routes/dashboard";
+import Dashboard from "./routes/Dashboard";
 import Login from "./utils/Login";
 import Register from "./utils/Register";
 import Footer from "./components/layout/footer/Footer";
