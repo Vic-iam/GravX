@@ -54,6 +54,7 @@ const Workouts = () => {
               </div>
             </div>
 
+<<<<<<< HEAD
             <nav className={style.iconRotine} aria-label="Grupos musculares">
               {grupos.map((grupo) => (
                 <a key={grupo} href="#ejercicios">
@@ -62,6 +63,16 @@ const Workouts = () => {
               ))}
             </nav>
             <div className={style.sectionDivider}></div>
+=======
+            <div className={style.iconRotine}>
+              <a>PECHO</a>
+              <a>BICEDS</a>
+              <a>TRICEPS</a>
+              <a>ESPALDA</a>
+              <a>HOMBRO</a>
+              <a>PIERNA</a>
+            </div>
+>>>>>>> 80a0655cc6dc9643cda8127855bef85c194c92cb
           </section>
 
           <section id="ejercicios" className={style.showcaseRutine}>
