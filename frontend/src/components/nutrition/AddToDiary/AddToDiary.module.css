@@ -1,0 +1,59 @@
+.addBtn,
+.cancelBtn {
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addBtn {
+  color: #fff;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.addBtn:hover {
+  opacity: 0.85;
+}
+
+.cancelBtn {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.form select,
+.form input {
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.form input {
+  width: 80px;
+}
+
+.loginLink {
+  color: var(--primary);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}

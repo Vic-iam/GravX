@@ -86,15 +86,94 @@
   padding: 5px;
 
   font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text);
 
   background: var(--surface);
   border: 1px solid var(--border-color);
+  border-radius: 10px;
   transition: all 0.2s ease;
 }
 
 .iconRotine a:hover {
-  opacity: 0.8;
+  border-color: var(--primary);
   box-shadow: 0 0 15px var(--primary);
+}
+
+.iconRotine a:focus-visible,
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.nextCta a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.workoutsContainer p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.stepsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.stepsList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepsList span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.primaryAction,
+.secondaryAction {
+  padding: 12px 22px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.primaryAction {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.secondaryAction {
+  color: var(--text);
+  background: var(--bg);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.nextCta a:hover {
+  transform: translateY(-2px);
 }
 
 /* ===========================
@@ -104,6 +183,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-margin-top: 90px;
+}
 
+.builderSection {
+  scroll-margin-top: 90px;
+}
+
+.nextCta {
+  width: 80%;
+  max-width: 900px;
+  margin: 40px 0 80px;
+  padding: 40px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+
+  color: #fff;
+  background: linear-gradient(135deg, #c1121f, #6b0a12);
+  border-radius: 24px;
+}
+
+.nextCta p {
+  max-width: 520px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.nextCta a {
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
 }
 

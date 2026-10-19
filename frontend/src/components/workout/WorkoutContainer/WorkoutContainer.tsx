@@ -35,12 +35,13 @@ export const ItemWorkoustContainer = () => {
         <div className={style.indexWorkout}>
           <WorkoutItem
             categorias={categorias}
+            selectedId={categoriaSeleccionada?.id}
             onSelect={setCategoriaSeleccionada}
           />
         </div>
       </div>
 
-      {categoriaSeleccionada && (
+      {categoriaSeleccionada ? (
         <div className={style.rutineContainer}>
           <h2>{categoriaSeleccionada.nombre}</h2>
 
@@ -79,6 +80,13 @@ export const ItemWorkoustContainer = () => {
               nivel={nivelSeleccionado}
             />
           </div>
+        </div>
+      ) : (
+        <div className={style.placeholder}>
+          <strong>Elige un grupo muscular</strong>
+          <span>
+            Aquí verás los ejercicios por nivel y podrás agregarlos a tu rutina.
+          </span>
         </div>
       )}
     </div>

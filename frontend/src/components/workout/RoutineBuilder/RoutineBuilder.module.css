@@ -1,6 +1,8 @@
 .container {
+  width: min(1200px, calc(100% - 32px));
   padding: 40px;
   margin: 20px auto;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -78,13 +80,125 @@ td {
 
 .stats {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+.templates {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.templates h3,
+.summary h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.templateList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.templateCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 220px;
+  padding: 14px 18px;
+
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.templateCard span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.templateCard:hover {
+  transform: translateY(-2px);
+  border-color: #c1121f;
+}
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+}
+
+.duplicateButton {
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.duplicateButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.deleteButton {
+  cursor: pointer;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.summaryDay {
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.summaryDay h4 {
+  margin-bottom: 8px;
+  color: #c1121f;
+}
+
+.summaryDay ul {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .stats1,
 .stats2 {
   flex: 1;
-
+  padding: 10px;
+  text-align: center;
   background: var(--bg);
 
   border: 1px solid var(--border-color);
@@ -130,9 +244,21 @@ td {
   transition: 0.25s;
 }
 
+.actions button:hover {
+  transform: translateY(-2px);
+}
+
+.actions button:focus-visible,
+.templateCard:focus-visible,
+.duplicateButton:focus-visible,
+.deleteButton:focus-visible {
+  outline: 2px solid #c1121f;
+  outline-offset: 2px;
+}
+
 .addButton {
-  background: #b91c1c;
-  color: var(--text);
+  background: linear-gradient(135deg, #c1121f, #8b0914);
+  color: #fff;
 }
 
 .clearButton {
@@ -161,8 +287,8 @@ td {
 @media (max-width: 768px) {
 
   .container {
-    padding: 60px;
-    margin: 5px;
+    padding: 20px 16px;
+    margin: 5px auto;
     border-radius: 15px;
   }
 

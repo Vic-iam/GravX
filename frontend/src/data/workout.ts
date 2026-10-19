@@ -211,6 +211,99 @@ export const workouts: Categoria[] = [
   },
 ];
 
+const ex = (
+  id: number,
+  nombre: string,
+  duracion: number,
+  areas: string,
+  meta: string,
+): WorkoutItem => ({ id, nombre, duracion, areas, meta, imagen: "" });
+
+const extras: Record<string, WorkoutLevels> = {
+  Pecho: {
+    principiante: [
+      ex(100, "Flexiones", 20, "Pecho y tríceps", "Resistencia"),
+      ex(101, "Aperturas en máquina (peck deck)", 25, "Pecho medio", "Resistencia"),
+    ],
+    intermedio: [
+      ex(102, "Press inclinado con mancuernas", 40, "Pecho superior", "Hipertrofia"),
+      ex(103, "Aperturas con mancuernas", 30, "Pecho completo", "Hipertrofia"),
+    ],
+    profesional: [
+      ex(104, "Fondos en paralelas", 45, "Pecho inferior", "Fuerza"),
+      ex(105, "Cruce de poleas", 40, "Pecho completo", "Definición"),
+    ],
+  },
+  Espalda: {
+    principiante: [
+      ex(106, "Remo en máquina", 25, "Espalda media", "Resistencia"),
+      ex(107, "Jalón con agarre cerrado", 30, "Dorsales", "Resistencia"),
+    ],
+    intermedio: [
+      ex(108, "Remo con mancuerna", 35, "Dorsales", "Hipertrofia"),
+      ex(109, "Remo en polea baja", 35, "Espalda media", "Hipertrofia"),
+    ],
+    profesional: [
+      ex(110, "Peso muerto", 50, "Espalda baja y piernas", "Fuerza"),
+      ex(111, "Remo Pendlay", 45, "Espalda alta", "Fuerza"),
+    ],
+  },
+  Biceds: {
+    principiante: [ex(112, "Curl con mancuernas", 20, "Bíceps", "Resistencia")],
+    intermedio: [
+      ex(113, "Curl martillo", 30, "Bíceps y antebrazo", "Hipertrofia"),
+      ex(114, "Curl concentrado", 25, "Bíceps", "Hipertrofia"),
+    ],
+    profesional: [ex(115, "Curl predicador", 40, "Bíceps", "Fuerza")],
+  },
+  Triceds: {
+    principiante: [ex(116, "Fondos en banco", 20, "Tríceps", "Resistencia")],
+    intermedio: [
+      ex(117, "Press francés", 30, "Tríceps", "Hipertrofia"),
+      ex(118, "Patada de tríceps", 25, "Tríceps", "Definición"),
+    ],
+    profesional: [ex(119, "Press cerrado", 40, "Tríceps y pecho", "Fuerza")],
+  },
+  Hombro: {
+    principiante: [ex(120, "Press con mancuernas sentado", 25, "Hombro", "Resistencia")],
+    intermedio: [
+      ex(121, "Elevaciones frontales", 25, "Hombro anterior", "Hipertrofia"),
+      ex(122, "Face pull", 25, "Hombro posterior", "Salud postural"),
+    ],
+    profesional: [ex(123, "Press Arnold", 40, "Hombro completo", "Fuerza")],
+  },
+  Pierna: {
+    principiante: [
+      ex(124, "Sentadilla goblet", 25, "Cuádriceps y glúteos", "Resistencia"),
+      ex(125, "Prensa de piernas", 30, "Cuádriceps", "Resistencia"),
+      ex(126, "Elevación de talones", 20, "Gemelos", "Resistencia"),
+    ],
+    intermedio: [
+      ex(127, "Zancadas", 35, "Piernas y glúteos", "Hipertrofia"),
+      ex(128, "Peso muerto rumano", 40, "Isquiotibiales", "Hipertrofia"),
+      ex(129, "Puente de glúteos", 30, "Glúteos", "Hipertrofia"),
+    ],
+    profesional: [
+      ex(130, "Sentadilla con barra", 50, "Piernas completas", "Fuerza"),
+      ex(131, "Sentadilla búlgara", 45, "Cuádriceps y glúteos", "Fuerza"),
+    ],
+  },
+};
+
+workouts.forEach((categoria) => {
+  const more = extras[categoria.nombre];
+  if (!more) return;
+  categoria.types.principiante.push(...more.principiante);
+  categoria.types.intermedio.push(...more.intermedio);
+  categoria.types.profesional.push(...more.profesional);
+});
+
+workouts.push({
+  id: 6,
+  nombre: "Pierna",
+  types: extras.Pierna,
+});
+
 let error = false;
 
 export const getProducts = (): Promise<Categoria[]> => {

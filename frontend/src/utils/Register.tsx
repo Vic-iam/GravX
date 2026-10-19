@@ -1,80 +1,23 @@
-import React, { useState, useEffect } from "react";
-import style from "./Style/Register.module.css";
-import { Link } from "react-router";
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "../components/ui/Loading/Loading";
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [form, setForm] = useState({
-    nombre: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-  };
+  const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+    if (!isLoading && !isAuthenticated) {
+      loginWithRedirect({
+        appState: { returnTo: "/Dashboard" },
+        authorizationParams: { screen_hint: "signup" },
+      });
+    }
+  }, [isLoading, isAuthenticated, loginWithRedirect]);
 
-  return (
-    <>
-      { isLoading ? <Loading text="...Cargando datos"/> :
-        <section className={style.adminContainer}>
+  if (isAuthenticated) return <Navigate to="/Dashboard" replace />;
 
-          <form onSubmit={handleSubmit} className={style.adminCard}>
-            <h1>Registrate</h1>
-
-            <div className={style.adminIndex}>
-              <label>Nombre</label>
-              <input
-                name="nombre"
-                placeholder="Escribe tu nombre"
-                onChange={handleChange}
-                required
-              />
-
-              <label>Correo electronico</label>
-              <input
-                name="email"
-                placeholder="Escribe tu correo electronico"
-                onChange={handleChange}
-                required
-              />
-
-              <label>Contraseña</label>
-              <input
-                name="passoword"
-                placeholder="Escribe tu contrasena"
-                onChange={handleChange}
-                required
-              />
-
-              <div className={style.btnAdmin}>
-                <button type="submit">Registrate</button>
-              </div>
-            </div>
-
-            <div className={style.linea}></div>
-
-            <div className={style.adminLogin}>
-              <p>Ya estás registrado?</p>
-              <Link to="/Login">Inicia sesión</Link>
-            </div>
-          </form>
-        </section>
-      }
-    </>
-  );
+  return <Loading text="...Redirigiendo" />;
 };
 
 export default Register;

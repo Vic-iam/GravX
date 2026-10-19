@@ -1,21 +1,3 @@
-/* ============================================================
-   BASE / LAYOUT
-============================================================ */
-
-.sectionDivider {
-  width: 70%;
-  height: 2px;
-  margin: 30px auto;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(193, 18, 31, 0.8),
-    transparent
-  );
-  box-shadow: 0 0 10px rgba(193, 18, 31, 0.35);
-  border-radius: 999px;
-}
-
 .homeBody {
   width: 100%;
   overflow: hidden;
@@ -25,419 +7,557 @@
   background: var(--bg);
 }
 
-.heroStats{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-strong{
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  padding: 2px;
-}
-
-span{
-  color: var(--text);
-  font-size: 1.4rem;
-}
-
-
-
 /* ============================================================
-   HERO / PRESENTATION
+   HERO
 ============================================================ */
-.presentationHome,
-.homeNutrition {
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 140px 20px 60px;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 700px;
+  max-width: 100%;
+  height: 360px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(193, 18, 31, 0.35),
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.homeNutrition{
-  background:rgba(255,255,255,0.04);
-}
-
-.presentationHome {
-  width: 100%;
-  padding-top: 100px;
-  gap: 60px;
-}
-
-.homeNutrition {
-  gap: 30px;
-  padding: 120px 20px;
-}
-
-.homeContainer,
-.calHome,
-.rutinaStyle,
-.nutritionHomeContainer {
-  width: 80%;
-  max-width: 900px;
-  padding: 30px;
-
+  gap: 24px;
   text-align: center;
-
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
 }
 
-.homeContainer {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--surface);
-  gap: 20px;
-
-}
-
-.homeContainer h1{
-  font-size: 2.4rem;
-}
-
-.homeContainer p {
-  font-size: 1rem;
-  max-width: 600px;
-  text-align: center;
+.badge {
+  padding: 6px 16px;
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
 }
 
+.heroContent h1 {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.1;
+}
 
-.heroButtons{
-  display: flex;
-  justify-content: center;
+.heroContent h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+
+.heroContent > p {
+  max-width: 620px;
   font-size: 1.1rem;
-  gap: 5px;
-}
-
-.primaryBtn, .secondaryBtn{
-  border: 1px solid var(--border-color);
-  border-radius: 10%;
-  padding: 10px;
-  text-decoration: none;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   MAIN ICONS
-============================================================ */
-.iconHome {
-  z-index: 4;
-
+.heroButtons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-
-  padding: 20px;
-  font-size: 1.5rem;
-}
-
-.icon1,
-.icon2,
-.icon3,
-.icon4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 40px;
-  height: 30px;
-  padding: 20px;
-
-  color: var(--text);
-  border: 1px solid var(--border-color);
-  background-color: var(--surface);
-  border-radius: 20px;
-
-  transition: all 0.4s ease;
-}
-
-.icon1:hover,
-.icon2:hover,
-.icon3:hover,
-.icon4:hover {
-  transform: translateY(-5px);
-  background-color: var(--primary);
-}
-
-/* ============================================================
-   CALCULATOR SECTION
-============================================================ */
-.calculatorHome,
-.rutinasHome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  padding: 40px 20px;
-  gap: 30px;
-}
-
-.calculatorHome{
-  background:rgba(255,255,255,0.04);
-}
-
-.calHome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background: var(--surface);
-}
-
-.calHome h2{
-  font-size: 2.4rem;
-  color: var(--text);
-}
-
-.calHome p {
-  max-width: 600px;
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-
-
-.imcBenefits {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
-  margin: 15px 0;
+  justify-content: center;
+  gap: 12px;
 }
 
-.imcBenefits div {
-  min-width: 150px;
-  min-height: 80px;
+.trustList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.trustList li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trustList svg {
+  color: var(--primary);
+}
+
+.heroStats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.heroStats div {
+  flex: 1;
+  min-width: 130px;
+  max-width: 200px;
+  padding: 16px;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 15px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.04);
-  color: var(--text);
+  align-items: center;
+  gap: 4px;
+
+  background: var(--surface);
   border: 1px solid var(--border-color);
+  border-radius: 14px;
 }
 
-.imcBenefits strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 1rem;
+.heroStats strong {
+  font-size: 1.7rem;
   color: var(--text);
 }
 
-.imcBenefits span {
+.heroStats span {
   font-size: 0.9rem;
-  opacity: 0.85;
+  color: var(--text-secondary);
 }
-
-
-
 
 /* ============================================================
-   LINKS
+   BUTTONS
 ============================================================ */
-.calHome a,
-.rutinaStyle a,
-.nutritionHomeContainer a {
-  display: flex;
+.primaryBtn,
+.secondaryBtn,
+.ctaBtn,
+.ctaGhostBtn,
+.linkBtn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 
+  padding: 13px 24px;
   font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
-  color: var(--text-secondary);
 
-  transition: color 0.4s ease;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.calHome a:hover,
-.rutinaStyle a:hover,
-.nutritionHomeContainer a:hover {
-  color: var(--primary);
+.primaryBtn,
+.ctaBtn {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.primaryBtn:hover,
+.ctaBtn:hover {
+  box-shadow: 0 8px 24px rgba(193, 18, 31, 0.4);
+}
+
+.secondaryBtn,
+.linkBtn {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.ctaBtn {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+.ctaGhostBtn {
+  color: #fff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover,
+.ctaBtn:hover,
+.ctaGhostBtn:hover,
+.linkBtn:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryBtn:hover,
+.linkBtn:hover {
+  border-color: var(--primary);
+}
+
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible,
+.ctaBtn:focus-visible,
+.ctaGhostBtn:focus-visible,
+.linkBtn:focus-visible,
+.quickCard:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 /* ============================================================
-   ROUTINES SECTION
+   QUICK ACCESS
 ============================================================ */
-.rutinaStyle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--surface);
-  gap: 20px;
-
-}
-
-.rutinaStyle h3{
-  font-size: 2.4rem;
-  color: var(--text);
-}
-
-
-.rutinas {
+.quickAccess {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   padding: 20px;
-
- 
 }
 
-.workoutBg {
-  flex: 1;
-  min-width: 220px;
-  min-height: 90px;
-  padding: 25px;
-  border-radius: 20px;
+.quickCard {
+  width: 130px;
+  padding: 18px 12px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--text);
+
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.quickIcon {
+  display: flex;
+  font-size: 1.6rem;
+}
+
+.quickCard:hover {
+  transform: translateY(-5px);
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding: 70px 20px;
+}
+
+.altSection {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sectionHeader {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.sectionHeader p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.featureGrid {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.featureCard {
+  padding: 28px 24px;
+
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 
-  text-align: center;
-
-   background: rgba(255,255,255,0.04);
+  background: var(--surface);
   border: 1px solid var(--border-color);
+  border-radius: 16px;
 
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.workoutBg h4{
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.featureCard h3 {
   font-size: 1.1rem;
-  color: var(--text);
 }
 
-.workoutBg p{
-  font-size: 1rem;
+.featureCard p {
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
-
-/* ============================================================
-   FEATURE CARDS
-============================================================ */
-.cardContainer {
+.featureIcon {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-
-  padding: 40px;
-}
-
-.wrappers {
-  width: 150px;
-  height: 200px;
-  padding: 40px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  text-align: center;
-  color: var(--text);
-  font-size: 1.1rem;
-  background: var(--surface);
-
-  border: 1px solid var(--border-color);
-
-}
-
-.wrappers p {
-  font-size: 0.9rem;
-}
-
-.iconwrappers {
+  width: 48px;
+  height: 48px;
   font-size: 1.4rem;
+  color: var(--primary);
+  background: rgba(193, 18, 31, 0.12);
+  border-radius: 12px;
 }
 
 /* ============================================================
-   NUTRITION SECTION
+   STEPS
 ============================================================ */
-.nutritionHomeContainer {
+.steps {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  list-style: none;
+}
+
+.step {
+  padding: 28px 24px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 10px;
 
   background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
 }
 
-.nutritionHomeContainer h4{
-  font-size: 2.4rem;
-  color: var(--text);
+.step h3 {
+  font-size: 1.1rem;
 }
 
-.nutritionHomeContainer p{
-  font-size: 1rem;
+.step p {
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
 /* ============================================================
-   ANIMATIONS
+   PROMO BLOCKS
 ============================================================ */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.promo {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
+
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+}
+
+.promoSplit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.promoText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.promoText h2 {
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+.promoText p {
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pills span {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+}
+
+.promoVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+
+  font-size: 4.5rem;
+  color: var(--primary);
+  background: radial-gradient(
+    circle,
+    rgba(193, 18, 31, 0.2),
+    rgba(193, 18, 31, 0.04)
+  );
+  border-radius: 50%;
+}
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+.finalCta {
+  width: 100%;
+  max-width: 1000px;
+  padding: 56px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+
+  color: #fff;
+  background: linear-gradient(135deg, #c1121f, #6b0a12);
+  border-radius: 24px;
+}
+
+.finalIcon {
+  font-size: 2rem;
+}
+
+.finalCta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.finalCta p {
+  max-width: 560px;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 /* ============================================================
    RESPONSIVE
 ============================================================ */
 @media (max-width: 760px) {
-  .homeContainer h1,
-  .calculatorHome h2,
-  .rutinaStyle h3,
-  .nutritionHomeContainer h4{
-    font-size: 1.8rem;
+  .hero {
+    padding-top: 110px;
   }
 
-  .icon1,
-  .icon2,
-  .icon3,
-  .icon4 {
-    width: 30px;
-    height: 20px;
+  .promo {
+    padding: 28px 20px;
   }
 
-  .cardContainer {
-    display: grid;
+  .promoSplit {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .wrappers {
-    width: 250px;
-    height: 150px;
+  .promoText {
+    align-items: center;
   }
 
-  .heroStats{
-    font-size: 0.8rem;
-    gap: 5px;
+  .pills {
+    justify-content: center;
   }
 
-  span{
-    font-size: 1rem;
+  .promoVisual {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
   }
 
-  strong{
-    padding: 2px;
+  .quickCard {
+    width: calc(50% - 8px);
+  }
+
+  .primaryBtn,
+  .secondaryBtn,
+  .ctaBtn,
+  .ctaGhostBtn {
+    width: 100%;
+  }
+
+  .heroButtons {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn,
+  .secondaryBtn,
+  .ctaBtn,
+  .ctaGhostBtn,
+  .linkBtn,
+  .quickCard,
+  .featureCard {
+    transition: none;
+  }
+
+  .primaryBtn:hover,
+  .secondaryBtn:hover,
+  .ctaBtn:hover,
+  .ctaGhostBtn:hover,
+  .linkBtn:hover,
+  .quickCard:hover,
+  .featureCard:hover {
+    transform: none;
   }
 }

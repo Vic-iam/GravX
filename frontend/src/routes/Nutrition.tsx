@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 import { BsEggFried } from "react-icons/bs";
 import { FaBowlRice, FaCarrot } from "react-icons/fa6";
 import { GiCoconuts } from "react-icons/gi";
@@ -15,11 +16,11 @@ const Nutrition = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) return <Loading text="...Cargando datos" />;
+  if (isLoading) return <Loading text="...Cargando alimentación" />;
 
   return (
     <div className={style.nutritionBody}>
@@ -31,6 +32,21 @@ const Nutrition = () => {
             Descubre y organiza tu alimentación contando las calorías,
             carbohidratos y proteínas
           </p>
+
+          <div className={style.quickLinks}>
+            <a href="#buscador" className={style.primaryLink}>
+              Buscar alimento
+            </a>
+            <Link to="/Calculator" className={style.secondaryLink}>
+              Calcular mi IMC
+            </Link>
+          </div>
+
+          <ul className={style.highlights}>
+            <li>Calorías y macros por alimento</li>
+            <li>Filtra por categoría</li>
+            <li>Gratis y sin registro</li>
+          </ul>
         </div>
 
         <div className={style.sectionDivider}></div>
@@ -51,6 +67,14 @@ const Nutrition = () => {
             ayudará a organizar y conocer tus macros de alimentación.
           </p>
           <p>¿Qué serían los macros?</p>
+        </div>
+
+        <div className={style.footerCta}>
+          <h4>¿Entrenas para ver resultados?</h4>
+          <p>Combina tu alimentación con una rutina adecuada a tu nivel.</p>
+          <Link to="/Workouts" onClick={() => window.scrollTo({ top: 0 })}>
+            Ver rutinas
+          </Link>
         </div>
 
         <div className={style.macrosContainer}>

@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import style from "./RoutineBuilder.module.css";
 import { IoIosClose } from "react-icons/io";
 import jsPDF from "jspdf";
 import Select from "react-select";
+import type { StylesConfig } from "react-select";
+import toast from "react-hot-toast";
+import { useAuth0 } from "@auth0/auth0-react";
+import {
+  DIAS,
+  ROUTINE_EVENT,
+  emptyRow,
+  isComplete,
+  loadRoutine,
+  saveRoutine,
+} from "../../../utils/routineStorage";
+import type { Exercise } from "../../../utils/routineStorage";
 
-type Exercise = {
-  dia: string;
-  rutina: string;
-  ejercicio: string;
-  series: string;
-  reps: string;
-};
+type Option = { value: string; label: string };
 
-const customSelectStyles = {
-  control: (provided: any, state: any) => ({
+const customSelectStyles: StylesConfig<Option, false> = {
+  control: (provided, state) => ({
     ...provided,
     backgroundColor: "var(--bg)",
     borderColor: state.isFocused ? "#E11D48" : "var(--border-color)",
@@ -21,197 +27,212 @@ const customSelectStyles = {
     height: "44px",
     borderRadius: "5px",
   }),
-
-  menu: (provided: any) => ({
+  menu: (provided) => ({
     ...provided,
     backgroundColor: "var(--surface)",
     borderRadius: "12px",
     overflow: "hidden",
+    zIndex: 20,
   }),
-
-  option: (provided: any, state: any) => ({
+  option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isFocused ? "#E11D48" : "var(--surface)",
     color: "var(--text)",
     cursor: "pointer",
   }),
-
-  singleValue: (provided: any) => ({
-    ...provided,
-    color: "var(--text)",
-  }),
-
-  placeholder: (provided: any) => ({
-    ...provided,
-    color: "var(--text)",
-  }),
-
-  dropdownIndicator: (provided: any) => ({
-    ...provided,
-    color: "#E11D48",
-  }),
-
-  indicatorSeparator: () => ({
-    display: "none",
-  }),
+  singleValue: (provided) => ({ ...provided, color: "var(--text)" }),
+  placeholder: (provided) => ({ ...provided, color: "var(--text)" }),
+  dropdownIndicator: (provided) => ({ ...provided, color: "#E11D48" }),
+  indicatorSeparator: () => ({ display: "none" }),
 };
 
-const diasOptions = [
-  { value: "Lunes", label: "Lunes" },
-  { value: "Martes", label: "Martes" },
-  { value: "Miércoles", label: "Miércoles" },
-  { value: "Jueves", label: "Jueves" },
-  { value: "Viernes", label: "Viernes" },
-  { value: "Sábado", label: "Sábado" },
-  { value: "Domingo", label: "Domingo" },
-];
+const toOptions = (values: string[]): Option[] =>
+  values.map((value) => ({ value, label: value }));
 
-const grupoOptions = [
-  { value: "Pecho", label: "Pecho" },
-  { value: "Espalda", label: "Espalda" },
-  { value: "Biceps", label: "Biceps" },
-  { value: "Triceps", label: "Triceps" },
-  { value: "Hombro", label: "Hombro" },
-  { value: "Pierna", label: "Pierna" },
-];
+const diasOptions = toOptions(DIAS);
+const seriesOptions = toOptions(["2", "3", "4", "5", "6"]);
+const repsOptions = toOptions(["6", "8", "10", "12", "15", "20"]);
 
-const seriesOptions = [
-  { value: "3", label: "3" },
-  { value: "4", label: "4" },
-  { value: "5", label: "5" },
-];
-
-const repsOptions = [
-  { value: "15", label: "15" },
-  { value: "12", label: "12" },
-  { value: "10", label: "10" },
-  { value: "8", label: "8" },
-];
-
-const ejerciciosPorRutina = {
-  Pecho: ["Press banca", "Press inclinado", "Aperturas", "Fondos"],
+const ejerciciosPorRutina: Record<string, string[]> = {
+  Pecho: [
+    "Press banca",
+    "Press inclinado",
+    "Aperturas",
+    "Fondos",
+    "Press banca máquina",
+  ],
   Espalda: ["Dominadas", "Jalon al pecho", "Remo con barra", "Remo polea"],
   Biceps: ["Curl barra", "Curl martillo", "Curl concentrado"],
   Triceps: ["Fondos", "Press frances", "Extension polea"],
   Hombro: ["Press militar", "Elevaciones laterales", "Face Pull"],
-  Pierna: ["Sentadilla", "Prensa", "Peso muerto rumano"],
+  Pierna: [
+    "Sentadilla",
+    "Prensa",
+    "Peso muerto rumano",
+    "Zancadas",
+    "Elevación de talones",
+  ],
 };
 
-const emptyRow: Exercise = {
-  dia: "",
-  rutina: "",
-  ejercicio: "",
-  series: "",
-  reps: "",
-};
+const grupoOptions = toOptions(Object.keys(ejerciciosPorRutina));
 
+const row = (
+  dia: string,
+  rutina: string,
+  ejercicio: string,
+  series = "3",
+  reps = "12",
+): Exercise => ({ dia, rutina, ejercicio, series, reps });
 
-const RoutineBuilder = () => {
+const plantillas: { nombre: string; descripcion: string; rows: Exercise[] }[] =
+  [
+    {
+      nombre: "Cuerpo completo",
+      descripcion: "3 días · ideal para empezar",
+      rows: [
+        row("Lunes", "Pecho", "Press banca"),
+        row("Lunes", "Espalda", "Jalon al pecho"),
+        row("Lunes", "Pierna", "Sentadilla"),
+        row("Miércoles", "Hombro", "Press militar"),
+        row("Miércoles", "Espalda", "Remo polea"),
+        row("Miércoles", "Pierna", "Prensa"),
+        row("Viernes", "Pecho", "Press inclinado"),
+        row("Viernes", "Biceps", "Curl barra"),
+        row("Viernes", "Triceps", "Press frances"),
+      ],
+    },
+    {
+      nombre: "Empuje / Tirón / Pierna",
+      descripcion: "3 días · nivel intermedio",
+      rows: [
+        row("Lunes", "Pecho", "Press banca", "4", "8"),
+        row("Lunes", "Hombro", "Press militar", "3", "10"),
+        row("Lunes", "Triceps", "Extension polea"),
+        row("Martes", "Espalda", "Dominadas", "4", "8"),
+        row("Martes", "Espalda", "Remo con barra", "4", "10"),
+        row("Martes", "Biceps", "Curl martillo"),
+        row("Jueves", "Pierna", "Sentadilla", "4", "8"),
+        row("Jueves", "Pierna", "Peso muerto rumano", "4", "10"),
+        row("Jueves", "Pierna", "Prensa"),
+      ],
+    },
+  ];
+
+const RoutineBuilderInner = ({ userId }: { userId?: string }) => {
   const [error, setError] = useState("");
-  const [rows, setRows] = useState<Exercise[]>([emptyRow]);
+  const [rows, setRows] = useState<Exercise[]>(() => loadRoutine(userId));
 
   useEffect(() => {
-    const savedRoutine = localStorage.getItem("myRoutine");
+    saveRoutine(rows, userId);
+  }, [rows, userId]);
 
-    if (savedRoutine) {
-      setRows(JSON.parse(savedRoutine));
-    }
-  }, []);
+  // Permite que el explorador de ejercicios agregue elementos a la rutina.
+  useEffect(() => {
+    const reload = () => setRows(loadRoutine(userId));
+    window.addEventListener(ROUTINE_EVENT, reload);
+    return () => window.removeEventListener(ROUTINE_EVENT, reload);
+  }, [userId]);
 
   useEffect(() => {
-    localStorage.setItem("myRoutine", JSON.stringify(rows));
-  }, [rows]);
+    if (!error) return;
+    const timer = setTimeout(() => setError(""), 4000);
+    return () => clearTimeout(timer);
+  }, [error]);
 
   const handleChange = (
     index: number,
-    field: keyof Exercise,
-    value: string,
+    changes: Partial<Exercise>,
   ) => {
     setError("");
-
     setRows((prev) =>
-      prev.map((item, i) =>
-        i === index
-          ? {
-              ...item,
-              [field]: value,
-            }
-          : item,
-      ),
+      prev.map((item, i) => (i === index ? { ...item, ...changes } : item)),
     );
   };
 
-  useEffect(() => {
-  if (!error) return;
+  const hasContent = rows.some((r) => r.dia || r.rutina || r.ejercicio);
 
-  const timer = setTimeout(() => {
-    setError("");
-  }, 3000);
-
-  return () => clearTimeout(timer);
-}, [error]);
+  const findDuplicate = (candidate: Exercise, ignoreIndex: number) =>
+    rows.some(
+      (r, i) =>
+        i !== ignoreIndex &&
+        r.dia === candidate.dia &&
+        r.rutina === candidate.rutina &&
+        r.ejercicio === candidate.ejercicio,
+    );
 
   const addRow = () => {
-    if (rows.length === 0) {
-      setRows([{ ...emptyRow }]);
-      return;
-    }
+    const lastIndex = rows.length - 1;
+    const lastRow = rows[lastIndex];
 
-    const lastRow = rows[rows.length - 1];
-
-    if (
-      !lastRow.dia ||
-      !lastRow.rutina ||
-      !lastRow.ejercicio ||
-      !lastRow.series ||
-      !lastRow.reps
-    ) {
+    if (!isComplete(lastRow)) {
       setError("Completa todos los campos antes de agregar otro ejercicio.");
       return;
     }
 
-    const existeDuplicado = rows.some(
-      (row, index) =>
-        index !== rows.length - 1 &&
-        row.dia === lastRow.dia &&
-        row.rutina === lastRow.rutina &&
-        row.ejercicio === lastRow.ejercicio,
-    );
-
-    if (existeDuplicado) {
+    if (findDuplicate(lastRow, lastIndex)) {
       setError("Ese ejercicio ya fue agregado para ese día.");
       return;
     }
 
     setError("");
-    setRows([...rows, { ...emptyRow }]);
+    // Se conserva el día y el grupo para agilizar la carga.
+    setRows([
+      ...rows,
+      { ...emptyRow(), dia: lastRow.dia, rutina: lastRow.rutina },
+    ]);
+  };
+
+  const duplicateRow = (index: number) => {
+    setRows((prev) => [
+      ...prev.slice(0, index + 1),
+      { ...prev[index], ejercicio: "" },
+      ...prev.slice(index + 1),
+    ]);
   };
 
   const removeRow = (index: number) => {
-    if (rows.length === 1) {
+    setRows((prev) =>
+      prev.length === 1 ? [emptyRow()] : prev.filter((_, i) => i !== index),
+    );
+  };
+
+  const applyTemplate = (template: (typeof plantillas)[number]) => {
+    if (
+      hasContent &&
+      !window.confirm("Esto reemplazará tu rutina actual. ¿Continuar?")
+    ) {
       return;
     }
-
-    setRows(rows.filter((_, i) => i !== index));
+    setRows(template.rows.map((r) => ({ ...r })));
+    setError("");
+    toast.success(`Plantilla "${template.nombre}" cargada`);
   };
 
   const clearRoutine = () => {
-    localStorage.removeItem("myRoutine");
-    setRows([{ ...emptyRow }]);
+    if (hasContent && !window.confirm("¿Seguro que quieres borrar tu rutina?")) {
+      return;
+    }
+    setRows([emptyRow()]);
+    setError("");
   };
 
   const totalSeries = rows.reduce(
-    (acc, row) => acc + Number(row.series || 0),
+    (acc, r) => acc + Number(r.series || 0),
     0,
   );
+  const diasActivos = new Set(rows.filter((r) => r.dia).map((r) => r.dia)).size;
+
+  const resumenPorDia = useMemo(() => {
+    const map = new Map<string, Exercise[]>();
+    DIAS.forEach((dia) => {
+      const items = rows.filter((r) => r.dia === dia && r.ejercicio);
+      if (items.length) map.set(dia, items);
+    });
+    return [...map.entries()];
+  }, [rows]);
 
   const downloadPDF = () => {
-    const filasInvalidas = rows.some(
-      (row) =>
-        !row.dia || !row.rutina || !row.ejercicio || !row.series || !row.reps,
-    );
-
-    if (filasInvalidas) {
+    if (!hasContent || !rows.every(isComplete)) {
       setError("Completa todos los ejercicios antes de descargar el PDF.");
       return;
     }
@@ -219,63 +240,57 @@ const RoutineBuilder = () => {
     setError("");
 
     const doc = new jsPDF();
+    const pageBottom = 280;
+    let y = 20;
+
+    const ensureSpace = (needed: number) => {
+      if (y + needed > pageBottom) {
+        doc.addPage();
+        y = 20;
+      }
+    };
 
     doc.setFontSize(22);
-    doc.text("Mi Rutina Personalizada", 20, 20);
-
+    doc.text("Mi Rutina Personalizada", 20, y);
+    y += 10;
     doc.setFontSize(11);
-    doc.text(`Ejercicios totales: ${rows.length}`, 20, 30);
+    doc.text(`Ejercicios totales: ${rows.length}`, 20, y);
+    y += 7;
+    doc.text(`Series totales: ${totalSeries}`, 20, y);
+    y += 7;
+    doc.text(`Generado: ${new Date().toLocaleDateString()}`, 20, y);
+    y += 16;
 
-    doc.text(`Series totales: ${totalSeries}`, 20, 37);
+    DIAS.forEach((dia) => {
+      const delDia = rows.filter((r) => r.dia === dia);
+      if (!delDia.length) return;
 
-    doc.text(`Generado: ${new Date().toLocaleDateString()}`, 20, 44);
-
-    let y = 60;
-
-    const groupedByDay = rows.reduce(
-      (acc, row) => {
-        if (!row.dia) return acc;
-
-        if (!acc[row.dia]) {
-          acc[row.dia] = {};
-        }
-
-        if (!acc[row.dia][row.rutina]) {
-          acc[row.dia][row.rutina] = [];
-        }
-
-        acc[row.dia][row.rutina].push(row);
-
-        return acc;
-      },
-      {} as Record<string, Record<string, Exercise[]>>,
-    );
-
-    Object.entries(groupedByDay).forEach(([dia, grupos]) => {
+      ensureSpace(20);
       doc.setFontSize(16);
       doc.text(dia.toUpperCase(), 20, y);
       y += 10;
 
-      Object.entries(grupos).forEach(([grupo, ejercicios]) => {
+      const grupos = [...new Set(delDia.map((r) => r.rutina))];
+      grupos.forEach((grupo) => {
+        ensureSpace(16);
         doc.setFontSize(13);
         doc.text(grupo.toUpperCase(), 25, y);
-
         y += 8;
 
-        ejercicios.forEach((ejercicio) => {
-          doc.setFontSize(11);
-
-          doc.text(`• ${ejercicio.ejercicio}`, 30, y);
-
-          doc.text(`${ejercicio.series} x ${ejercicio.reps}`, 140, y);
-
-          y += 7;
-        });
+        delDia
+          .filter((r) => r.rutina === grupo)
+          .forEach((item) => {
+            ensureSpace(8);
+            doc.setFontSize(11);
+            doc.text(`• ${item.ejercicio}`, 30, y);
+            doc.text(`${item.series} x ${item.reps}`, 140, y);
+            y += 7;
+          });
 
         y += 5;
       });
 
-      y += 10;
+      y += 8;
     });
 
     doc.save("mi-rutina.pdf");
@@ -286,149 +301,180 @@ const RoutineBuilder = () => {
       <h2>Mi Rutina Personalizada</h2>
 
       <p className={style.description}>
-        Diseña tu rutina de entrenamiento seleccionando el día, grupo muscular,
-        ejercicio, series y repeticiones. Agrega tantos ejercicios como
-        necesites y descarga tu planificación en PDF para llevar el control de
-        tus entrenamientos.
+        Diseña tu rutina seleccionando el día, grupo muscular, ejercicio, series
+        y repeticiones. Empieza desde una plantilla o agrega ejercicios desde el
+        explorador, y descarga tu planificación en PDF. Tu rutina se guarda
+        automáticamente en este dispositivo.
       </p>
+
+      <div className={style.templates}>
+        <h3>Empieza con una plantilla</h3>
+        <div className={style.templateList}>
+          {plantillas.map((template) => (
+            <button
+              key={template.nombre}
+              type="button"
+              className={style.templateCard}
+              onClick={() => applyTemplate(template)}
+            >
+              <strong>{template.nombre}</strong>
+              <span>{template.descripcion}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className={style.tableWrapper}>
         <table>
           <tbody>
-            {rows.map((row, index) => (
-              <tr key={index}>
-                <td>
-                  <span className={style.mobileLabel}>Día</span>
-                  <div className={style.selectWrapper}>
-                    <Select
-                      isSearchable={false}
-                      styles={customSelectStyles}
-                      options={diasOptions}
-                      placeholder="Seleccionar"
-                      value={
-                        diasOptions.find(
-                          (option) => option.value === row.dia,
-                        ) || null
-                      }
-                      onChange={(selected) =>
-                        handleChange(index, "dia", selected?.value || "")
-                      }
-                    />
-                  </div>
-                </td>
+            {rows.map((item, index) => {
+              const ejercicioOptions = toOptions(
+                ejerciciosPorRutina[item.rutina] ?? [],
+              );
+              return (
+                <tr key={index}>
+                  <td>
+                    <span className={style.mobileLabel}>Día</span>
+                    <div className={style.selectWrapper}>
+                      <Select
+                        aria-label="Día"
+                        isSearchable={false}
+                        styles={customSelectStyles}
+                        options={diasOptions}
+                        placeholder="Seleccionar"
+                        value={
+                          diasOptions.find((o) => o.value === item.dia) ?? null
+                        }
+                        onChange={(selected) =>
+                          handleChange(index, { dia: selected?.value ?? "" })
+                        }
+                      />
+                    </div>
+                  </td>
 
-                <td>
-                  <span className={style.mobileLabel}>Rutina</span>
-                  <div className={style.selectWrapper}>
-                    <Select
-                      isSearchable={false}
-                      styles={customSelectStyles}
-                      options={grupoOptions}
-                      placeholder="Seleccionar"
-                      value={
-                        grupoOptions.find(
-                          (option) => option.value === row.rutina,
-                        ) || null
-                      }
-                      onChange={(selected) => {
-                        handleChange(index, "rutina", selected?.value || "");
+                  <td>
+                    <span className={style.mobileLabel}>Rutina</span>
+                    <div className={style.selectWrapper}>
+                      <Select
+                        aria-label="Grupo muscular"
+                        isSearchable={false}
+                        styles={customSelectStyles}
+                        options={grupoOptions}
+                        placeholder="Seleccionar"
+                        value={
+                          grupoOptions.find((o) => o.value === item.rutina) ??
+                          null
+                        }
+                        onChange={(selected) =>
+                          handleChange(index, {
+                            rutina: selected?.value ?? "",
+                            ejercicio: "",
+                          })
+                        }
+                      />
+                    </div>
+                  </td>
 
-                        handleChange(index, "ejercicio", "");
-                      }}
-                    />
-                  </div>
-                </td>
+                  <td>
+                    <span className={style.mobileLabel}>Ejercicio</span>
+                    <div className={style.selectWrapper}>
+                      <Select
+                        aria-label="Ejercicio"
+                        isSearchable={false}
+                        styles={customSelectStyles}
+                        placeholder="Seleccionar"
+                        isDisabled={!item.rutina}
+                        options={ejercicioOptions}
+                        value={
+                          item.ejercicio
+                            ? { value: item.ejercicio, label: item.ejercicio }
+                            : null
+                        }
+                        onChange={(selected) =>
+                          handleChange(index, {
+                            ejercicio: selected?.value ?? "",
+                          })
+                        }
+                      />
+                    </div>
+                  </td>
 
-                <td>
-                  <span className={style.mobileLabel}>Ejercicio</span>
-                  <div className={style.selectWrapper}>
-                    <Select
-                      isSearchable={false}
-                      styles={customSelectStyles}
-                      placeholder="Seleccionar"
-                      isDisabled={!row.rutina}
-                      options={(
-                        ejerciciosPorRutina[
-                          row.rutina as keyof typeof ejerciciosPorRutina
-                        ] || []
-                      ).map((ejercicio) => ({
-                        value: ejercicio,
-                        label: ejercicio,
-                      }))}
-                      value={
-                        row.ejercicio
-                          ? {
-                              value: row.ejercicio,
-                              label: row.ejercicio,
-                            }
-                          : null
-                      }
-                      onChange={(selected) =>
-                        handleChange(index, "ejercicio", selected?.value || "")
-                      }
-                    />
-                  </div>
-                </td>
+                  <td>
+                    <span className={style.mobileLabel}>Series</span>
+                    <div className={style.selectWrapper}>
+                      <Select
+                        aria-label="Series"
+                        isSearchable={false}
+                        styles={customSelectStyles}
+                        options={seriesOptions}
+                        placeholder="Seleccionar"
+                        value={
+                          seriesOptions.find((o) => o.value === item.series) ??
+                          null
+                        }
+                        onChange={(selected) =>
+                          handleChange(index, { series: selected?.value ?? "" })
+                        }
+                      />
+                    </div>
+                  </td>
 
-                <td>
-                  <span className={style.mobileLabel}>Series</span>
-                  <div className={style.selectWrapper}>
-                    <Select
-                      isSearchable={false}
-                      styles={customSelectStyles}
-                      options={seriesOptions}
-                      placeholder="Seleccionar"
-                      value={
-                        seriesOptions.find(
-                          (option) => option.value === row.series,
-                        ) || null
-                      }
-                      onChange={(selected) =>
-                        handleChange(index, "series", selected?.value || "")
-                      }
-                    />
-                  </div>
-                </td>
+                  <td>
+                    <span className={style.mobileLabel}>Repeticiones</span>
+                    <div className={style.selectWrapper}>
+                      <Select
+                        aria-label="Repeticiones"
+                        isSearchable={false}
+                        styles={customSelectStyles}
+                        options={repsOptions}
+                        placeholder="Seleccionar"
+                        value={
+                          repsOptions.find((o) => o.value === item.reps) ?? null
+                        }
+                        onChange={(selected) =>
+                          handleChange(index, { reps: selected?.value ?? "" })
+                        }
+                      />
+                    </div>
+                  </td>
 
-                <td>
-                  <span className={style.mobileLabel}>Repeticiones</span>
-                  <div className={style.selectWrapper}>
-                    <Select
-                      isSearchable={false}
-                      styles={customSelectStyles}
-                      options={repsOptions}
-                      placeholder="Seleccionar"
-                      value={
-                        repsOptions.find(
-                          (option) => option.value === row.reps,
-                        ) || null
-                      }
-                      onChange={(selected) =>
-                        handleChange(index, "reps", selected?.value || "")
-                      }
-                    />
-                  </div>
-                </td>
-
-                <td>
-                  <button
-                    className={style.deleteButton}
-                    disabled={rows.length === 1}
-                    onClick={() => removeRow(index)}
-                  >
-                    <IoIosClose />
-                  </button>
-                </td>
-              </tr>
-            ))}
+                  <td className={style.rowActions}>
+                    <button
+                      type="button"
+                      className={style.duplicateButton}
+                      aria-label="Duplicar fila"
+                      title="Duplicar fila"
+                      disabled={!item.rutina}
+                      onClick={() => duplicateRow(index)}
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      className={style.deleteButton}
+                      aria-label="Eliminar ejercicio"
+                      title="Eliminar ejercicio"
+                      onClick={() => removeRow(index)}
+                    >
+                      <IoIosClose />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
 
-
       <div className={style.stats}>
         <div className={style.stats1}>
           <h4>Ejercicios</h4>
-          <p>{rows.length}</p>
+          <p>{rows.filter((r) => r.ejercicio).length}</p>
+        </div>
+
+        <div className={style.stats1}>
+          <h4>Días de entrenamiento</h4>
+          <p>{diasActivos}</p>
         </div>
 
         <div className={style.stats2}>
@@ -437,24 +483,56 @@ const RoutineBuilder = () => {
         </div>
       </div>
 
-      {error && <div className={style.errorMessage}>{error}</div>}
+      {resumenPorDia.length > 0 && (
+        <div className={style.summary}>
+          <h3>Resumen semanal</h3>
+          <div className={style.summaryGrid}>
+            {resumenPorDia.map(([dia, items]) => (
+              <div key={dia} className={style.summaryDay}>
+                <h4>{dia}</h4>
+                <ul>
+                  {items.map((item, i) => (
+                    <li key={`${item.ejercicio}-${i}`}>
+                      {item.ejercicio}
+                      {item.series && item.reps
+                        ? ` · ${item.series}x${item.reps}`
+                        : ""}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
+      {error && (
+        <div className={style.errorMessage} role="alert">
+          {error}
+        </div>
+      )}
 
       <div className={style.actions}>
-        <button className={style.addButton} onClick={addRow}>
+        <button type="button" className={style.addButton} onClick={addRow}>
           Agregar Ejercicio
         </button>
 
-        <button className={style.addButton} onClick={downloadPDF}>
+        <button type="button" className={style.addButton} onClick={downloadPDF}>
           Descargar PDF
         </button>
 
-        <button className={style.clearButton} onClick={clearRoutine}>
+        <button type="button" className={style.clearButton} onClick={clearRoutine}>
           Limpiar Rutina
         </button>
       </div>
     </div>
   );
+};
+
+const RoutineBuilder = () => {
+  const { isLoading, user } = useAuth0();
+  if (isLoading) return null;
+  return <RoutineBuilderInner key={user?.sub ?? "guest"} userId={user?.sub} />;
 };
 
 export default RoutineBuilder;

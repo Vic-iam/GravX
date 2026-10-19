@@ -45,7 +45,19 @@ const ContainerNutrition = () => {
   return (
     <section className={style.listContainer}>
       <div className={style.alimentosContainer}>
-        <div className={style.alimentoIndex} onClick={() => setShowCat(!showCat)}>
+        <div
+          className={style.alimentoIndex}
+          role="button"
+          tabIndex={0}
+          aria-expanded={showCat}
+          onClick={() => setShowCat(!showCat)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setShowCat(!showCat);
+            }
+          }}
+        >
           <h1 id="buscador">
             Busca el alimento
             <FaChevronDown style={{

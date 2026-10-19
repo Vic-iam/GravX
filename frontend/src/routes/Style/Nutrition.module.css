@@ -57,7 +57,94 @@
 
 .nutritionContainer p {
   font-size: 1rem;
+  line-height: 1.6;
   color: var(--text-secondary);
+}
+
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.primaryLink,
+.secondaryLink {
+  padding: 12px 22px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.primaryLink {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.secondaryLink {
+  color: var(--text);
+  background: var(--bg);
+}
+
+.primaryLink:hover,
+.secondaryLink:hover,
+.footerCta a:hover {
+  transform: translateY(-2px);
+}
+
+.primaryLink:focus-visible,
+.secondaryLink:focus-visible,
+.footerCta a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.footerCta {
+  width: 80%;
+  max-width: 800px;
+  padding: 40px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+
+  color: #fff;
+  background: linear-gradient(135deg, #c1121f, #6b0a12);
+  border-radius: 24px;
+}
+
+.footerCta h4 {
+  font-size: 1.6rem;
+}
+
+.footerCta p {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.footerCta a {
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
 }
 
 /* TITLE */

@@ -2,17 +2,16 @@
    CONTENEDOR PRINCIPAL
 ========================================================= */
 .workoutContainer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  width: min(1100px, calc(100% - 32px));
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
   gap: 30px;
+  align-items: start;
 
   padding: 30px;
 
-  border-radius: 16px;
-
+  border-radius: 20px;
   background: var(--surface);
-  
   border: 1px solid var(--border-color);
 }
 
@@ -22,92 +21,74 @@
 .hdf {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 400px;
-  height: 750px;
-
-}
-
-.hdf h1{
-  font-size: 2.4rem;
-}
-
-.hdf p{
-  font-size: 1rem;
-  opacity: 0.5;
-}
-
-.hdf h1, p{
-  padding: 12px;
+  gap: 14px;
   text-align: center;
   color: var(--text);
 }
 
-.indexWorkout {
+.hdf h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
 
-  flex: 1;
+.hdf p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.indexWorkout {
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  padding: 20px;
+  padding-top: 10px;
 }
 
 /* =========================================================
    PANEL DERECHO
 ========================================================= */
 .rutineContainer {
-  width: 420px;
-  height: 750px;
-
-  padding: 20px;
-
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-
+  min-width: 0;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--bg);
+
+  animation: slideInRight 0.35s ease;
 }
 
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(80px) scale(0.95);
+    transform: translateX(40px);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
   }
 }
 
-.boxRutine {
-  flex: 1;
-
-  padding: 15px;
-
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.02);
-}
-
-/* =========================================================
-   TITULOS
-========================================================= */
 .rutineContainer h2 {
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-
   color: var(--text);
+}
+
+.boxRutine {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.boxRutine > div:last-child {
+  max-height: 640px;
 }
 
 /* =========================================================
@@ -115,65 +96,70 @@
 ========================================================= */
 .levelTabs {
   display: flex;
-  gap: 10px;
+  gap: 4px;
+  padding: 4px;
 
-  margin-bottom: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
 }
 
 .levelButton {
   flex: 1;
+  padding: 10px 8px;
 
-  padding: 12px;
-
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-
-  background: rgba(255, 255, 255, 0.02);
-
-  color: var(--text);
-
+  color: var(--text-secondary);
   font-weight: 600;
+  font-size: 0.9rem;
 
+  background: transparent;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 
-  transition: all 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .levelButton:hover {
-  transform: translateY(-2px);
-
-  border-color: #c1121f;
-
-  box-shadow: 0 0 15px rgba(193, 18, 31, 0.2);
+  color: var(--text);
 }
 
-.active {
-  background: linear-gradient(
-    135deg,
-    #c1121f,
-    #8b0914
-  );
+.levelButton:focus-visible {
+  outline: 2px solid #c1121f;
+  outline-offset: 2px;
+}
 
-  color: white;
-
-  border-color: #c1121f;
-
-  box-shadow: 0 0 20px rgba(193, 18, 31, 0.35);
+.active,
+.active:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #c1121f, #8b0914);
+  box-shadow: 0 4px 14px rgba(193, 18, 31, 0.35);
 }
 
 /* =========================================================
-   PLACEHOLDER
+   ESTADO VACÍO
 ========================================================= */
 .placeholder {
+  min-height: 260px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  flex: 1;
+  gap: 8px;
+  padding: 24px;
 
   color: var(--text-secondary);
-
   text-align: center;
+
+  border: 1px dashed var(--border-color);
+  border-radius: 16px;
+}
+
+.placeholder strong {
+  font-size: 1.1rem;
+  color: var(--text);
 }
 
 /* =========================================================
@@ -181,14 +167,17 @@
 ========================================================= */
 @media (max-width: 900px) {
   .workoutContainer {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    grid-template-columns: 1fr;
+    padding: 18px;
   }
 
-  .hdf,
   .rutineContainer {
-    width: 100%;
-    max-width: 330px;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rutineContainer {
+    animation: none;
   }
 }

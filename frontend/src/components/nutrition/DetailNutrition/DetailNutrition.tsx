@@ -4,6 +4,8 @@ import { GoChevronLeft } from "react-icons/go";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import Loading from "../../ui/Loading/Loading";
+import FoodImage from "../FoodImage/FoodImage";
+import AddToDiary from "../AddToDiary/AddToDiary";
 
 interface Props {
   item: AlimentoItem;
@@ -36,14 +38,16 @@ const DetailNutrition = ({ item }: Props) => {
 
           <div className={style.detailInformtaion}>
             <div className={style.detailImage}>
-              <img src={item.imagen} />
+              <FoodImage item={item} />
             </div>
 
             <div className={style.indexDetail}>
               <h1>{item.nombre}</h1>
               <p>{item.calorias} kcal</p>
               <p>{item.proteina} g proteína</p>
+              <p>{item.carbos} g carbohidratos · {item.grasas} g grasas (por 100 g)</p>
               <p>Que te ofrece: {item.detalle} </p>
+              <AddToDiary item={item} />
             </div>
           </div>
         </div>

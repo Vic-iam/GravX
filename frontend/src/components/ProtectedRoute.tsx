@@ -1,16 +1,14 @@
-import { Navigate } from "react-router";
+import { Navigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
+import Loading from "./ui/Loading/Loading";
 
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isAuthenticated, isLoading } = useAuth0();
 
-interface ProtectedRouteProps {
-    children: React.ReactNode;
-    isAuthenticated: boolean;
-}
-const ProtectedRoute = ({ children, isAuthenticated }: ProtectedRouteProps) => {
-    if (!isAuthenticated) {
-        return <Navigate to="/login" replace />;
-    }
-    return children;
+  if (isLoading) return <Loading text="...Cargando datos" />;
+  if (!isAuthenticated) return <Navigate to="/Login" replace />;
+  return children;
 };
 
 export default ProtectedRoute;

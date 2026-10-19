@@ -1,5 +1,7 @@
 import type { AlimentoItem } from '../../../data/nutrition'
 import ButtonNutrition from '../ButtonNutrition/ButtonNutrition'
+import FoodImage from '../FoodImage/FoodImage'
+import AddToDiary from '../AddToDiary/AddToDiary'
 import style from "./CategoryItem.module.css"
 
 interface Prosp {
@@ -18,10 +20,11 @@ const CategoryItem = ({ item }: Prosp) => {
                     <div className={style.verDetalle}>
                         <ButtonNutrition item={item} />
                     </div>
+                    <AddToDiary item={item} />
                 </div>
 
                 <div className={style.imgStyle}>
-                    <img src={item.imagen} alt={item.nombre} />
+                    <FoodImage item={item} />
                 </div>
             </div>
 

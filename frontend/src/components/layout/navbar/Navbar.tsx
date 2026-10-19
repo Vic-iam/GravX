@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Logo from "../../../assets/marcaGravX.png";
 import DarkMode from "../../ui/DarkMode/DarkMode";
 import style from "./Navbar.module.css";
 
 const Navbar = () => {
+  const { isAuthenticated } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
 
@@ -109,14 +111,27 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/*
-           <div className={style.actions}>
-                <NavLink to="/Login" className={style.loginBtn} onClick={closeMenu}>
-               <FaUser />
-              Login
-            </NavLink>
+          <div className={style.actions}>
+            {isAuthenticated ? (
+              <NavLink
+                to="/Dashboard?tab=perfil"
+                className={style.loginBtn}
+                onClick={closeMenu}
+              >
+                <FaUser />
+                Mi perfil
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/Login"
+                className={style.loginBtn}
+                onClick={closeMenu}
+              >
+                <FaUser />
+                Iniciar sesión
+              </NavLink>
+            )}
           </div>
-          */}
           <DarkMode />
         </div>
 

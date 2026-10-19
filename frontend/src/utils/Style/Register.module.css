@@ -28,9 +28,15 @@
     border: 1px solid var(--border-color);
 
     
-    height: 400px;
+    min-height: 400px;
     width: 400px;
 
+}
+
+.formMessage {
+    color: #d14343;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 .adminCard h1 {
@@ -99,6 +105,11 @@
 
     cursor: pointer;
     opacity: 0.8;
+}
+
+.btnAdmin button:disabled {
+    cursor: wait;
+    opacity: 0.6;
 }
 
 .btnAdmin button:hover {

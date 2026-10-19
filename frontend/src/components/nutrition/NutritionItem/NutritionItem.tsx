@@ -1,6 +1,8 @@
 import style from "./NutritionItem.module.css";
 import type { AlimentoItem } from "../../../data/nutrition";
 import ButtonNutrition from "../ButtonNutrition/ButtonNutrition";
+import FoodImage from "../FoodImage/FoodImage";
+import AddToDiary from "../AddToDiary/AddToDiary";
 
 interface Props {
   item: AlimentoItem;
@@ -17,10 +19,11 @@ const NutritionItem = ({ item }: Props) => {
         <div className={style.verDetalle}>
         <ButtonNutrition item={item} />
         </div>
+        <AddToDiary item={item} />
       </div>
       
       <div className={style.itemImage}>
-      <img src={item.imagen} alt={item.nombre} />
+      <FoodImage item={item} />
 
       </div>
     </div>

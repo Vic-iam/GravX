@@ -1,63 +1,75 @@
+import { Navigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { FaAppleAlt, FaChartLine, FaDumbbell } from "react-icons/fa";
 import Loading from "../components/ui/Loading/Loading";
+import Logo from "../assets/marcaGravX.png";
 import style from "./Style/Login.module.css";
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
+
+const BENEFITS = [
+  { icon: <FaAppleAlt />, text: "Registra tus comidas y controla tus macros" },
+  { icon: <FaDumbbell />, text: "Anota tus entrenamientos y rutinas" },
+  { icon: <FaChartLine />, text: "Sigue tu peso, medidas y fotos de progreso" },
+];
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated, isLoading, loginWithRedirect, error } = useAuth0();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ email, password });
-  };
+  if (isLoading) return <Loading text="...Cargando datos" />;
+  if (isAuthenticated) return <Navigate to="/Dashboard" replace />;
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+  const login = (signup = false) =>
+    loginWithRedirect({
+      appState: { returnTo: "/Dashboard" },
+      ...(signup && { authorizationParams: { screen_hint: "signup" } }),
+    });
 
   return (
-    <>
-      { isLoading ? <Loading text="...Cargando datos" /> :
-        <section className={style.loginContainer}>
+    <section className={style.loginContainer}>
+      <div className={style.loginCard}>
+        <img className={style.logo} src={Logo} alt="GravX" />
 
+        <div className={style.heading}>
+          <h1>Bienvenido</h1>
+          <p>Inicia sesión para continuar con tu progreso.</p>
+        </div>
 
-          <form onSubmit={handleSubmit} className={style.loginCard}>
-            <h1>Iniciar sesión</h1>
+        <ul className={style.benefits}>
+          {BENEFITS.map(({ icon, text }) => (
+            <li key={text}>
+              <span className={style.benefitIcon}>{icon}</span>
+              {text}
+            </li>
+          ))}
+        </ul>
 
-            <div className={style.loginIndex}>
-              <label>Correo electrónico</label>
-              <input
-                value={email}
-                placeholder="Escribe tu correo electronico"
-                onChange={(e) => setEmail(e.target.value)}
-              />
+        {error && (
+          <p className={style.formMessage} role="alert">
+            No se pudo iniciar sesión. Inténtalo de nuevo.
+          </p>
+        )}
 
-              <label>Contraseña </label>
-              <input
-                type="password"
-                placeholder="Escribe tu contraseña"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <div className={style.btnLogin}>
-                <button>Iniciar sesión</button>
-              </div>
-            </div>
+        <div className={style.actions}>
+          <button
+            type="button"
+            className={style.btnPrimary}
+            onClick={() => login()}
+          >
+            Iniciar sesión
+          </button>
+          <button
+            type="button"
+            className={style.btnSecondary}
+            onClick={() => login(true)}
+          >
+            Crear cuenta
+          </button>
+        </div>
 
-            <div className={style.linea}></div>
-
-            <div className={style.loginRegister}>
-              <p>Nuevo en GravX?</p>
-              <Link to="/Register">Crear cuenta</Link>
-            </div>
-          </form>
-        </section>
-      }
-    </>
+        <p className={style.note}>
+          ¿Olvidaste tu contraseña? Podrás recuperarla en la pantalla de acceso.
+        </p>
+      </div>
+    </section>
   );
 };
 

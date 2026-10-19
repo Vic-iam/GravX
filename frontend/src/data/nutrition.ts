@@ -3,9 +3,12 @@ export interface AlimentoItem {
   nombre: string;
   calorias: number;
   proteina: number;
+  carbos: number;
+  grasas: number;
   genero: string[];
   categoria: string;
   imagen: string;
+  emoji?: string;
   detalle: string;
   td: string;
 }
@@ -24,6 +27,8 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Pollo",
+        carbos: 0,
+        grasas: 14,
         genero: ["mayor-proteina", "mayor-calorias"],
         detalle:
           "El pollo es una excelente fuente de proteínas de alto valor biológico, bajo en grasas (especialmente la pechuga sin piel) y rico en vitaminas del complejo B (B3, B6, B12) y minerales esenciales como fósforo, zinc, selenio y hierro, contribuyendo al metabolismo energético, el sistema inmunológico y la salud ósea, con bajo contenido calórico y carbohidratos nulos, haciéndolo ideal para dietas equilibradas. ",
@@ -35,6 +40,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Carne",
+        carbos: 0,
+        grasas: 3.5,
         calorias: 143,
         genero: ["mayor-proteina", "menor-calorias"],
         proteina: 26,
@@ -46,6 +53,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Atun",
+        carbos: 0,
+        grasas: 1,
         calorias: 130,
         categoria: "proteina",
         genero: ["mayor-proteina", "menor-calorias"],
@@ -57,6 +66,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Huevos",
+        carbos: 1.1,
+        grasas: 11,
         calorias: 155,
         categoria: "proteina",
         proteina: 13,
@@ -74,6 +85,8 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Arroz",
+        carbos: 28,
+        grasas: 0.3,
         calorias: 130,
         categoria: "granos",
         td: "todo",
@@ -85,6 +98,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Avena",
+        carbos: 67,
+        grasas: 7,
         calorias: 380,
         categoria: "granos",
         td: "todo",
@@ -96,6 +111,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Quinoa",
+        carbos: 64,
+        grasas: 6,
         calorias: 370,
         categoria: "granos",
         td: "todo",
@@ -107,6 +124,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Cebada",
+        carbos: 73,
+        grasas: 1.2,
         calorias: 350,
         proteina: 11,
         categoria: "granos",
@@ -124,6 +143,8 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Fresa",
+        carbos: 8,
+        grasas: 0.3,
         calorias: 33,
         categoria: "frutas",
         td: "todo",
@@ -135,6 +156,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Sandia",
+        carbos: 8,
+        grasas: 0.2,
         calorias: 35,
         categoria: "frutas",
         td: "todo",
@@ -146,6 +169,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Melon",
+        carbos: 8,
+        grasas: 0.2,
         calorias: 33,
         categoria: "frutas",
         td: "todo",
@@ -157,6 +182,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Banana",
+        carbos: 23,
+        grasas: 0.3,
         calorias: 95,
         categoria: "frutas",
         td: "todo",
@@ -174,6 +201,8 @@ export const alimentos: Categoria[] = [
     types: [
       {
         nombre: "Apio",
+        carbos: 3,
+        grasas: 0.2,
         calorias: 15,
         proteina: 1,
         categoria: "verduras",
@@ -185,6 +214,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Lechuga",
+        carbos: 3,
+        grasas: 0.2,
         calorias: 15,
         categoria: "verduras",
         proteina: 1,
@@ -196,6 +227,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Pepino",
+        carbos: 4,
+        grasas: 0.1,
         calorias: 20,
         proteina: 1,
         categoria: "verduras",
@@ -207,6 +240,8 @@ export const alimentos: Categoria[] = [
       },
       {
         nombre: "Brocoli",
+        carbos: 7,
+        grasas: 0.4,
         categoria: "verduras",
         calorias: 34,
         td: "todo",
@@ -219,6 +254,77 @@ export const alimentos: Categoria[] = [
     ],
   },
 ];
+
+const food = (
+  categoria: string,
+  nombre: string,
+  emoji: string,
+  calorias: number,
+  proteina: number,
+  carbos: number,
+  grasas: number,
+  detalle: string,
+): AlimentoItem => ({
+  nombre,
+  emoji,
+  calorias,
+  proteina,
+  carbos,
+  grasas,
+  categoria,
+  imagen: "",
+  td: "todo",
+  detalle,
+  genero: [
+    proteina >= 10 ? "mayor-proteina" : "menor-proteina",
+    calorias >= 150 ? "mayor-calorias" : "menor-calorias",
+  ],
+});
+
+// Valores aproximados por 100 g de alimento.
+const extras: Record<string, AlimentoItem[]> = {
+  Proteinas: [
+    food("proteina", "Salmon", "🐟", 208, 20, 0, 13, "Rico en proteínas y en grasas omega-3, que favorecen la salud del corazón y la recuperación muscular. También aporta vitamina D y B12."),
+    food("proteina", "Pechuga de pavo", "🦃", 135, 30, 0, 1.5, "Una de las fuentes de proteína más magras: muy alta en proteína y casi sin grasa. Ideal para definir o ganar músculo."),
+    food("proteina", "Claras de huevo", "🥚", 52, 11, 0.7, 0.2, "Proteína de alta calidad con muy pocas calorías y prácticamente sin grasa."),
+    food("proteina", "Yogur griego", "🥛", 59, 10, 3.6, 0.4, "Natural y sin azúcar, aporta mucha proteína, calcio y probióticos. Funciona bien en desayunos y meriendas."),
+    food("proteina", "Queso cottage", "🧀", 98, 11, 3.4, 4.3, "Queso fresco rico en caseína, de digestión lenta, útil antes de dormir o entre comidas."),
+    food("proteina", "Tofu", "🍢", 76, 8, 1.9, 4.8, "Fuente vegetal de proteína, con calcio y hierro. Se adapta a muchas preparaciones."),
+    food("proteina", "Lentejas", "🫘", 116, 9, 20, 0.4, "Cocidas aportan proteína vegetal, fibra y hierro. Dan saciedad y energía sostenida."),
+    food("proteina", "Garbanzos", "🫘", 164, 8.9, 27, 2.6, "Legumbre cocida con proteína, fibra y carbohidratos de absorción lenta."),
+  ],
+  Granos: [
+    food("granos", "Arroz integral", "🍚", 112, 2.3, 24, 0.8, "Cocido conserva el salvado, por lo que aporta más fibra y minerales que el arroz blanco."),
+    food("granos", "Pasta integral", "🍝", 124, 5.3, 25, 0.5, "Cocida, ofrece carbohidratos complejos y fibra para entrenar con energía."),
+    food("granos", "Pan integral", "🍞", 247, 13, 41, 3.4, "Aporta fibra y carbohidratos de absorción más lenta que el pan blanco."),
+    food("granos", "Batata", "🍠", 90, 2, 21, 0.2, "Cocida es una excelente fuente de carbohidratos complejos, fibra y vitamina A."),
+    food("granos", "Maiz", "🌽", 96, 3.4, 21, 1.5, "Cereal con carbohidratos, fibra y antioxidantes como la luteína."),
+  ],
+  Frutas: [
+    food("frutas", "Manzana", "🍎", 52, 0.3, 14, 0.2, "Rica en fibra y agua, ideal como colación entre comidas."),
+    food("frutas", "Naranja", "🍊", 47, 0.9, 12, 0.1, "Excelente fuente de vitamina C, que apoya el sistema inmunológico."),
+    food("frutas", "Kiwi", "🥝", 61, 1.1, 15, 0.5, "Más vitamina C que una naranja, además de fibra y potasio."),
+    food("frutas", "Arandanos", "🫐", 57, 0.7, 14, 0.3, "Concentran antioxidantes que ayudan a combatir el estrés oxidativo."),
+    food("frutas", "Piña", "🍍", 50, 0.5, 13, 0.1, "Contiene bromelina, una enzima que favorece la digestión."),
+    food("frutas", "Uvas", "🍇", 69, 0.7, 18, 0.2, "Aportan energía rápida y antioxidantes como el resveratrol."),
+    food("frutas", "Mango", "🥭", 60, 0.8, 15, 0.4, "Rico en vitaminas A y C, con carbohidratos de rápida energía."),
+    food("frutas", "Aguacate", "🥑", 160, 2, 9, 15, "Fuente de grasas monoinsaturadas saludables, fibra y potasio."),
+  ],
+  Verduras: [
+    food("verduras", "Espinaca", "🥬", 23, 2.9, 3.6, 0.4, "Muy baja en calorías y rica en hierro, folato y vitaminas A y K."),
+    food("verduras", "Zanahoria", "🥕", 41, 0.9, 10, 0.2, "Rica en betacaroteno, que el cuerpo convierte en vitamina A."),
+    food("verduras", "Tomate", "🍅", 18, 0.9, 3.9, 0.2, "Aporta licopeno, vitamina C y mucha agua con muy pocas calorías."),
+    food("verduras", "Coliflor", "🥦", 25, 1.9, 5, 0.3, "Baja en calorías, con fibra y vitamina C. Sustituye al arroz o la papa."),
+    food("verduras", "Pimiento", "🫑", 31, 1, 6, 0.3, "Gran fuente de vitamina C y antioxidantes con muy pocas calorías."),
+    food("verduras", "Zucchini", "🥒", 17, 1.2, 3.1, 0.3, "Verdura ligera y versátil, rica en agua y potasio."),
+    food("verduras", "Champiñones", "🍄", 22, 3.1, 3.3, 0.3, "Bajos en calorías y con vitaminas del grupo B y selenio."),
+    food("verduras", "Cebolla", "🧅", 40, 1.1, 9, 0.1, "Aporta sabor, fibra prebiótica y compuestos antioxidantes."),
+  ],
+};
+
+alimentos.forEach((categoria) => {
+  categoria.types.push(...(extras[categoria.nombre] ?? []));
+});
 
 let error = false;
 
